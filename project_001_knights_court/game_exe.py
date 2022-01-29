@@ -3,9 +3,9 @@
 # Desc: Text Adventure Prototype
 # Goal: The game should be fun in its first version of the prototype stage.
 
-# Game Start
-print("Would you like to play a game?\n(yes/no)\n::")
+from game_functions import *
 
-input_buffer = input
+# Prompt User to Start Game
+start_game()
 
 #"You awake. The air is cold and damp. You open your eyes as they are met with darkness."
