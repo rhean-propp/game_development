@@ -1,0 +1,24 @@
+# 100 Days Of Code - Log
+
+### Day 0: February 13th, 2022
+##### The Beginning
+
+**Today's Progress**: Working on user_input() function and integration with help().
+
+**Thoughts:** I coudln't get user_input() to work properly. I want to be able to call it from anytime in the program. There are two problems. The first is after call, the program continues to prompt the user. 2. How do I call help() from user_input() and return to the prompt from the last question asked to the user.
+
+Added a user_input() function.
+**TODO:**
+1. Solve how to call help() and still be able to resume input from the last user_input() call.
+2. Be able to use user_input() as a function call without errors.
+3. Fix perhaps easter egg.
+4. BUG: Prompt returns after typing an answer. Doesn't progress story.
+5. Change program over from Linux to Host.
+6. Figure out how to post to git.
+
+### Day 1: February 14th, 2022
+##### Setup & Bug Fixes
+
+**Today's Progress:**
+
+**Thoughts:**
