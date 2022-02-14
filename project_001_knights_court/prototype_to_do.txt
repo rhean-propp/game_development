@@ -7,7 +7,6 @@ To do:
 * Referrence savefile on boot
 
 * Story
-    * Cliche's are acceptable.
     * The story must be engaging.
     * Character -> Problem -> Climax -> Problem Solved
 

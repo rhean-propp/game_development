@@ -5,10 +5,12 @@
 
 from game_functions import *
 
-# Global Commands
+input_buffer = start_game()                 # Ask user if they would like to play the game.
 
-#help()
-start_game() # Prompt user to start game
-
-
-#"You awake. The air is cold and damp. You open your eyes as they are met with darkness."
+if "yes" in input_buffer:                   # If yes
+    chapter_01()                            # Begin Game
+elif "no" in input_buffer:                  # If no
+    print("\nThank you for playing.\n")     # Quit Game
+    exit()
+else:
+    print("\nError. Invalid Input\n")
