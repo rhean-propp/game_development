@@ -1,18 +1,19 @@
 # Author: Rhean Propp
+# Date: January 28, 2022
 
-from time import sleep
+from time import sleep      # Timed messages
+#import pickle               # Serializing data
 
 def help():
     print("\nCommand List:\n\n\thelp\t\t\t\t| Lists commands user can use\n\t\t\t\t\t|\n\tuse <item>\t\t\t| Uses an item from the user's inventory\n\t\t\t\t\t|\n\tinv\t\t\t\t| Displays user's inventory\n\t\t\t\t\t|\n\tmove <direction>\t\t| Move character in specific direction.\n\t\t\t\t\t|\n\tattack <object> with <item>\t| Attack creature/object with item from user inventory\n\t\t\t\t\t|") 
 
 def inventory():
-    print("\nInventory:")
+    print("\nInventory:\n")
 
-# Figure out how to add this as a function so there is less written code.
 def user_input():                                       # Grab input from user.
     buffer = input("> ").lower()                        # Store user input into buffer
-    if "help" in buffer or buffer == "h":                          # Figure out how to return to the previous question asked.
-        help()                       
+    if "help" in buffer or buffer == "h":                          
+        help()          
     if "inv" in buffer or buffer == "i" or buffer == "inventory":
         inventory()                  
     return buffer
@@ -27,14 +28,13 @@ def start_game():                                       # Prompt user to start g
 
     if "yes" in input_buffer:
         sleep(1)
-        print("\nStarting game...\n")
+        print("\nStarting game...")
         sleep(2)
         return input_buffer                                    # Return to game_exe.py
     
     elif "no" in input_buffer:
 
         sleep(1)
-        #print("\nMaybe another time..\n")
         return input_buffer                                     # Return to game_exe.py
 
     elif "perhaps" in input_buffer:
@@ -57,9 +57,8 @@ def start_game():                                       # Prompt user to start g
         if "yes" in input_buffer:
 
             sleep(1)
-            print("\nStarting game...\n")
+            print("\nStarting game...")
             sleep(2)
-            chapter_01()                                # Begin Game
 
         elif "no" in input_buffer:
 
@@ -114,6 +113,7 @@ def start_game():                                       # Prompt user to start g
         else:
 
             print("\nYou're really not making this easy for me, are you?\n")
+        
     else:
 
         sleep(1)
@@ -121,11 +121,29 @@ def start_game():                                       # Prompt user to start g
         sleep(3)
         start_game()
 
-def chapter_01():
-     print("Chapter 01 - Shallows Isle")
-     sleep(4)
-     print("\nYou awake. The air is cold and damp. Upon their opening, your eyes are met with darkness...")
-     sleep(3)
-     print("\nWhat do you do?")
-
-
+def get_name():
+    
+    valid_name = 0
+    input_buffer = ""
+    
+    while valid_name is 0:
+        
+        print("\nAdventurer, what is your name?\n")
+        name = input("> ")
+        valid_name = 1
+        
+        if len(name) > 20:
+            print("\nThat name is too long.\nPlease enter up to a max of 20 characters.")
+            valid_name = 0
+            
+        if name == "help" or name == "inv" or name == "inventory":
+            valid_name = 0
+            print("\nThat is not a valid name.")
+            
+        if valid_name == 1:
+            print("\nYou entered: " + name + "\n\nIs this correct?\n")
+            input_buffer = user_input()
+            if input_buffer == "no":
+                valid_name = 0
+    
+    print("\nUnderstood, " + name + "\nYour adventure awaits...\n")

@@ -38,3 +38,14 @@
 4. Prompt user to continue or select new game.
 5. Create a flashing prompt.
 6. Add shorthand to yes and no commands.
+
+### Day 2: February 15th, 2022
+##### Adventerer Name & Research
+
+**Today's Progress:**
+1. Investigated pickle module for serializing game save and inventory.
+2. Added get_name().
+3. Added error handling to get_name()
+4. Added a TODO list markdown file.
+
+**Thoughts:** Today wasn't as productive as yesterday. I spent a little more time researching what modules I wanted to use in the game. We will be using some serializing for the game saves and inventory management. Pickle seems like the way to go. I've decided I want to stick with python for the time being. At some point, i'll need to bulid a GUI for the game. But good news is, it can be done in python. So we're going to give it a shot. Added the get_name() function with error handling. Added a TODO list file.
