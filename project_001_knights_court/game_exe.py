@@ -5,7 +5,8 @@
 
 from game_functions import *
 from game_chapters import *
-
+from game_pickle import *
+"""
 input_buffer = start_game()                 # Ask user if they would like to play the game.
 
 if "yes" in input_buffer:                   # If yes
@@ -15,3 +16,5 @@ elif "no" in input_buffer:                  # If no
     exit()
 else:
     print("\nError. Invalid Input\n")
+"""
+get_name()

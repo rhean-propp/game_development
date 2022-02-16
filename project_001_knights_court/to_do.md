@@ -1,12 +1,23 @@
 # TO DO:
 
 ### Prototype
-1. Build out chapter 01 story.
-2. Use pickle module for serialization.
-3. Build inventory(), save_game() and load_game() functions
+1. Fix circular imports.
+2. Research classes.
+3. Build classes into the program.
+4. Build out chapter 01 story.
+5. Use pickle module for serialization.
+6. Build working inventory() funciton.
 
 ### Extended Features
 1. Add character_creation() function.
-2. Prompt user to continue or select new game.
-3. Create a flashing prompt.
-4. Add shorthand to yes and no commands.
+2. Create a flashing prompt.
+3. Add shorthand to yes and no commands.
+4. Save Game | Load Game
+
+### Flair Features
+1. CRT Terminal GUI
+2. Text appears on screen one character at a type.
+3. Individual keyboard click sounds for each character appearance.
+4. Soundtrack
+5. Start Menu
+6. Options Menu

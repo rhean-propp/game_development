@@ -1,14 +1,15 @@
 # Author: Rhean Propp
 # Date: January 28, 2022
 
+from game_pickle import *
+from game_chapters import *
+from game_pickle import *
+
 from time import sleep      # Timed messages
-#import pickle               # Serializing data
 
-def help():
+
+def help():                                             # Display's a list of commands the user can use.
     print("\nCommand List:\n\n\thelp\t\t\t\t| Lists commands user can use\n\t\t\t\t\t|\n\tuse <item>\t\t\t| Uses an item from the user's inventory\n\t\t\t\t\t|\n\tinv\t\t\t\t| Displays user's inventory\n\t\t\t\t\t|\n\tmove <direction>\t\t| Move character in specific direction.\n\t\t\t\t\t|\n\tattack <object> with <item>\t| Attack creature/object with item from user inventory\n\t\t\t\t\t|") 
-
-def inventory():
-    print("\nInventory:\n")
 
 def user_input():                                       # Grab input from user.
     buffer = input("> ").lower()                        # Store user input into buffer
@@ -71,7 +72,7 @@ def start_game():                                       # Prompt user to start g
             sleep(3)
             print("\n.", end="", flush=True)
             sleep(0.15)
-            print(".", end="", flush=True)              # fix | what's wrong?
+            print(".", end="", flush=True)              
             sleep(0.15)
             print(".\n")
             sleep(4)
@@ -120,30 +121,3 @@ def start_game():                                       # Prompt user to start g
         print("\nIt's a yes or no question.")
         sleep(3)
         start_game()
-
-def get_name():
-    
-    valid_name = 0
-    input_buffer = ""
-    
-    while valid_name is 0:
-        
-        print("\nAdventurer, what is your name?\n")
-        name = input("> ")
-        valid_name = 1
-        
-        if len(name) > 20:
-            print("\nThat name is too long.\nPlease enter up to a max of 20 characters.")
-            valid_name = 0
-            
-        if name == "help" or name == "inv" or name == "inventory":
-            valid_name = 0
-            print("\nThat is not a valid name.")
-            
-        if valid_name == 1:
-            print("\nYou entered: " + name + "\n\nIs this correct?\n")
-            input_buffer = user_input()
-            if input_buffer == "no":
-                valid_name = 0
-    
-    print("\nUnderstood, " + name + "\nYour adventure awaits...\n")

@@ -1,6 +1,9 @@
 # Author: Rhean Propp
 # Date: February 15th, 2022
 
+from game_pickle import *
+from game_functions import *
+
 from time import sleep
 
 def chapter_01():
