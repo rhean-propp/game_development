@@ -39,6 +39,7 @@
 
 **Today's Progress**: 
 1. Started work on save_inventory() and load_inventory() functions.
+2. Added game_pickle.py file for data serialization.
 2. Encountered a bug with circular imports. Current solution might be classes.
 
 **Thoughts:** Overall, today was a good learning experience. I spent some time working with the pickle module. But shortly thereafter I realized I had ran into a problem with circular imports. After some further research, it looks like classes are the solution to my problem, which I'll begin implimenting tomorrow.
