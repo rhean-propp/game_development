@@ -40,6 +40,21 @@
 **Today's Progress**: 
 1. Started work on save_inventory() and load_inventory() functions.
 2. Added game_pickle.py file for data serialization.
-2. Encountered a bug with circular imports. Current solution might be classes.
+3. Encountered a bug with circular imports. Current solution might be classes.
 
 **Thoughts:** Overall, today was a good learning experience. I spent some time working with the pickle module. But shortly thereafter I realized I had ran into a problem with circular imports. After some further research, it looks like classes are the solution to my problem, which I'll begin implimenting tomorrow.
+
+### Day 4: February 16th, 2022
+##### Refactor & Test
+
+**Today's Progress**: 
+1. Refactored code.
+2. Renamed files.
+3. Resolved circular import issue.
+4. Updated help()
+5. Added section labels to main.py
+6. Completed get_name() 
+
+**Thoughts:** The circular import bug was more problematic than I thought. It turns out, if any functions call another function that are in seperate files, a circular import problem will arise. To resolve this, I refactored the code and moved the majoraty of the functions into main.py. This is not exactly how I want to handle the game. I would like to have a chapters.py file to place the main game into. However, this might not be possible. At least, I haven't thought of a solution yet.
+
+For the time being, the only functions that can be placed into a seperate file of their own are functions that do not call other functions. Such as help() and possibly the functions for data_serialization. However, we shall see how data_serialization.py turns out.

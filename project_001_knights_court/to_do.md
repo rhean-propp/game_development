@@ -1,12 +1,10 @@
 # TO DO:
 
 ### Prototype
-1. Fix circular imports.
-2. Research classes.
-3. Build classes into the program.
-4. Build out chapter 01 story.
-5. Use pickle module for serialization.
-6. Build working inventory() funciton.
+1. Research Classes for user inventory 
+2. Build out chapter 01 story.
+3. Use pickle module for serialization.
+4. Build working inventory() function.
 
 ### Extended Features
 1. Add character_creation() function.
