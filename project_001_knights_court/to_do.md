@@ -1,10 +1,8 @@
 # TO DO:
 
 ### Prototype
-1. Research Classes for user inventory 
+1. Create add_inv() function for adding items into the user's inventory.
 2. Build out chapter 01 story.
-3. Use pickle module for serialization.
-4. Build working inventory() function.
 
 ### Extended Features
 1. Add character_creation() function.

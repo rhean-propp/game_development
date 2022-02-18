@@ -5,20 +5,30 @@
 import pickle
 
 # Global Variable Declaration
-inventory_file = ""             # Stores the name of the inventory file. Updated in get_name()
-inventory_file_name = 0         # Notes if the inventory_file has been properly named or not.
+inv_dict = {'Crumpled Note':1}                      # User Inventory
+inventory_file = ""
 
-def inventory():                                        # Displays user's inventory
-    print("\nInventory:\n")
+def create_inv(inventory_file):       # Creates initial user inventory file.
+    inventory_file = inventory_file
+    
+    outfile = open(inventory_file, 'wb')
+    pickle.dump(inv_dict, outfile)
+    outfile.close()
 
-def save_inv():
-    inv_dict = {'Crumpled Note':1}                      # User Inventory
+def save_inv():                             # Enters new dictionary parameter | Pickles Data
+    global inv_dict
     
     outfile = open(inventory_file, 'wb')
     pickle.dump(inv_dict)
     outfile.close()
     
-def load_inv():
-    print("Hello world")
-    infile = open(inventory_file, 'rb')
+def load_inv(inventory_file, name):               # Loads and prints pickled inventory data.
+    global inv_dict
+    
+    infile = open(inventory_file, 'rb')             # Open binary file
+    inv_dict = pickle.load(infile)                  # Load dictionary
+    print(f"{name}'s Inventory:\n".format(name))
+    for key, value in list(inv_dict.items()):       # Iterate through dictionary.
+        print(f"{key}\n".format(key))               # Print key value.
+    infile.close()                                  # Close file
     

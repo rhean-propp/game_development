@@ -12,8 +12,8 @@ from time import sleep              # Timed messages
 
 # ============================================================================================================================================
 
+name = ""                       # User name
 input_buffer = ""               # User input is stored here.
-inventory_file = ""             # Stores the name of the inventory file. Updated in get_name()
 inventory_file_name = 0         # Notes if the inventory_file has been properly named or not.
 
 # ============================================================================================================================================
@@ -27,9 +27,15 @@ def user_input():                                       # Primary Parser. Must b
     if "help" in buffer or buffer == "h":                          
         help()          
     if "inv" in buffer or buffer == "i" or buffer == "inventory":
-        inventory()
-    if "save game" in buffer or buffer == "sg":         # Unfinished
-        print("Saving game...")                         # Unfinished
+        if inventory_file == "":
+            print("\nThe inventory cannot be loaded until you create your character.")
+        else:
+            load_inv(inventory_file, name)                                      # Unfinished
+    if "save" in buffer or buffer == "sg":         # Unfinished
+        if inventory_file == "":
+            print("\nThe inventory cannot be saved until you create your character.")
+        else:
+            save_inv()                         # Unfinished
     return buffer
 
 def start_game():                                       # Prompt user to start game.
@@ -132,6 +138,8 @@ def start_game():                                       # Prompt user to start g
 
 def get_name():                                         # Gets Name of User
     
+    global name                                         # Tell the function that the variable name is referring to the global variable.
+    
     valid_name = 0
     input_buffer = ""
     
@@ -163,8 +171,6 @@ def get_name():                                         # Gets Name of User
     global inventory_file                                                                           # Bring global variable into function.
     inventory_file = "{user_name}_inventory".format(user_name = name).lower()                       # Save inventory file name.
     print("\nUnderstood, {user_name}.\nYour adventure awaits...\n".format(user_name = name))        # Notify User
-    
-    return name
 
 # ============================================================================================================================================
 
@@ -177,14 +183,13 @@ input_buffer = start_game()                 # Ask user if they would like to pla
 if "yes" in input_buffer:                   # If yes
     get_name()                              # Begin Game
 elif "no" in input_buffer:                  # If no
-    print("\nMaybe another time...\n")     # Quit Game
+    print("\nMaybe another time...\n")      # Quit Game
     exit()
 else:
     print("\nError. Invalid Input\n")
-    
-print(inventory_file)
 
-#get_name()
+create_inv(inventory_file)
+#load_inv(inventory_file, name)
 
 # ============================================================================================================================================
 

@@ -37,7 +37,7 @@
 ### Day 3: February 15th, 2022
 ##### Circular Hell
 
-**Today's Progress**: 
+**Today's Progress:**
 1. Started work on save_inventory() and load_inventory() functions.
 2. Added game_pickle.py file for data serialization.
 3. Encountered a bug with circular imports. Current solution might be classes.
@@ -47,7 +47,7 @@
 ### Day 4: February 16th, 2022
 ##### Refactor & Test
 
-**Today's Progress**: 
+**Today's Progress:**
 1. Refactored code.
 2. Renamed files.
 3. Resolved circular import issue.
@@ -58,3 +58,14 @@
 **Thoughts:** The circular import bug was more problematic than I thought. It turns out, if any functions call another function that are in seperate files, a circular import problem will arise. To resolve this, I refactored the code and moved the majoraty of the functions into main.py. This is not exactly how I want to handle the game. I would like to have a chapters.py file to place the main game into. However, this might not be possible. At least, I haven't thought of a solution yet.
 
 For the time being, the only functions that can be placed into a seperate file of their own are functions that do not call other functions. Such as help() and possibly the functions for data_serialization. However, we shall see how data_serialization.py turns out.
+
+### Day 5: February 17th, 2022
+##### Data Serialization & Error Handling
+
+**Today's Progress:**
+1. Built create_inv()
+2. Built save_inv()
+3. Modified help() to be more readalbe and easily modifiable.
+4. Created error handling for inv and save commands.
+
+**Thoughts:** The beginning setup is near complete. All that's left to do is to create an inventory addition and ensure that it saves. Once that's done, we can start working on the main chapter of the game. I'm reasonbly happy with the progress that's been made thus far. It's taken some time to get the setup complete, but having this done early will avoid some major headaches longterm.
