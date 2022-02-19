@@ -1,8 +1,11 @@
 # TO DO:
 
 ### Prototype
-1. Create add_inv() function for adding items into the user's inventory.
-2. Build out chapter 01 story.
+1. Build out chapter 01 story.
+2. Add save_game() function to data_serialization.
+3. Add load_game() function to data_serialization.
+4. Add load_game and save_game to help()
+5. Add load_game and save_game to working list of commands.
 
 ### Extended Features
 1. Add character_creation() function.

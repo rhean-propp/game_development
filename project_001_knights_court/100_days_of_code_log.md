@@ -65,7 +65,21 @@ For the time being, the only functions that can be placed into a seperate file o
 **Today's Progress:**
 1. Built create_inv()
 2. Built save_inv()
-3. Modified help() to be more readalbe and easily modifiable.
+3. Modified help() to be more readable and easily modifiable.
 4. Created error handling for inv and save commands.
 
 **Thoughts:** The beginning setup is near complete. All that's left to do is to create an inventory addition and ensure that it saves. Once that's done, we can start working on the main chapter of the game. I'm reasonbly happy with the progress that's been made thus far. It's taken some time to get the setup complete, but having this done early will avoid some major headaches longterm.
+
+### Day 6: February 18th, 2022
+##### Updating & Saving the User Inventory
+
+**Today's Progress:**
+1. Renamed variable "name" to "user_name"
+2. Removed unecessary declarations of global variables.
+3. Solved bug regarding user_name not getting attached to the inventory file.
+4. Created and finished add_inv_item()
+5. Completed save_inv()
+6. Completed create_inv()
+7. Completed load_inv()
+
+**Thoughts:** Today was a productive day. I definitely extended the time I would normally work on the project. There were a number of bugs that needed to be resolved and I want to have the platform ready to start writing the story. The next problem is, I haven't ever written a story before. Not a full fledged one. So this is totally new. I can imagine that I will begin the prologue and end up re-writting the entire first chapter later on down the road as the story becomes more clear with the direction I want to take it. This is okay. At the very least, i'll still be coding and learning how to integrate the items and puzzles around the rooms I'm going to put the character in. On the bright side, I can likely take my time writing the story and drop in small parts as the character moves through the levels. This way I can finish reading Robert McKee's STORY book before finishing my own story. I'm excited. The platform is finally ready to begin writing the chapter_01 prototype.

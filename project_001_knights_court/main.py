@@ -12,9 +12,13 @@ from time import sleep              # Timed messages
 
 # ============================================================================================================================================
 
-name = ""                       # User name
+user_name = ""                  # User name
 input_buffer = ""               # User input is stored here.
+inventory_file = ""             # Only resides in main.
 inventory_file_name = 0         # Notes if the inventory_file has been properly named or not.
+
+#inv_dict = {'Crumpled Note':1}                      # User Inventory
+#inventory_file = ""
 
 # ============================================================================================================================================
 
@@ -30,12 +34,13 @@ def user_input():                                       # Primary Parser. Must b
         if inventory_file == "":
             print("\nThe inventory cannot be loaded until you create your character.")
         else:
-            load_inv(inventory_file, name)                                      # Unfinished
+            load_inv(inventory_file, user_name)                                      # Unfinished
     if "save" in buffer or buffer == "sg":         # Unfinished
         if inventory_file == "":
             print("\nThe inventory cannot be saved until you create your character.")
         else:
             save_inv()                         # Unfinished
+            #add save game
     return buffer
 
 def start_game():                                       # Prompt user to start game.
@@ -138,7 +143,7 @@ def start_game():                                       # Prompt user to start g
 
 def get_name():                                         # Gets Name of User
     
-    global name                                         # Tell the function that the variable name is referring to the global variable.
+    global user_name                                    # Tell the function that the variable name is referring to the global variable.
     
     valid_name = 0
     input_buffer = ""
@@ -146,19 +151,19 @@ def get_name():                                         # Gets Name of User
     while valid_name == 0:
         
         print("\nAdventurer, what is your name?\n")
-        name = input("> ")
+        user_name = input("> ")
         valid_name = 1
         
-        if len(name) > 20:
+        if len(user_name) > 20:
             print("\nThat name is too long.\nPlease enter up to a max of 20 characters.")
             valid_name = 0
             
-        if name == "help" or name == "inv" or name == "inventory":
+        if user_name == "help" or user_name == "inv" or user_name == "inventory":
             valid_name = 0
             print("\nThat is not a valid name.")
             
         if valid_name == 1:
-            print("\nYou entered: {user_name} \n\nIs this correct?\n".format(user_name = name))
+            print(f"\nYou entered: {user_name} \n\nIs this correct?\n".format(user_name))
             input_buffer = user_input()
             if input_buffer == "no":
                 valid_name = 0
@@ -168,9 +173,9 @@ def get_name():                                         # Gets Name of User
                 print("\nThat is not a valid answer.")
                 valid_name = 0
     
-    global inventory_file                                                                           # Bring global variable into function.
-    inventory_file = "{user_name}_inventory".format(user_name = name).lower()                       # Save inventory file name.
-    print("\nUnderstood, {user_name}.\nYour adventure awaits...\n".format(user_name = name))        # Notify User
+    global inventory_file                                                                     # Bring global variable into function.
+    inventory_file = f"{user_name}_inventory".format(user_name).lower()                       # Save inventory file name as <user_name>_inventory
+    print(f"\nUnderstood, {user_name}.\nYour adventure awaits...\n".format(user_name))        # Notify User
 
 # ============================================================================================================================================
 
@@ -188,8 +193,10 @@ elif "no" in input_buffer:                  # If no
 else:
     print("\nError. Invalid Input\n")
 
-create_inv(inventory_file)
-#load_inv(inventory_file, name)
+create_inv(user_name, inventory_file)       # Creates <user_name>_inventory file | Adds Crumpled Note
+add_inv_item("Sword", 1)                    # Adds <item>,<quantity> to inventory_file
+save_inv(inventory_file)                    # Saves inventory_file with pickle module.
+load_inv(inventory_file, user_name)         # Loads pickled inventory_file and displays contents.
 
 # ============================================================================================================================================
 
