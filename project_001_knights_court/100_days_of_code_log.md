@@ -83,3 +83,13 @@ For the time being, the only functions that can be placed into a seperate file o
 7. Completed load_inv()
 
 **Thoughts:** Today was a productive day. I definitely extended the time I would normally work on the project. There were a number of bugs that needed to be resolved and I want to have the platform ready to start writing the story. The next problem is, I haven't ever written a story before. Not a full fledged one. So this is totally new. I can imagine that I will begin the prologue and end up re-writting the entire first chapter later on down the road as the story becomes more clear with the direction I want to take it. This is okay. At the very least, i'll still be coding and learning how to integrate the items and puzzles around the rooms I'm going to put the character in. On the bright side, I can likely take my time writing the story and drop in small parts as the character moves through the levels. This way I can finish reading Robert McKee's STORY book before finishing my own story. I'm excited. The platform is finally ready to begin writing the chapter_01 prototype.
+
+### Day 7: February 19th, 2022
+##### Story Prologue
+
+**Today's Progress:**
+1. Added prologue() function.
+2. Wrote the introduction to the story.
+3. Moved Master Control Pannel to the bottom of main.py to let all of the functions get loaded in before they are called.
+
+**Thoughts:** As far as logic problems goes, today was quite light. It entirely involved story writing and kicking things off to a good start. The prologue is in a first draft stage. I'll have to go over it again on a different day to make sure I like it. But in it's current state, it is going in the correct direction. I'm looking forward to writing more.

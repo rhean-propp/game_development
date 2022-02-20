@@ -6,6 +6,10 @@
 3. Add load_game() function to data_serialization.
 4. Add load_game and save_game to help()
 5. Add load_game and save_game to working list of commands.
+6. Write move_direction() function
+7. Write use_item() function
+8. Write attack_item() function
+9. Add read_item() function
 
 ### Extended Features
 1. Add character_creation() function.
