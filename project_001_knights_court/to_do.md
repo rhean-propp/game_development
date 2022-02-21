@@ -1,7 +1,7 @@
 # TO DO:
 
 ### Prototype
-1. Build out chapter 01 story.
+1. Create chapter_01() function
 2. Add save_game() function to data_serialization.
 3. Add load_game() function to data_serialization.
 4. Add load_game and save_game to help()
@@ -10,6 +10,8 @@
 7. Write use_item() function
 8. Write attack_item() function
 9. Add read_item() function
+10. Revise draft of prologue() function
+11. Resolve "." not displaying after a print. Character cursor overlap bug.
 
 ### Extended Features
 1. Add character_creation() function.
@@ -19,8 +21,8 @@
 
 ### Flair Features
 1. CRT Terminal GUI
-2. Text appears on screen one character at a type.
-3. Individual keyboard click sounds for each character appearance.
-4. Soundtrack
-5. Start Menu
-6. Options Menu
+2. Individual keyboard click sounds for each character appearance.
+3. Soundtrack
+4. Start Menu
+5. Options Menu
+6. Adjustable Music and Sound FX

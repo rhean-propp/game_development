@@ -90,6 +90,16 @@ For the time being, the only functions that can be placed into a seperate file o
 **Today's Progress:**
 1. Added prologue() function.
 2. Wrote the introduction to the story.
-3. Moved Master Control Pannel to the bottom of main.py to let all of the functions get loaded in before they are called.
+3. Moved Master Control Panel to the bottom of main.py to let all of the functions get loaded in before they are called.
 
 **Thoughts:** As far as logic problems goes, today was quite light. It entirely involved story writing and kicking things off to a good start. The prologue is in a first draft stage. I'll have to go over it again on a different day to make sure I like it. But in it's current state, it is going in the correct direction. I'm looking forward to writing more.
+
+### Day 8: February 20th, 2022
+##### Character by Character Print
+
+**Today's Progress:**
+1. Added delay_print() function to functions.py
+2. Removed excessive sleep() functions in main.py
+3. Updated story print() statements to delay_print()
+
+**Thoughts:** This has to be my most favorite feature yet.
