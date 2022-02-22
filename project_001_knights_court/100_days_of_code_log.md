@@ -102,4 +102,12 @@ For the time being, the only functions that can be placed into a seperate file o
 2. Removed excessive sleep() functions in main.py
 3. Updated story print() statements to delay_print()
 
-**Thoughts:** This has to be my most favorite feature yet.
+**Thoughts:** This has to be my most favorite feature yet. Delay print essentially prints each character one at a time at a random interval to make the computer look as if it is a real person typing. It's not perfect, but it's close. The game feels a bit more human now than it did before.
+
+### Day 9: February 21st, 2022
+##### Second Draft Prologue
+
+**Today's Progress:**
+1. Revised prologue() function
+
+**Thoughts:** This is the second draft for the prologue. In its current state, it is an acceptable kick-start to the adventure. It will go over a final revision upon the rest of the chapters being written for the story.
