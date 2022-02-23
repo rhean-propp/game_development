@@ -111,3 +111,14 @@ For the time being, the only functions that can be placed into a seperate file o
 1. Revised prologue() function
 
 **Thoughts:** This is the second draft for the prologue. In its current state, it is an acceptable kick-start to the adventure. It will go over a final revision upon the rest of the chapters being written for the story.
+
+### Day 10: February 22nd, 2022
+##### Bug Fixes & Improvements
+
+**Today's Progress:**
+1. Fixed spelling and grammatical errors in prologue() function.
+2. Added shorthand commands to yes, no and perhaps.
+3. Added an easter egg in user_input()
+4. Added some comments explaining code functionality in main.py
+
+**Thoughts:** Today was a bit rushed. So I focused on bug fixes an performance improvements. Added some shorthand commands for more fun interacting with the computer.

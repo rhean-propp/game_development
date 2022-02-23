@@ -10,8 +10,8 @@
 7. Write use_item() function
 8. Write attack_item() function
 9. Add read_item() function
-10. Revise draft of prologue() function
-11. Resolve "." not displaying after a print. Character cursor overlap bug.
+10. Resolve "." not displaying after a print. Character cursor overlap bug.
+11. [BUG] Allow "perhaps yes" and "perhaps no" to be valid responses in start_game()
 
 ### Extended Features
 1. Add character_creation() function.
