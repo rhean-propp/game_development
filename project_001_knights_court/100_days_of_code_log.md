@@ -122,3 +122,18 @@ For the time being, the only functions that can be placed into a seperate file o
 4. Added some comments explaining code functionality in main.py
 
 **Thoughts:** Today was a bit rushed. So I focused on bug fixes an performance improvements. Added some shorthand commands for more fun interacting with the computer.
+
+### Day 11: February 23rd, 2022
+##### Tutorial
+
+**Today's Progress:**
+1. Added skip feature to prologue().
+2. Created a tutorial() function to teach the users how to play.
+3. Modified prologue() story.
+4. Created future logic for master control panel.
+
+**Thoughts:** I'm often going back to the prologue() function to tweak it. At some point, it might get completely re-written. Depending on the direction the story takes. Added the tutorial() function which only covers the help command right now. It's better than nothing lol. I didn't feel as though it was necessary to cover inventory commands or movement commands. At least, not yet. I'll need to ask someone about this. It might be simple for me to use, but for someone who's never played a text adventure before, it might not be so intuitive.
+
+The prototype is getting closer to completion. I believe I have all of the primary functions created except for save_game() and load_game(). These I'll create once the first 3 puzzles rooms have been completed. I'm ballparking 10 puzzles rooms per chapter would be a good size for a game. With 10 chapters needed to complete the game. I'd like the save_game() and load_game functions to leave the player off at the last puzzle they were attempting to solve. Though, I might make some checkpoints.
+
+We're getting into the territory of story writing now, and I can't say this is my strongest suit. So much of it is new. I'm hoping I can write a really engaging story that will be enjoyable to play through. I'd especially like the puzzles to be challenging, but fair. I'll have to put a lot of time and effort into working out these mechanics and story. But the payoff will be well worth it.

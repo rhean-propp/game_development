@@ -10,9 +10,9 @@ def delay_print(string):                        # Prints strings character by ch
     for character in string:                    # Cycle through each character
         sys.stdout.write(character)             # Write the character to the CMD line.
         if character == '.':                    # If a period is encountered.
-            sleep(random.uniform(1.5, 1.9))     # Pause for a random time between 1.5 and 1.9 seconds
+            sleep(0.6)     # Pause for a random time between 1.5 and 1.9 seconds
         if character == ',':                    # If a comma is encountered
-            sleep(random.uniform(0.3, 0.5))     # Pause for a random time between 0.3 and 0.5 seconds
+            sleep(0.3)     # Pause for a random time between 0.3 and 0.5 seconds
         sys.stdout.flush()                      # Flush the character from stdout.
         sleep(random.uniform(0.02, 0.07))       # Adjusts overall typing speed.
 
@@ -24,4 +24,4 @@ def help():                                     # Display's a list of commands t
     print("\tuse <item>\t\t\t\t| Uses an item from the user's inventory.\n\t\t\t\t\t\t|")
     print("\tmove <direction>\t\t\t| Move character in specific direction.\n\t\t\t\t\t\t|")
     print("\tattack <creature/object> with <item>\t| Attack creature/object with item from user inventory.\n\t\t\t\t\t\t|")
-    print("\tread <object>\t\t\t\t| Reads an object if the object can be read.\n\t\t\t\t\t\t|")
+    print("\tread <object>\t\t\t\t| Reads an object if the object can be read.\n\t\t\t\t\t\t|\n")

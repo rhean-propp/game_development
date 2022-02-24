@@ -11,18 +11,17 @@
 8. Write attack_item() function
 9. Add read_item() function
 10. Resolve "." not displaying after a print. Character cursor overlap bug.
-11. [BUG] Allow "perhaps yes" and "perhaps no" to be valid responses in start_game()
 
 ### Extended Features
 1. Add character_creation() function.
 2. Create a flashing prompt.
-3. Add shorthand to yes and no commands.
-4. Save Game | Load Game
+3. Save Game | Load Game
 
 ### Flair Features
 1. CRT Terminal GUI
 2. Individual keyboard click sounds for each character appearance.
 3. Soundtrack
 4. Start Menu
-5. Options Menu
-6. Adjustable Music and Sound FX
+5. Title Screen
+6. Options Menu
+7. Adjustable Music and Sound FX
