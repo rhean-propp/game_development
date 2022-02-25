@@ -148,3 +148,21 @@ We're getting into the territory of story writing now, and I can't say this is m
 4. Removed logic from prologue() and tutorial() functions and placed them in master control panel.
 
 **Thoughts:** We made a lot of updates today, and I have no idea if everything is written correctly. In fact, I expect a lot of bugs next session. We'll probably spend a good hour bug fixing all of the lists before moving on. However, The lists we added thanks to Lubos' suggestions will definitely improve the speed of writing the logic and the simplicity of understanding it down the road.
+
+### Day 13: February 25th, 2022
+##### 
+
+**Today's Progress:**
+1. Fixed bug in global list and start_game() while loop. There was an empty "" field in the list causing the loop to break.
+2. Fixed a conditional with the if/elif/else statement for the perhaps easter egg.
+3. Removed unecessary pass of user_name to create_inv() function.
+4. Removed double error print when an invalid response is given to the prompt.
+5. Added clear_buffer() function.
+
+**Thoughts:** The more I work on this project, the more I realize just how much there is to do. Realistically, I want to have a prototype completed by day 30. Which, is likely still possible, but the project scope is starting to get quite large. I didn't realize just how much work goes into creating interactive fiction. I started doing more reserach on some of the commands many of these games would allow their users to make. It floored me just how many options there are and ways you can interact with the world.
+
+For that reason alone, it feelsl like puzzle rooms and chapters will take a great deal of time to make and craft. Especially if you want them to be challenging. There are a lot of features that these games have that seem basic. Or things you really should have in your game. It wouldn't be considered complete without. When I signed up for this project, I believed I could have a working fully functional interactive fiction game made within 100 days. Although now, this project feels like it could take up to a year to complete. Which is fine. I'm still going to see it through to its end.
+
+The current goal is just to get the prototype done. This means chapter 01 completely written and ready to be played. Then we'll start playtesting. I'll need to find out from my game testers if the game is actually fun. If they're enjoying the experience or if it's not enjoyable at all. That's the one thing I dread. Putting so much work and effort into making something as fun as you can, but then fun doesn't really come about. So hopefully, with enough attention to the most important aspects of what makes the game fun, I can accomplish that.
+
+Here's hoping.

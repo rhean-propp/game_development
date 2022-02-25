@@ -7,7 +7,7 @@ import pickle
 # Global Variable Declaration
 inv_dict = {'Crumpled Note':1}                  # User Inventory
 
-def create_inv(user_name, inventory_file):      # Creates initial user inventory file.
+def create_inv(inventory_file):      # Creates initial user inventory file.
     outfile = open(inventory_file, 'wb')        # Create <user_name>_inventory file and open it in binary writing mode.
     pickle.dump(inv_dict, outfile)              # Write (pickle) the user's inventory into the file.
     outfile.close()                             # Close the file.

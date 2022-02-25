@@ -1,6 +1,6 @@
 # TO DO:
 
-### Prototype
+### Prototype Completion
 1. Create chapter_01() function
 2. Add save_game() function to data_serialization.
 3. Add load_game() function to data_serialization.
@@ -10,16 +10,17 @@
 7. Write use_item() function
 8. Write attack_item() function
 9. Add read_item() function
-10. Resolve "." not displaying after a print. Character cursor overlap bug.
-11. Improve yes, no, and perhaps by adding them to lists.
-12. Revise user_input function to possibly remove buffer = "yes" ect. statements.
+
+### Bugs
+1. Resolve "." not displaying after a print. Character cursor overlap bug.
 
 ### Extended Features
 1. Add character_creation() function.
 2. Create a flashing prompt.
 3. Save Game | Load Game
+4. Modify perhaps easter egg to also include maybe, mayhaps, etc.
 
-### Flair Features
+### Long-Term Features
 1. CRT Terminal GUI
 2. Individual keyboard click sounds for each character appearance.
 3. Soundtrack
