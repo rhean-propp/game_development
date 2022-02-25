@@ -137,3 +137,14 @@ For the time being, the only functions that can be placed into a seperate file o
 The prototype is getting closer to completion. I believe I have all of the primary functions created except for save_game() and load_game(). These I'll create once the first 3 puzzles rooms have been completed. I'm ballparking 10 puzzles rooms per chapter would be a good size for a game. With 10 chapters needed to complete the game. I'd like the save_game() and load_game functions to leave the player off at the last puzzle they were attempting to solve. Though, I might make some checkpoints.
 
 We're getting into the territory of story writing now, and I can't say this is my strongest suit. So much of it is new. I'm hoping I can write a really engaging story that will be enjoyable to play through. I'd especially like the puzzles to be challenging, but fair. I'll have to put a lot of time and effort into working out these mechanics and story. But the payoff will be well worth it.
+
+### Day 12: February 24th, 2022
+##### Improvements & Bug Fixes
+
+**Today's Progress:**
+1. Added lists for positive, negative, undecided and command responses.
+2. Updated conditionals to use lists instead of hard coded "yes", "no" and "perhaps" responses.
+3. Updated conditional if/else logic to include elif and else statements which were missing previously.
+4. Removed logic from prologue() and tutorial() functions and placed them in master control panel.
+
+**Thoughts:** We made a lot of updates today, and I have no idea if everything is written correctly. In fact, I expect a lot of bugs next session. We'll probably spend a good hour bug fixing all of the lists before moving on. However, The lists we added thanks to Lubos' suggestions will definitely improve the speed of writing the logic and the simplicity of understanding it down the road.

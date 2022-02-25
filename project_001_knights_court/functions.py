@@ -24,4 +24,4 @@ def help():                                     # Display's a list of commands t
     print("\tuse <item>\t\t\t\t| Uses an item from the user's inventory.\n\t\t\t\t\t\t|")
     print("\tmove <direction>\t\t\t| Move character in specific direction.\n\t\t\t\t\t\t|")
     print("\tattack <creature/object> with <item>\t| Attack creature/object with item from user inventory.\n\t\t\t\t\t\t|")
-    print("\tread <object>\t\t\t\t| Reads an object if the object can be read.\n\t\t\t\t\t\t|\n")
+    print("\texamine <object>\t\t\t| Examines an object if the object can be examined.\n\t\t\t\t\t\t|\n")
