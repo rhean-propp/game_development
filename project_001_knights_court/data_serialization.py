@@ -5,7 +5,7 @@
 import pickle
 
 # Global Variable Declaration
-inv_dict = {'Crumpled Note':1}                  # User Inventory
+inv_dict = {'Crumpled Note':1, 'Rusty Key':1}                  # User Inventory
 
 def create_inv(inventory_file):      # Creates initial user inventory file.
     outfile = open(inventory_file, 'wb')        # Create <user_name>_inventory file and open it in binary writing mode.

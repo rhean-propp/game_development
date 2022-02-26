@@ -179,7 +179,7 @@ def prologue():
     delay_print("\nYour feet drag along the ground, burdened by the weight of the chains that bound you.\n")
     delay_print("The paladin in front of you, Yuri, escorts you to the ceremony.\n")
     delay_print("Night has begun to fall. The air is cool.\n")
-    delay_print("You begin to approach a ceremonial crater in the midst of the Endera mountain range.\n")
+    delay_print("You begin to approach a ceremonial crater in the midst of the looming mountain range.\n")
     delay_print("Jagged formations of black-stone pierce into the sky.\n")
     delay_print("A light fog engulfs the floor of the scorched earthen crater.\n")
     delay_print("The presence of the soul eater grows stronger as you approach the ceremonial steps.\n")
@@ -200,6 +200,41 @@ def prologue():
     delay_print(f'"May the Enidra have mercy on our souls."\n'.format(user_name))
     delay_print("You feel the hand of your friend, Yuri, rest his hand on your shoulder.\n")
     delay_print("At the next moment, you watch you are pushed into the abyss below.\n")
+    
+def chapter_01():
+    global input_buffer
+    delay_print("\nThe air rushes past your face with fierce velocity.\n")
+    delay_print("Weightless, as you plummet, your life flashing before your eyes.\n")
+    delay_print("You await death's arrival.\n")
+    delay_print("A loud crash echoes into your ears followed by the cold rush of liquid racing past your body.\n")
+    delay_print("You open your eyes and come to your senses.\n")
+    delay_print("You are about to drown.\n")
+    delay_print("What do you do?\n")
+    input_buffer = user_input()
+    
+    if "swim" in input_buffer:
+        delay_print("You are bound by your shackles. You cannot swim.\n")
+    #elif "use rusty key on shakles" in input_buffer:
+    
+    oxygen = 5         # 60 Seconds
+    while oxygen >= 0:   
+        oxygen -= 1
+        sleep(1)
+        # Add oxygen left display. (===========) to (=           )
+    
+    if oxygen <= 0:
+        delay_print("You have perished. Game over.\n")
+     
+    # Look
+    # Inventory
+    # Oxegen Timer Loop
+    # The oxygen should decrement by 1 each second. All the while, the user can still input commands.
+    # Might need threading to accomplish this.
+    # May instead need to use multiprocessing
+    
+    # https://youtu.be/IEEhzQoKtQU
+    # https://youtu.be/fKl2JW_qrso
+    
 
 # ============================================================================================================================================
 
@@ -212,7 +247,7 @@ input_buffer = start_game()                     # Ask user if they would like to
 
 if input_buffer in input_positive:              # If yes
     get_name()                                  # Begin Game
-    create_inv(inventory_file)
+    create_inv(inventory_file)                  # Creates user's binary inventory file | <user_name>_inventory
 elif input_buffer in input_negative:            # If no
     delay_print("\nMaybe another time.\n")      # Quit Game
     exit()
@@ -242,6 +277,8 @@ while input_buffer not in input_negative and input_buffer not in input_positive:
         delay_print("\nThe prologue is about a 5 minute read. If you like to play games for the story, it is recommended.\n")
     else: 
         continue
+    
+chapter_01()
 
 #create_inv(user_name, inventory_file)       # Creates <user_name>_inventory file | Adds Crumpled Note
 #add_inv_item("Sword", 1)                    # Adds <item>,<quantity> to inventory_file

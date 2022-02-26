@@ -150,7 +150,7 @@ We're getting into the territory of story writing now, and I can't say this is m
 **Thoughts:** We made a lot of updates today, and I have no idea if everything is written correctly. In fact, I expect a lot of bugs next session. We'll probably spend a good hour bug fixing all of the lists before moving on. However, The lists we added thanks to Lubos' suggestions will definitely improve the speed of writing the logic and the simplicity of understanding it down the road.
 
 ### Day 13: February 25th, 2022
-##### 
+##### Bug Fixes
 
 **Today's Progress:**
 1. Fixed bug in global list and start_game() while loop. There was an empty "" field in the list causing the loop to break.
@@ -166,3 +166,19 @@ For that reason alone, it feelsl like puzzle rooms and chapters will take a grea
 The current goal is just to get the prototype done. This means chapter 01 completely written and ready to be played. Then we'll start playtesting. I'll need to find out from my game testers if the game is actually fun. If they're enjoying the experience or if it's not enjoyable at all. That's the one thing I dread. Putting so much work and effort into making something as fun as you can, but then fun doesn't really come about. So hopefully, with enough attention to the most important aspects of what makes the game fun, I can accomplish that.
 
 Here's hoping.
+
+### Day 14: February 26th, 2022
+##### Researching Threading
+
+**Today's Progress:**
+1. Began chapter_01() function.
+2. Wrote introduction to first puzzle.
+3. Researched threading.
+
+**Thoughts:** I encountered a problem while creating the first puzzle. The character falls into water and has a limited time to solve the puzzle before he dies. I wasn't sure how exactly to make this work so I started doing some research. It looks like what I might need will either be threading or multiprocessing.
+
+I spent the last half-hour learning about how threading works and if i'm not mistaken, multiprocessing might be what I need to make this happen.
+
+I need the oxygen to count down from 60 to 0. WHile this is happening, the user must be able to put in inputs to the cmd terminal without interrupting the countdown timer. While the countdown timer proceeds, I need it to print a ASCII art image of the oxygen that is remaining to the user, that is updated before the prompt is displayed. When it does update, I don't want it to overwrite the prompt. I only want it to display for a period of time until the puzzle is over.
+
+This is a bit of an ambitious first puzzle, but it should set us on the right track. I think it'll be some time before I get the puzzle, and all of the commands working for this oxygen problem. Tomorrow will be more research until we have a rough idea how we are going to accomplish the countdown timer + user input working together at the same time.

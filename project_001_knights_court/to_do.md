@@ -10,6 +10,8 @@
 7. Write use_item() function
 8. Write attack_item() function
 9. Add read_item() function
+10. Add examine() function
+11. Use threading to solve the oxygen problem in chapter_01()
 
 ### Bugs
 1. Resolve "." not displaying after a print. Character cursor overlap bug.

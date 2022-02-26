@@ -10,9 +10,9 @@ def delay_print(string):                        # Prints strings character by ch
     for character in string:                    # Cycle through each character
         sys.stdout.write(character)             # Write the character to the CMD line.
         if character == '.':                    # If a period is encountered.
-            sleep(0.6)     # Pause for a random time between 1.5 and 1.9 seconds
+            sleep(0.6)                          # Pause for a random time between 1.5 and 1.9 seconds
         if character == ',':                    # If a comma is encountered
-            sleep(0.3)     # Pause for a random time between 0.3 and 0.5 seconds
+            sleep(0.3)                          # Pause for a random time between 0.3 and 0.5 seconds
         sys.stdout.flush()                      # Flush the character from stdout.
         sleep(random.uniform(0.02, 0.07))       # Adjusts overall typing speed.
 
