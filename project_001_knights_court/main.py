@@ -5,6 +5,8 @@
 from functions import *             # General functions that do not call other functions.
 from data_serialization import *    # Saves game state, inventory and username
 from time import sleep              # Timed messages
+import time                         # Used for Oxygen clock in chapter_01
+import threading                    # Used for Oxygen Clock in Chapter_01
 
 # ============================================================================================================================================
 
@@ -168,7 +170,16 @@ def tutorial():
     delay_print('Great job. Anytime you see a ">" symbol, you can type "help" or "h" to bring up the help menu again.\n')
     delay_print("This is all you need to begin your adventure.\n")
     delay_print("We hope you enjoy your journey, traveler.\n\n")
-    
+
+# ============================================================================================================================================
+
+# GAME CHAPTER SPECIFIC FUNCTIONS
+
+# ============================================================================================================================================
+
+def oxygen_display():
+    print("Hello World")
+
 # ============================================================================================================================================
 
 # GAME CHAPTERS
@@ -203,6 +214,7 @@ def prologue():
     
 def chapter_01():
     global input_buffer
+    '''
     delay_print("\nThe air rushes past your face with fierce velocity.\n")
     delay_print("Weightless, as you plummet, your life flashing before your eyes.\n")
     delay_print("You await death's arrival.\n")
@@ -216,7 +228,7 @@ def chapter_01():
         delay_print("You are bound by your shackles. You cannot swim.\n")
     #elif "use rusty key on shakles" in input_buffer:
     
-    oxygen = 5         # 60 Seconds
+    oxygen = 60         # 60 Seconds
     while oxygen >= 0:   
         oxygen -= 1
         sleep(1)
@@ -224,17 +236,57 @@ def chapter_01():
     
     if oxygen <= 0:
         delay_print("You have perished. Game over.\n")
+    '''
      
+    # Testing System Clock:
+    
+    #t0 = time.time()
+    #sleep(5)
+    #t1 = time.time() - t0
+    #print(str(int(t1)) + " seconds")
+    
+    # Pseudo Code
+    
+    # While Countdown Timer < 60 Seconds
+        # Call Oxygen Display Thread
+            # Display remaining oxygen to screen every 2 seconds.
+        # Call Get Input Thread
+            # Allow user to input commands until 60 seconds is up.
+    
+    #timer_start = time.time()
+    #timer_stop = 0
+    
+    #while (timer_stop - timer_start) < 5:
+    #    timer_stop = time.time()
+    #    print("Timer_start = " + str(timer_stop - timer_start))
+    #    sleep(1)
+        
+    thread_1 = threading.Thread(target=user_input)
+    #thread_2 = threading.Thread(target=oxygen_display)
+    
+    oxygen = 30
+    thread_started = 0
+    while oxygen > 0:                       # Thread 1    
+        oxygen -= 1
+        if thread_started == 0:
+            print("Generic Prompt")
+            thread_1.start()    # Call Input Thread here            # Thread 2
+            thread_started = 1
+        # Call Oxygen Display Thread here   # Thread 3
+    
+    
+    
+    #while time.clock() < 0:
     # Look
     # Inventory
     # Oxegen Timer Loop
     # The oxygen should decrement by 1 each second. All the while, the user can still input commands.
     # Might need threading to accomplish this.
     # May instead need to use multiprocessing
+    # Or Referencing the system clock?
     
     # https://youtu.be/IEEhzQoKtQU
     # https://youtu.be/fKl2JW_qrso
-    
 
 # ============================================================================================================================================
 
@@ -243,6 +295,7 @@ def chapter_01():
 # ============================================================================================================================================
 
 # Get Character Name | Create Save Files
+"""
 input_buffer = start_game()                     # Ask user if they would like to play the game.
 
 if input_buffer in input_positive:              # If yes
@@ -277,7 +330,7 @@ while input_buffer not in input_negative and input_buffer not in input_positive:
         delay_print("\nThe prologue is about a 5 minute read. If you like to play games for the story, it is recommended.\n")
     else: 
         continue
-    
+"""
 chapter_01()
 
 #create_inv(user_name, inventory_file)       # Creates <user_name>_inventory file | Adds Crumpled Note

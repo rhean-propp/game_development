@@ -182,3 +182,14 @@ I spent the last half-hour learning about how threading works and if i'm not mis
 I need the oxygen to count down from 60 to 0. WHile this is happening, the user must be able to put in inputs to the cmd terminal without interrupting the countdown timer. While the countdown timer proceeds, I need it to print a ASCII art image of the oxygen that is remaining to the user, that is updated before the prompt is displayed. When it does update, I don't want it to overwrite the prompt. I only want it to display for a period of time until the puzzle is over.
 
 This is a bit of an ambitious first puzzle, but it should set us on the right track. I think it'll be some time before I get the puzzle, and all of the commands working for this oxygen problem. Tomorrow will be more research until we have a rough idea how we are going to accomplish the countdown timer + user input working together at the same time.
+
+### Day 15: February 27th, 2022
+##### Solving the Oxygen Problem
+
+**Today's Progress:**
+1. Played with the system clock.
+2. Worked on solving the threading problem.
+3. Researched ncurse library
+4. Worked on solving the oxygen problem.
+
+**Thoughts:** I'm stuck. I'm probably going to need an hour or two dedicated to solving this problem. Although I think I'm on the right track with threading. I'm pretty tired from competing in the CTF this weekend, so today wasn't my best work. But I worked on it nonetheless.
