@@ -193,3 +193,12 @@ This is a bit of an ambitious first puzzle, but it should set us on the right tr
 4. Worked on solving the oxygen problem.
 
 **Thoughts:** I'm stuck. I'm probably going to need an hour or two dedicated to solving this problem. Although I think I'm on the right track with threading. I'm pretty tired from competing in the CTF this weekend, so today wasn't my best work. But I worked on it nonetheless.
+
+### Day 16: February 28th, 2022
+##### Oxygen Progress
+
+**Today's Progress:**
+1. Made progress on the oxygen problem.
+2. Problem is now 80% solved.
+
+**Thoughts:** We're close. All that's left to do with this function is get the oxygen remaining to display, and somehow figure out how to allow the program to terminate while requesting user input. If we can do this, we're boolin.

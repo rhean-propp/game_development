@@ -62,6 +62,8 @@ def user_input():                                       # Primary Parser. Must b
         buffer = "no"           # Shorthand 
     elif buffer in input_undecided:
         buffer == "perhaps"     # Shorthand
+    elif "swim" in buffer:
+        buffer == "swim"
     else:
         delay_print('\nThis is not a valid input. Type "help" or "h" if you are stuck.\n')
     return buffer
@@ -177,8 +179,8 @@ def tutorial():
 
 # ============================================================================================================================================
 
-def oxygen_display():
-    print("Hello World")
+   
+    
 
 # ============================================================================================================================================
 
@@ -261,25 +263,29 @@ def chapter_01():
     #    print("Timer_start = " + str(timer_stop - timer_start))
     #    sleep(1)
         
-    thread_1 = threading.Thread(target=user_input)
-    #thread_2 = threading.Thread(target=oxygen_display)
+    #thread_1 = threading.Thread(target=oxygen_timer)
+    #thread_2 = threading.Thread(target=oxygen_prompt)
     
-    oxygen = 30
-    thread_started = 0
-    while oxygen > 0:                       # Thread 1    
-        oxygen -= 1
-        if thread_started == 0:
-            print("Generic Prompt")
-            thread_1.start()    # Call Input Thread here            # Thread 2
-            thread_started = 1
-        # Call Oxygen Display Thread here   # Thread 3
+    #thread_1.start()
+    #thread_2.start()
     
+
+    time_start = time.time()        # Stopwatch Start
+    time_end = 0
+    time_value = 0
     
-    
-    #while time.clock() < 0:
-    # Look
-    # Inventory
-    # Oxegen Timer Loop
+    while time_value < 60:
+        delay_print("You are drowning. What do you do?\n")
+        #oxygen_display = ["(", "=", " ", ")"]
+        
+        user_input()
+        time_end = time.time()
+        time_value = time_end - time_start
+        print(time_value)
+        if time_value > 15:
+            delay_print("You have perished. Game over.\n")
+            
+        
     # The oxygen should decrement by 1 each second. All the while, the user can still input commands.
     # Might need threading to accomplish this.
     # May instead need to use multiprocessing
