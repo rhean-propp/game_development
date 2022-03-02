@@ -7,6 +7,7 @@ from data_serialization import *    # Saves game state, inventory and username
 from time import sleep              # Timed messages
 import time                         # Used for Oxygen clock in chapter_01
 import threading                    # Used for Oxygen Clock in Chapter_01
+from threading import Thread
 
 # ============================================================================================================================================
 
@@ -179,8 +180,41 @@ def tutorial():
 
 # ============================================================================================================================================
 
-   
+exit_event = threading.Event()          # This variable is set if the user guesses the correct answer.
+oxygen_remaining = [0]                  # Keeps track of remaining time left before function ends.
+
+def countdown_event():                  # Countdown Clock for Oxygen Puzzle
+    for i in range(10, 0, -1):          # Count for 10 seconds.
+        if exit_event.is_set():         # If user is correct.
+            break                       # Break out of loop. Resume function.
+        oxygen_remaining[0] = i         # Stores current countdown value.
+        for i in range(10):             # 0.1 * 10 iterations = 1 second sleep
+            sleep(0.1)                  # Sleep 1/10th of a second.
+            if exit_event.is_set():     # Check if the exit_event is set every 1/10th of a second.
+                break                   # If exit is set, break out of loop, resume function.
+    if oxygen_remaining[0] > 1:         # If user suceeded with oxygen remaining:
+        print('You chose not to die with ' + str(oxygen_remaining[0]) + ' seconds left!')
+    else:                               # If user failed: 
+        print("You ran out of oxygen!") 
+    # Credit to Austin L. Howard for this solution.
+
+def question():                         # Prompts User Repeatedly
+    while True:                         # Indefinitely Loop
+        answer = input()                # Get user input
+        if answer == "Don't Die!":      # If correct answer:
+            exit_event.set()            # Sets Exit Event for countdown_event()
+        else:                           # If incorrect answer:
+            print("Nope, try again!")
+    # Credit to Austin L. Howard for this solution.
     
+
+question_thread = Thread(target=question)           # Associate question() function with thread.
+question_thread.setDaemon(True)                     # Set to Dameon to be forcibly closed whenever the "parent" thread is closed.
+countdown_thread = Thread(target=countdown_event)   # Associate countdown_event() function with thread.
+print("You are drowning. What do you do?")          
+countdown_thread.start()                            # Start oxygen countdown
+question_thread.start()                             # Prompt user until oxygen countdown ends.
+# Oxygen Puzzle | Credit to Austin L. Howard for this solution.
 
 # ============================================================================================================================================
 
@@ -268,8 +302,7 @@ def chapter_01():
     
     #thread_1.start()
     #thread_2.start()
-    
-
+    '''
     time_start = time.time()        # Stopwatch Start
     time_end = 0
     time_value = 0
@@ -284,7 +317,15 @@ def chapter_01():
         print(time_value)
         if time_value > 15:
             delay_print("You have perished. Game over.\n")
-            
+    '''
+    
+    # Oxygen Puzzle | Credit to Austin L. Howard for the solution.
+    question_thread = Thread(target=question)           # Associate question() function with thread.
+    question_thread.setDaemon(True)                     # Question thread is a dameon so it will be forcibly closed whenever the "parent" non-daemon thread is closed.
+    countdown_thread = Thread(target=countdown_event)   # Associate countdown_event() function with thread.
+    print("You are drowning. What do you do?")          
+    countdown_thread.start()                            # Start oxygen countdown
+    question_thread.start()                             # Prompt user until oxygen countdown ends.
         
     # The oxygen should decrement by 1 each second. All the while, the user can still input commands.
     # Might need threading to accomplish this.

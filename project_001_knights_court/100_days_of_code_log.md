@@ -202,3 +202,12 @@ This is a bit of an ambitious first puzzle, but it should set us on the right tr
 2. Problem is now 80% solved.
 
 **Thoughts:** We're close. All that's left to do with this function is get the oxygen remaining to display, and somehow figure out how to allow the program to terminate while requesting user input. If we can do this, we're boolin.
+
+### Day 17: March 1st, 2022
+##### Oxygen Solved
+
+**Today's Progress:**
+1. Worked with Austin L. Howard to solve the oxygen problem.
+2. Full credit to Austin for solving the problem. A big thank you to him.
+
+**Thoughts:** I'd like to say a big thank you to Austin L. Howard for helping me solve the oxygen problem. I was stuck for quite a few days and starting to feel quite discouraged about the project. It feels like I can start making solid progress again. Looking forward to writing out the puzzle solution and implimenting the movement commands soon.
