@@ -206,15 +206,6 @@ def question():                         # Prompts User Repeatedly
         else:                           # If incorrect answer:
             print("Nope, try again!")
     # Credit to Austin L. Howard for this solution.
-    
-
-question_thread = Thread(target=question)           # Associate question() function with thread.
-question_thread.setDaemon(True)                     # Set to Dameon to be forcibly closed whenever the "parent" thread is closed.
-countdown_thread = Thread(target=countdown_event)   # Associate countdown_event() function with thread.
-print("You are drowning. What do you do?")          
-countdown_thread.start()                            # Start oxygen countdown
-question_thread.start()                             # Prompt user until oxygen countdown ends.
-# Oxygen Puzzle | Credit to Austin L. Howard for this solution.
 
 # ============================================================================================================================================
 
