@@ -46,13 +46,13 @@ def user_input():                                       # Primary Parser. Must b
         help()          
     elif buffer in input_inventory:
         if inventory_file == "":
-            delay_print("\nThe inventory cannot be loaded until you create your character.")
+            delay_print("\nThe inventory cannot be loaded until you create your character.\n")
         else:
             buffer == "inventory"                                                    # Why is this here and what is it doing?
             load_inv(inventory_file, user_name)                                      # Unfinished
     elif buffer in input_save:         # Unfinished
         if inventory_file == "":
-            delay_print("\nThe inventory cannot be saved until you create your character.")
+            delay_print("\nThe inventory cannot be saved until you create your character.\n")
         else:
             buffer == "save"                   # Why is this here and what is it doing?
             save_inv()                         # Unfinished
@@ -64,7 +64,9 @@ def user_input():                                       # Primary Parser. Must b
     elif buffer in input_undecided:
         buffer == "perhaps"     # Shorthand
     elif "swim" in buffer:
-        buffer == "swim"
+        return buffer
+    elif "use" in buffer:
+        return buffer
     else:
         delay_print('\nThis is not a valid input. Type "help" or "h" if you are stuck.\n')
     return buffer
@@ -180,31 +182,46 @@ def tutorial():
 
 # ============================================================================================================================================
 
-exit_event = threading.Event()          # This variable is set if the user guesses the correct answer.
+exit_event = False                      # This boolean variable is used to check if the user inputted the correct answer.
 oxygen_remaining = [0]                  # Keeps track of remaining time left before function ends.
 
 def countdown_event():                  # Countdown Clock for Oxygen Puzzle
-    for i in range(10, 0, -1):          # Count for 10 seconds.
-        if exit_event.is_set():         # If user is correct.
+    for i in range(60, 0, -1):          # Count for 10 seconds.
+        if exit_event is True:          # If user is correct.
             break                       # Break out of loop. Resume function.
         oxygen_remaining[0] = i         # Stores current countdown value.
         for i in range(10):             # 0.1 * 10 iterations = 1 second sleep
             sleep(0.1)                  # Sleep 1/10th of a second.
-            if exit_event.is_set():     # Check if the exit_event is set every 1/10th of a second.
+            if exit_event is True:      # Check if the exit_event is set every 1/10th of a second.
                 break                   # If exit is set, break out of loop, resume function.
     if oxygen_remaining[0] > 1:         # If user suceeded with oxygen remaining:
-        print('You chose not to die with ' + str(oxygen_remaining[0]) + ' seconds left!')
+        return                          # Return back to chapter_01()
     else:                               # If user failed: 
-        print("You ran out of oxygen!") 
+        delay_print("As you struggle to make your way out of the water, your chest gives weigh.\nYou open your mouth as you gasp for air as water rushes into your lungs.\nYou have perished. Game over.\n") 
     # Credit to Austin L. Howard for this solution.
 
 def question():                         # Prompts User Repeatedly
-    while True:                         # Indefinitely Loop
-        answer = input()                # Get user input
-        if answer == "Don't Die!":      # If correct answer:
-            exit_event.set()            # Sets Exit Event for countdown_event()
-        else:                           # If incorrect answer:
-            print("Nope, try again!")
+    global input_buffer
+    global exit_event
+    player_restrained = True
+    clear_buffer()
+    while True:                                     # Indefinitely Loop
+        if exit_event is False:                     # Bug fix. Prevents an additional > prompt.
+            input_buffer = user_input()             # Get user input
+        if input_buffer == "use key":               # If correct answer:
+            delay_print("\nuse <what key?> on <what object?>\n")
+            continue
+        elif input_buffer == "use rusty key on shackles":
+            player_restrained = False
+            delay_print("\nAs you feel in your pocket, you find a rusty key.\nYou twist the key in the shackle lock, breaking you free from your chains.\n")
+        elif input_buffer == "swim up" and player_restrained == False:
+            exit_event = True                       # Sets Exit Event for countdown_event() | Marker for correct answer
+        elif "swim" in input_buffer and player_restrained == True:
+            delay_print("\nYou attempt to kick your feet and move your arms, but you are still bound by the shackles that hold you.\nYou make no progress.\n")
+        elif input_buffer in input_help or input_buffer in input_inventory:     # If help or inv are called:
+            continue                                                            # Print normally
+        else:                                                                   # Catch all | If incorrect answer:
+            continue                                                            # Error handling is passed to user_input() for wrong answers
     # Credit to Austin L. Howard for this solution.
 
 # ============================================================================================================================================
@@ -265,34 +282,6 @@ def chapter_01():
         delay_print("You have perished. Game over.\n")
     '''
      
-    # Testing System Clock:
-    
-    #t0 = time.time()
-    #sleep(5)
-    #t1 = time.time() - t0
-    #print(str(int(t1)) + " seconds")
-    
-    # Pseudo Code
-    
-    # While Countdown Timer < 60 Seconds
-        # Call Oxygen Display Thread
-            # Display remaining oxygen to screen every 2 seconds.
-        # Call Get Input Thread
-            # Allow user to input commands until 60 seconds is up.
-    
-    #timer_start = time.time()
-    #timer_stop = 0
-    
-    #while (timer_stop - timer_start) < 5:
-    #    timer_stop = time.time()
-    #    print("Timer_start = " + str(timer_stop - timer_start))
-    #    sleep(1)
-        
-    #thread_1 = threading.Thread(target=oxygen_timer)
-    #thread_2 = threading.Thread(target=oxygen_prompt)
-    
-    #thread_1.start()
-    #thread_2.start()
     '''
     time_start = time.time()        # Stopwatch Start
     time_end = 0
@@ -312,19 +301,11 @@ def chapter_01():
     
     # Oxygen Puzzle | Credit to Austin L. Howard for the solution.
     question_thread = Thread(target=question)           # Associate question() function with thread.
-    question_thread.setDaemon(True)                     # Question thread is a dameon so it will be forcibly closed whenever the "parent" non-daemon thread is closed.
+    question_thread.daemon = True                     # Question thread is a dameon so it will be forcibly closed whenever the "parent" non-daemon thread is closed.
     countdown_thread = Thread(target=countdown_event)   # Associate countdown_event() function with thread.
     print("You are drowning. What do you do?")          
     countdown_thread.start()                            # Start oxygen countdown
     question_thread.start()                             # Prompt user until oxygen countdown ends.
-        
-    # The oxygen should decrement by 1 each second. All the while, the user can still input commands.
-    # Might need threading to accomplish this.
-    # May instead need to use multiprocessing
-    # Or Referencing the system clock?
-    
-    # https://youtu.be/IEEhzQoKtQU
-    # https://youtu.be/fKl2JW_qrso
 
 # ============================================================================================================================================
 
@@ -333,7 +314,7 @@ def chapter_01():
 # ============================================================================================================================================
 
 # Get Character Name | Create Save Files
-"""
+
 input_buffer = start_game()                     # Ask user if they would like to play the game.
 
 if input_buffer in input_positive:              # If yes
@@ -344,7 +325,7 @@ elif input_buffer in input_negative:            # If no
     exit()
 else:
     print("\nError. Invalid Input\n")
-
+"""
 # Prompt Tutorial
 clear_buffer()
 while input_buffer not in input_negative and input_buffer not in input_positive:
@@ -370,6 +351,8 @@ while input_buffer not in input_negative and input_buffer not in input_positive:
         continue
 """
 chapter_01()
+
+delay_print('\nWith little air left to spare, you swim to the surface.\nYou take a gasp of air as you begin to take in your surroundings.\n')
 
 #create_inv(user_name, inventory_file)       # Creates <user_name>_inventory file | Adds Crumpled Note
 #add_inv_item("Sword", 1)                    # Adds <item>,<quantity> to inventory_file

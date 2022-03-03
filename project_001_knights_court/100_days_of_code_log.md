@@ -211,3 +211,13 @@ This is a bit of an ambitious first puzzle, but it should set us on the right tr
 2. Full credit to Austin for solving the problem. A big thank you to him.
 
 **Thoughts:** I'd like to say a big thank you to Austin L. Howard for helping me solve the oxygen problem. I was stuck for quite a few days and starting to feel quite discouraged about the project. It feels like I can start making solid progress again. Looking forward to writing out the puzzle solution and implimenting the movement commands soon.
+
+### Day 18: March 2nd, 2022
+##### Writing the First Puzzle
+
+**Today's Progress:**
+1. Modified question() and countdown_event().
+2. Resolved additional ">" symbol printing upon exit of loop.
+3. Wrote the water puzzle.
+
+**Thoughts:** Today was successful and productive. The first puzzle is almost complete. There are a lot of features to add with the input parsing. I need to come up with a solid system for using commands with items in the user's inventory. However, we're off to a great start. Looking forward to making more puzzles like this one.
