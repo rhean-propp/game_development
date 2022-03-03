@@ -221,3 +221,11 @@ This is a bit of an ambitious first puzzle, but it should set us on the right tr
 3. Wrote the water puzzle.
 
 **Thoughts:** Today was successful and productive. The first puzzle is almost complete. There are a lot of features to add with the input parsing. I need to come up with a solid system for using commands with items in the user's inventory. However, we're off to a great start. Looking forward to making more puzzles like this one.
+
+### Day 19: March 3rd, 2022
+##### Writing the First Puzzle
+
+**Today's Progress:**
+1. Fixed scrambled output bug causing two print statements to overlap.
+
+**Thoughts:** Bug fixes today. There is a problem with the question thread not ending after completing the oxygen puzzle. We'll need to figure out how to properly close the thread before moving on. Force quitting the thread sounds like it's a bad programming practice.

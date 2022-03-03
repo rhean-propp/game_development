@@ -5,7 +5,7 @@
 from functions import *             # General functions that do not call other functions.
 from data_serialization import *    # Saves game state, inventory and username
 from time import sleep              # Timed messages
-import time                         # Used for Oxygen clock in chapter_01
+#import time                         # Used for Oxygen clock in chapter_01
 import threading                    # Used for Oxygen Clock in Chapter_01
 from threading import Thread
 
@@ -207,6 +207,7 @@ def question():                         # Prompts User Repeatedly
     clear_buffer()
     while True:                                     # Indefinitely Loop
         if exit_event is False:                     # Bug fix. Prevents an additional > prompt.
+            delay_print("You are drowning. What do you do?\n")
             input_buffer = user_input()             # Get user input
         if input_buffer == "use key":               # If correct answer:
             delay_print("\nuse <what key?> on <what object?>\n")
@@ -267,45 +268,21 @@ def chapter_01():
     delay_print("You are about to drown.\n")
     delay_print("What do you do?\n")
     input_buffer = user_input()
-    
-    if "swim" in input_buffer:
-        delay_print("You are bound by your shackles. You cannot swim.\n")
-    #elif "use rusty key on shakles" in input_buffer:
-    
-    oxygen = 60         # 60 Seconds
-    while oxygen >= 0:   
-        oxygen -= 1
-        sleep(1)
-        # Add oxygen left display. (===========) to (=           )
-    
-    if oxygen <= 0:
-        delay_print("You have perished. Game over.\n")
-    '''
-     
-    '''
-    time_start = time.time()        # Stopwatch Start
-    time_end = 0
-    time_value = 0
-    
-    while time_value < 60:
-        delay_print("You are drowning. What do you do?\n")
-        #oxygen_display = ["(", "=", " ", ")"]
-        
-        user_input()
-        time_end = time.time()
-        time_value = time_end - time_start
-        print(time_value)
-        if time_value > 15:
-            delay_print("You have perished. Game over.\n")
     '''
     
     # Oxygen Puzzle | Credit to Austin L. Howard for the solution.
     question_thread = Thread(target=question)           # Associate question() function with thread.
     question_thread.daemon = True                     # Question thread is a dameon so it will be forcibly closed whenever the "parent" non-daemon thread is closed.
     countdown_thread = Thread(target=countdown_event)   # Associate countdown_event() function with thread.
-    print("You are drowning. What do you do?")          
+    #delay_print("You are drowning. What do you do?\n")          
     countdown_thread.start()                            # Start oxygen countdown
     question_thread.start()                             # Prompt user until oxygen countdown ends.
+    countdown_thread.join()                             # Waits for countdown_thread to finish before proceeding in chapter_01()
+    question_thread.join()
+    
+    sleep(2)
+    print(countdown_thread.is_alive())
+    print(question_thread.is_alive())
 
 # ============================================================================================================================================
 
@@ -314,7 +291,7 @@ def chapter_01():
 # ============================================================================================================================================
 
 # Get Character Name | Create Save Files
-
+"""
 input_buffer = start_game()                     # Ask user if they would like to play the game.
 
 if input_buffer in input_positive:              # If yes
@@ -325,7 +302,7 @@ elif input_buffer in input_negative:            # If no
     exit()
 else:
     print("\nError. Invalid Input\n")
-"""
+
 # Prompt Tutorial
 clear_buffer()
 while input_buffer not in input_negative and input_buffer not in input_positive:
@@ -352,6 +329,8 @@ while input_buffer not in input_negative and input_buffer not in input_positive:
 """
 chapter_01()
 
+delay_print('\nWith little air left to spare, you swim to the surface.\nYou take a gasp of air as you begin to take in your surroundings.\n')
+delay_print('\nWith little air left to spare, you swim to the surface.\nYou take a gasp of air as you begin to take in your surroundings.\n')
 delay_print('\nWith little air left to spare, you swim to the surface.\nYou take a gasp of air as you begin to take in your surroundings.\n')
 
 #create_inv(user_name, inventory_file)       # Creates <user_name>_inventory file | Adds Crumpled Note
