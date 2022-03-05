@@ -184,8 +184,10 @@ def tutorial():
 
 exit_event = False                      # This boolean variable is used to check if the user inputted the correct answer.
 oxygen_remaining = [0]                  # Keeps track of remaining time left before function ends.
+countdown_running = True
 
 def countdown_event():                  # Countdown Clock for Oxygen Puzzle
+    global countdown_running
     for i in range(60, 0, -1):          # Count for 10 seconds.
         if exit_event is True:          # If user is correct.
             break                       # Break out of loop. Resume function.
@@ -195,24 +197,28 @@ def countdown_event():                  # Countdown Clock for Oxygen Puzzle
             if exit_event is True:      # Check if the exit_event is set every 1/10th of a second.
                 break                   # If exit is set, break out of loop, resume function.
     if oxygen_remaining[0] > 1:         # If user suceeded with oxygen remaining:
+        countdown_running = False
         return                          # Return back to chapter_01()
     else:                               # If user failed: 
-        delay_print("As you struggle to make your way out of the water, your chest gives weigh.\nYou open your mouth as you gasp for air as water rushes into your lungs.\nYou have perished. Game over.\n") 
+        countdown_running = False
+        print("\b\b\r", end="")
+        delay_print("As you struggle to make your way out of the water, your chest gives weigh.\nYou open your mouth, gasping for air, as water rushes into your lungs.\nYou have perished. Game over.\n") 
     # Credit to Austin L. Howard for this solution.
 
 def question():                         # Prompts User Repeatedly
-    global input_buffer
-    global exit_event
-    player_restrained = True
+    global input_buffer                 
+    global exit_event                   # Used to define when to stop
+    global countdown_running            # Used as a stop flag for question_thread
+    player_restrained = True            # Checks if the player is still in shackles
     clear_buffer()
-    while True:                                     # Indefinitely Loop
+    while countdown_running == True:                                     # Indefinitely Loop
         if exit_event is False:                     # Bug fix. Prevents an additional > prompt.
             delay_print("You are drowning. What do you do?\n")
             input_buffer = user_input()             # Get user input
         if input_buffer == "use key":               # If correct answer:
             delay_print("\nuse <what key?> on <what object?>\n")
             continue
-        elif input_buffer == "use rusty key on shackles":
+        elif "use rusty key on shackles" in input_buffer:
             player_restrained = False
             delay_print("\nAs you feel in your pocket, you find a rusty key.\nYou twist the key in the shackle lock, breaking you free from your chains.\n")
         elif input_buffer == "swim up" and player_restrained == False:
@@ -272,17 +278,11 @@ def chapter_01():
     
     # Oxygen Puzzle | Credit to Austin L. Howard for the solution.
     question_thread = Thread(target=question)           # Associate question() function with thread.
-    question_thread.daemon = True                     # Question thread is a dameon so it will be forcibly closed whenever the "parent" non-daemon thread is closed.
+    question_thread.daemon = True
     countdown_thread = Thread(target=countdown_event)   # Associate countdown_event() function with thread.
-    #delay_print("You are drowning. What do you do?\n")          
     countdown_thread.start()                            # Start oxygen countdown
     question_thread.start()                             # Prompt user until oxygen countdown ends.
     countdown_thread.join()                             # Waits for countdown_thread to finish before proceeding in chapter_01()
-    question_thread.join()
-    
-    sleep(2)
-    print(countdown_thread.is_alive())
-    print(question_thread.is_alive())
 
 # ============================================================================================================================================
 
@@ -329,8 +329,6 @@ while input_buffer not in input_negative and input_buffer not in input_positive:
 """
 chapter_01()
 
-delay_print('\nWith little air left to spare, you swim to the surface.\nYou take a gasp of air as you begin to take in your surroundings.\n')
-delay_print('\nWith little air left to spare, you swim to the surface.\nYou take a gasp of air as you begin to take in your surroundings.\n')
 delay_print('\nWith little air left to spare, you swim to the surface.\nYou take a gasp of air as you begin to take in your surroundings.\n')
 
 #create_inv(user_name, inventory_file)       # Creates <user_name>_inventory file | Adds Crumpled Note

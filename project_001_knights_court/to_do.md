@@ -16,8 +16,7 @@
 
 ### Bugs
 1. Resolve "." not displaying after a print. Character cursor overlap bug.
-2. delay_print() is printing slow after chapter_01() is called. The question thread continues to run afterwards. It needs to be stopped.
-
+2. Program runs indefinitely. Threading issue.
 
 ### Extended Features
 1. Add character_creation() function.
