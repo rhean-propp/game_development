@@ -13,6 +13,7 @@
 10. Add examine() function
 12. Research ncurses library for creating the oxygen display.
 13. Error handling of invalid input
+14. Build extensive help() guide for individual commands.
 
 ### Bugs
 1. Resolve "." not displaying after a print. Character cursor overlap bug.

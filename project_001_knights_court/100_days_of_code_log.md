@@ -209,7 +209,6 @@ This is a bit of an ambitious first puzzle, but it should set us on the right tr
 **Today's Progress:**
 1. Worked with Austin L. Howard to solve the oxygen problem.
 2. Full credit to Austin for solving the problem. A big thank you to him.
-3. Added descriptive text for the first puzzle room.
 
 **Thoughts:** I'd like to say a big thank you to Austin L. Howard for helping me solve the oxygen problem. I was stuck for quite a few days and starting to feel quite discouraged about the project. It feels like I can start making solid progress again. Looking forward to writing out the puzzle solution and implimenting the movement commands soon.
 
@@ -248,5 +247,16 @@ This is a bit of an ambitious first puzzle, but it should set us on the right tr
 **Today's Progress:**
 1. Added directional commands to the input_* lists.
 2. Added a resources page to keep track of important links and references.
+3. Added descriptive text for the first puzzle room.
 
 **Thoughts:** The bug causing the swim up command to break is now magically working again. You love to see it. Couldn't tell you why either. The program is getting long enough now that I start getting lost in the sauce. I'm unsure how to handle movement in the game.
+
+### Day 22: March 6th, 2022
+##### Building Help
+
+**Today's Progress:**
+1. Added move_player() help menu.
+2. Added short_hand_commands() help menu.
+3. Added movement types for latter parsing by user_input()
+
+**Thoughts:** Days are starting to blend together. There is also way too many global variables. I'm not sure if I can move them yet, but I might be able to.

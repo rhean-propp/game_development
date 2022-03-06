@@ -21,8 +21,8 @@ input_buffer = ""               # User input is stored here.
 inventory_file = ""             # Stores <user_name>_inventory. Used for file creation.
 
 # General Responses | user_input()
-input_positive = ["yes", "ye", "y", "yup", "ya", "yeah", "yep", "perhaps yes", "yus", "sure", "bet", "fo sho", "fo shizzle", "yesh", "yas", "okay", "ok", "yessir"]
-input_negative = ["no", "n", "nope", "nah", "no way", "perhaps no", "naw", "hell nah", "nein", "hell no", "nay", "hell no", "nah brah", "nae"]
+input_positive = ["yes", "ye", "yup", "ya", "yeah", "yep", "perhaps yes", "yus", "sure", "bet", "fo sho", "fo shizzle", "yesh", "yas", "okay", "ok", "yessir"]
+input_negative = ["no", "nope", "nah", "no way", "perhaps no", "naw", "hell nah", "nein", "hell no", "nay", "hell no", "nah brah", "nae"]
 input_undecided = ["perhaps", "maybe", "perchance", "conceivably", "possibly", "mayhaps", "mebbeh", "persnaps"]
 
 # Directional movements | user_input()
@@ -33,15 +33,30 @@ input_left = ["left", "west", "w"]
 input_up = ["up", "upward", "upwards", "u"]
 input_down = ["down", "downward", "downwards", "d"]
 
+# Movement Types | user_input()
+input_jump = ["jump", "hop", "leap", "vault"]
+input_run = ["run", "dash", "sprint"]
+input_walk = ["walk", "step"]
+input_climb = ["climb"]
+input_swim = ["swim"]
+
 # Universal commands | user_input()
 input_inventory = ["inventory", "inv", "i"]
-input_help = ["help", "h", "halp", "give me a hand here"]
+input_shorthand = ["shorthand", "short"]
+input_help = ["help", "halp", "h"]
+input_move = ["move"]
 input_save = ["save game", "save"]
 input_load = ["load game", "load"]
 
 # Player commands for interaction | user_input()
 input_examine = ["examine", "look at", "look", "view", "probe"]
-#input_move = ["swim", "walk", "run", "move", "mv"]
+
+# Movement Types
+input_jump = ["jump", "hop", "leap", "vault"]
+input_run = ["run", "dash", "sprint"]
+input_walk = ["walk", "step"]
+input_climb = ["climb"]
+input_swim = ["swim"]
 
 # ============================================================================================================================================
 
@@ -60,6 +75,12 @@ def user_input():                                       # Primary Parser. Must b
     if buffer in input_help:                          
         buffer == "help"
         help()          
+    elif buffer in input_move:
+        buffer == "move"
+        move_player()
+    elif buffer in input_shorthand:
+        buffer == "shorthand"
+        short_hand_commands()
     elif buffer in input_inventory:
         if inventory_file == "":
             delay_print("\nThe inventory cannot be loaded until you create your character.\n")
@@ -248,7 +269,7 @@ def question():                         # Prompts User Repeatedly
             else:
                 delay_print("\nYour hands press up against a cold stone wall. Moss and algae fill the cracks and crevasis of the black-stone bricks.\n")
         elif "swim" in input_buffer and player_restrained == True:
-            delay_print("\nYou attempt to kick your feet and move your arms, but you are still bound by the shackles that hold you.\nYou make no progress.\n")
+            delay_print("\nYou attempt to kick your feet, but you are still bound by the shackles that hold you.\nYou make no progress.\n")
         elif input_buffer in input_help or input_buffer in input_inventory:     # If help or inv are called:
             continue                                                            # Print normally
         else:                                                                   # Catch all | If incorrect answer:
@@ -319,7 +340,7 @@ def chapter_01():
 # ============================================================================================================================================
 
 # Get Character Name | Create Save Files
-"""
+
 input_buffer = start_game()                     # Ask user if they would like to play the game.
 
 if input_buffer in input_positive:              # If yes
@@ -354,7 +375,7 @@ while input_buffer not in input_negative and input_buffer not in input_positive:
         delay_print("\nThe prologue is about a 5 minute read. If you like to play games for the story, it is recommended.\n")
     else: 
         continue
-"""
+
 chapter_01()
 
 delay_print('\nWith little air left to spare, you swim to the surface.\nYou take a gasp of air as you begin to take in your surroundings.\n')
@@ -363,6 +384,8 @@ delay_print("Looking upwards through the brick layed shaft, you can see the smal
 delay_print("You tread water in a pool with a diamater of no more than 50ft.\n")
 delay_print("On each of the four sides of the pool, there are statues of two claw formed hands stretched upwards.\n")
 delay_print("The grotto is too dark to see much of anything else.\n")
+
+
 
 #create_inv(user_name, inventory_file)       # Creates <user_name>_inventory file | Adds Crumpled Note
 #add_inv_item("Sword", 1)                    # Adds <item>,<quantity> to inventory_file
