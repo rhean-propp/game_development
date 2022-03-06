@@ -16,7 +16,7 @@
 
 ### Bugs
 1. Resolve "." not displaying after a print. Character cursor overlap bug.
-2. Program runs indefinitely. Threading issue.
+2. User cannot swim up. Threading issue.
 
 ### Extended Features
 1. Add character_creation() function.

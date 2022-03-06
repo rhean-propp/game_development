@@ -209,6 +209,7 @@ This is a bit of an ambitious first puzzle, but it should set us on the right tr
 **Today's Progress:**
 1. Worked with Austin L. Howard to solve the oxygen problem.
 2. Full credit to Austin for solving the problem. A big thank you to him.
+3. Added descriptive text for the first puzzle room.
 
 **Thoughts:** I'd like to say a big thank you to Austin L. Howard for helping me solve the oxygen problem. I was stuck for quite a few days and starting to feel quite discouraged about the project. It feels like I can start making solid progress again. Looking forward to writing out the puzzle solution and implimenting the movement commands soon.
 
@@ -240,3 +241,12 @@ This is a bit of an ambitious first puzzle, but it should set us on the right tr
 4. Added a feature to rewrite over the "> " on input() call when doing a timer based delay_print() statement
 
 **Thoughts:** 20 Days! We're going strong. I've got a few more bugs to fix with the threads. They're a bit tricky to wrap your head around at first, but we're making headway.
+
+### Day 21: March 5th, 2022
+##### Preparing Actionable Commands
+
+**Today's Progress:**
+1. Added directional commands to the input_* lists.
+2. Added a resources page to keep track of important links and references.
+
+**Thoughts:** The bug causing the swim up command to break is now magically working again. You love to see it. Couldn't tell you why either. The program is getting long enough now that I start getting lost in the sauce. I'm unsure how to handle movement in the game.

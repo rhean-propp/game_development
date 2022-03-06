@@ -5,13 +5,14 @@
 from functions import *             # General functions that do not call other functions.
 from data_serialization import *    # Saves game state, inventory and username
 from time import sleep              # Timed messages
-#import time                         # Used for Oxygen clock in chapter_01
 import threading                    # Used for Oxygen Clock in Chapter_01
 from threading import Thread
 
 # ============================================================================================================================================
 
+
 # GLOBAL VARIABLES
+
 
 # ============================================================================================================================================
 
@@ -19,19 +20,34 @@ user_name = ""                  # Name of the character the user is playing.
 input_buffer = ""               # User input is stored here.
 inventory_file = ""             # Stores <user_name>_inventory. Used for file creation.
 
-# General user_input() responses:
+# General Responses | user_input()
 input_positive = ["yes", "ye", "y", "yup", "ya", "yeah", "yep", "perhaps yes", "yus", "sure", "bet", "fo sho", "fo shizzle", "yesh", "yas", "okay", "ok", "yessir"]
 input_negative = ["no", "n", "nope", "nah", "no way", "perhaps no", "naw", "hell nah", "nein", "hell no", "nay", "hell no", "nah brah", "nae"]
 input_undecided = ["perhaps", "maybe", "perchance", "conceivably", "possibly", "mayhaps", "mebbeh", "persnaps"]
+
+# Directional movements | user_input()
+input_forward = ["forward", "north", "n"]
+input_backward = ["backward", "back", "south", "s"]
+input_right = ["right", "east", "e"]
+input_left = ["left", "west", "w"]
+input_up = ["up", "upward", "upwards", "u"]
+input_down = ["down", "downward", "downwards", "d"]
+
+# Universal commands | user_input()
 input_inventory = ["inventory", "inv", "i"]
-input_examine = ["examine", "look at", "view", "probe"]
 input_help = ["help", "h", "halp", "give me a hand here"]
-input_save = ["save game", "save", "s"]
-input_load = ["load game", "load", "l"]
+input_save = ["save game", "save"]
+input_load = ["load game", "load"]
+
+# Player commands for interaction | user_input()
+input_examine = ["examine", "look at", "look", "view", "probe"]
+#input_move = ["swim", "walk", "run", "move", "mv"]
 
 # ============================================================================================================================================
 
+
 # PRIMARY FUNCTIONS
+
 
 # ============================================================================================================================================
 
@@ -178,7 +194,9 @@ def tutorial():
 
 # ============================================================================================================================================
 
+
 # GAME CHAPTER SPECIFIC FUNCTIONS
+
 
 # ============================================================================================================================================
 
@@ -203,6 +221,7 @@ def countdown_event():                  # Countdown Clock for Oxygen Puzzle
         countdown_running = False
         print("\b\b\r", end="")
         delay_print("As you struggle to make your way out of the water, your chest gives weigh.\nYou open your mouth, gasping for air, as water rushes into your lungs.\nYou have perished. Game over.\n") 
+        exit()
     # Credit to Austin L. Howard for this solution.
 
 def question():                         # Prompts User Repeatedly
@@ -216,13 +235,18 @@ def question():                         # Prompts User Repeatedly
             delay_print("You are drowning. What do you do?\n")
             input_buffer = user_input()             # Get user input
         if input_buffer == "use key":               # If correct answer:
-            delay_print("\nuse <what key?> on <what object?>\n")
+            delay_print("\nuse <what object?> on <what object?>\n")
             continue
         elif "use rusty key on shackles" in input_buffer:
             player_restrained = False
-            delay_print("\nAs you feel in your pocket, you find a rusty key.\nYou twist the key in the shackle lock, breaking you free from your chains.\n")
-        elif input_buffer == "swim up" and player_restrained == False:
-            exit_event = True                       # Sets Exit Event for countdown_event() | Marker for correct answer
+            delay_print("\nAs you feel in your pocket, you find a rusty key.\nYou twist the key into the lock.\nThe key snaps as the lock releases.\nKicking your feet, you knock off the chains that bound you.\n")
+        elif player_restrained == False and "swim" in input_buffer:
+            if input_buffer == "swim up":
+                exit_event = True                       # Sets Exit Event for countdown_event() | Marker for correct answer
+            elif input_buffer == "swim down":
+                delay_print("\nThe darkness grows as the faint light above you begins to dim.\n")
+            else:
+                delay_print("\nYour hands press up against a cold stone wall. Moss and algae fill the cracks and crevasis of the black-stone bricks.\n")
         elif "swim" in input_buffer and player_restrained == True:
             delay_print("\nYou attempt to kick your feet and move your arms, but you are still bound by the shackles that hold you.\nYou make no progress.\n")
         elif input_buffer in input_help or input_buffer in input_inventory:     # If help or inv are called:
@@ -233,7 +257,9 @@ def question():                         # Prompts User Repeatedly
 
 # ============================================================================================================================================
 
+
 # GAME CHAPTERS
+
 
 # ============================================================================================================================================
 
@@ -286,7 +312,9 @@ def chapter_01():
 
 # ============================================================================================================================================
 
+
 # MASTER CONTROL PANNEL
+
 
 # ============================================================================================================================================
 
@@ -330,6 +358,11 @@ while input_buffer not in input_negative and input_buffer not in input_positive:
 chapter_01()
 
 delay_print('\nWith little air left to spare, you swim to the surface.\nYou take a gasp of air as you begin to take in your surroundings.\n')
+delay_print("\nPillars of blackstone rise 60ft to the celing of this grand grotto.\n")
+delay_print("Looking upwards through the brick layed shaft, you can see the small dot of light from the top of the crater.\n")
+delay_print("You tread water in a pool with a diamater of no more than 50ft.\n")
+delay_print("On each of the four sides of the pool, there are statues of two claw formed hands stretched upwards.\n")
+delay_print("The grotto is too dark to see much of anything else.\n")
 
 #create_inv(user_name, inventory_file)       # Creates <user_name>_inventory file | Adds Crumpled Note
 #add_inv_item("Sword", 1)                    # Adds <item>,<quantity> to inventory_file
