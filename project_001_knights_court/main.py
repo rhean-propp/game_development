@@ -55,8 +55,8 @@ input_examine = ["examine", "look at", "look", "view", "probe"]
 input_jump = ["jump", "hop", "leap", "vault"]
 input_run = ["run", "dash", "sprint"]
 input_walk = ["walk", "step"]
-input_climb = ["climb"]
-input_swim = ["swim"]
+input_climb = "climb"
+input_swim = "swim"
 
 # ============================================================================================================================================
 
@@ -70,39 +70,50 @@ def clear_buffer():         # Clears the input_buffer global variable.
     global input_buffer     # Tells the function to use the global variable.
     input_buffer = ""       # Sets the variable to an empty string.
 
-def user_input():                                       # Primary Parser. Must be in main.
+def user_input():                                       # Primary Parser. Returns sanitized input.
     buffer = input("> ").lower()                        # Get input | Sanitize | Store
-    if buffer in input_help:                          
+    if buffer in input_help:            # Help Commands                 
         buffer == "help"
         help()          
-    elif buffer in input_move:
+    elif buffer in input_move:          # Move Commands
         buffer == "move"
         move_player()
-    elif buffer in input_shorthand:
+    elif buffer in input_shorthand:     # Shorthand Commands
         buffer == "shorthand"
         short_hand_commands()
-    elif buffer in input_inventory:
+    elif buffer in input_inventory:     # List Inventory
         if inventory_file == "":
             delay_print("\nThe inventory cannot be loaded until you create your character.\n")
         else:
             buffer == "inventory"                                                    # Why is this here and what is it doing?
             load_inv(inventory_file, user_name)                                      # Unfinished
-    elif buffer in input_save:         # Unfinished
+    elif buffer in input_save:         # Save Game | Unfinished
         if inventory_file == "":
             delay_print("\nThe inventory cannot be saved until you create your character.\n")
         else:
             buffer == "save"                   # Why is this here and what is it doing?
             save_inv()                         # Unfinished
             #add save game
-    elif buffer in input_positive:         # Allows short-handing Consider Adding. Does it Simplify the code?
-        buffer = "yes"          # Shorthand
-    elif buffer in input_negative:          # Allows short-handing
-        buffer = "no"           # Shorthand 
-    elif buffer in input_undecided:
-        buffer == "perhaps"     # Shorthand
-    elif "swim" in buffer:
+    elif buffer in input_positive:      # Yes
+        buffer = "yes"          
+    elif buffer in input_negative:      # No
+        buffer = "no"           
+    elif buffer in input_undecided:     # Maybe
+        buffer = "perhaps"     
+    elif "swim" in buffer:              # Swim
+        if any(direction in input_buffer for direction in input_up):
+            buffer = "swim up"
+        elif any(direction in input_buffer for direction in input_down):
+            buffer = "swim down"
+        elif any(direction in input_buffer for direction in input_right):
+            buffer = "swim right"
+        elif any(direction in input_buffer for direction in input_left):
+            buffer = "swim left"
+        else:
+            buffer = ""
+            delay_print("You cannot swim in that direction.\n")
         return buffer
-    elif "use" in buffer:
+    elif "use" in buffer:               # Use
         return buffer
     else:
         delay_print('\nThis is not a valid input. Type "help" or "h" if you are stuck.\n')
@@ -242,7 +253,7 @@ def countdown_event():                  # Countdown Clock for Oxygen Puzzle
         countdown_running = False
         print("\b\b\r", end="")
         delay_print("As you struggle to make your way out of the water, your chest gives weigh.\nYou open your mouth, gasping for air, as water rushes into your lungs.\nYou have perished. Game over.\n") 
-        exit()
+        sys.exit()
     # Credit to Austin L. Howard for this solution.
 
 def question():                         # Prompts User Repeatedly
@@ -255,14 +266,14 @@ def question():                         # Prompts User Repeatedly
         if exit_event is False:                     # Bug fix. Prevents an additional > prompt.
             delay_print("You are drowning. What do you do?\n")
             input_buffer = user_input()             # Get user input
-        if input_buffer == "use key":               # If correct answer:
+        if input_buffer == "use key" or input_buffer == "use key on shackles":               # If 
             delay_print("\nuse <what object?> on <what object?>\n")
             continue
         elif "use rusty key on shackles" in input_buffer:
             player_restrained = False
             delay_print("\nAs you feel in your pocket, you find a rusty key.\nYou twist the key into the lock.\nThe key snaps as the lock releases.\nKicking your feet, you knock off the chains that bound you.\n")
-        elif player_restrained == False and "swim" in input_buffer:
-            if input_buffer == "swim up":
+        elif player_restrained == False and input_swim in input_buffer: # If the player is not bound by the shackles and tries to swim:
+            if input_buffer == "swim up": # If input_buffer == "swim up"
                 exit_event = True                       # Sets Exit Event for countdown_event() | Marker for correct answer
             elif input_buffer == "swim down":
                 delay_print("\nThe darkness grows as the faint light above you begins to dim.\n")
@@ -340,7 +351,7 @@ def chapter_01():
 # ============================================================================================================================================
 
 # Get Character Name | Create Save Files
-
+'''
 input_buffer = start_game()                     # Ask user if they would like to play the game.
 
 if input_buffer in input_positive:              # If yes
@@ -375,7 +386,7 @@ while input_buffer not in input_negative and input_buffer not in input_positive:
         delay_print("\nThe prologue is about a 5 minute read. If you like to play games for the story, it is recommended.\n")
     else: 
         continue
-
+'''
 chapter_01()
 
 delay_print('\nWith little air left to spare, you swim to the surface.\nYou take a gasp of air as you begin to take in your surroundings.\n')

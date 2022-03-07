@@ -14,16 +14,19 @@
 12. Research ncurses library for creating the oxygen display.
 13. Error handling of invalid input
 14. Build extensive help() guide for individual commands.
+15. Use commands from the command list in chapter_01() input parsing
 
 ### Bugs
 1. Resolve "." not displaying after a print. Character cursor overlap bug.
-2. User cannot swim up. Threading issue.
+2. User can type "swim around" and break out of the loop. This is not a valid answer. Fix this.
+
+### Puzzle Plans
+1. Cryptographic note.
 
 ### Extended Features
 1. Add character_creation() function.
 2. Create a flashing prompt.
 3. Save Game | Load Game
-4. Modify perhaps easter egg to also include maybe, mayhaps, etc.
 
 ### Long-Term Features
 1. CRT Terminal GUI

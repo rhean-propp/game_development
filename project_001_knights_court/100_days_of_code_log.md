@@ -260,3 +260,11 @@ This is a bit of an ambitious first puzzle, but it should set us on the right tr
 3. Added movement types for latter parsing by user_input()
 
 **Thoughts:** Days are starting to blend together. There is also way too many global variables. I'm not sure if I can move them yet, but I might be able to.
+
+### Day 23: March 7th, 2022
+##### Input Parsing
+
+**Today's Progress:**
+1. Working on user_input() to parse directional movement
+
+**Thoughts:** I'm struggling to read through my code. It's getting long. I need a better way to sort all of the functions. Input parsing is far more difficult than I thought it would be. I haven't got a great idea/gameplan in my head how I will do it yet. Need more time to get everything running smoothly.
