@@ -268,3 +268,12 @@ This is a bit of an ambitious first puzzle, but it should set us on the right tr
 1. Working on user_input() to parse directional movement
 
 **Thoughts:** I'm struggling to read through my code. It's getting long. I need a better way to sort all of the functions. Input parsing is far more difficult than I thought it would be. I haven't got a great idea/gameplan in my head how I will do it yet. Need more time to get everything running smoothly.
+
+### Day 24: March 8th, 2022
+##### Researching Classes
+
+**Today's Progress:**
+1. Viewed: https://youtu.be/hLLaw9BI-EE
+2. Viewed: https://youtu.be/pnWINBJ3-yA
+
+**Thoughts:** Worked on researching classes today. Will look into implimenting them into the user_input() function for parsing the directional movements and additional player commands. 
