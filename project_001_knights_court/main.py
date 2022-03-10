@@ -1,11 +1,13 @@
-# Author: Rhean Propp
-# Date: January 28, 2022
-# Desc: Primary Game Functions
+# ============================ #
+# Author: Rhean Propp          #
+# Date: January 28, 2022       #
+# Desc: Primary Game Functions #
+# ============================ #
 
 from functions import *             # General functions that do not call other functions.
 from data_serialization import *    # Saves game state, inventory and username
 from time import sleep              # Timed messages
-import threading                    # Used for Oxygen Clock in Chapter_01
+import threading                    # Used for Oxygen Clock in Chapter_01       # Is this actually used?
 from threading import Thread
 
 # ============================================================================================================================================
@@ -16,6 +18,7 @@ from threading import Thread
 
 # ============================================================================================================================================
 
+# General Purpose Variables
 user_name = ""                  # Name of the character the user is playing.
 input_buffer = ""               # User input is stored here.
 inventory_file = ""             # Stores <user_name>_inventory. Used for file creation.
@@ -70,37 +73,61 @@ def clear_buffer():         # Clears the input_buffer global variable.
     global input_buffer     # Tells the function to use the global variable.
     input_buffer = ""       # Sets the variable to an empty string.
 
-def user_input():                                       # Primary Parser. Returns sanitized input.
-    buffer = input("> ").lower()                        # Get input | Sanitize | Store
-    if buffer in input_help:            # Help Commands                 
-        buffer == "help"
+def user_input():           # Primary Parser. Returns sanitized input.
+    
+    # Get User Input | Lowercase | Store
+    buffer = input("> ").lower()                       
+    
+    # --------------------------------------- #
+    # Check if User Entered a System Command: #
+    # --------------------------------------- #
+    
+    # Help Commands
+    if buffer in input_help:                             
+        buffer = "help"
         help()          
-    elif buffer in input_move:          # Move Commands
-        buffer == "move"
+    
+    # Move Command List
+    elif buffer in input_move:          
+        buffer = "move"
         move_player()
-    elif buffer in input_shorthand:     # Shorthand Commands
-        buffer == "shorthand"
+    
+    # Shorthand Command List
+    elif buffer in input_shorthand:     
+        buffer = "shorthand"
         short_hand_commands()
-    elif buffer in input_inventory:     # List Inventory
+    
+    # List Player Inventory
+    elif buffer in input_inventory:
         if inventory_file == "":
             delay_print("\nThe inventory cannot be loaded until you create your character.\n")
         else:
-            buffer == "inventory"                                                    # Why is this here and what is it doing?
-            load_inv(inventory_file, user_name)                                      # Unfinished
-    elif buffer in input_save:         # Save Game | Unfinished
+            buffer = "inventory"                                                    
+            load_inv(inventory_file, user_name)                                     
+    
+    # Save Player's Game | Unfinished
+    elif buffer in input_save:  
         if inventory_file == "":
             delay_print("\nThe inventory cannot be saved until you create your character.\n")
         else:
-            buffer == "save"                   # Why is this here and what is it doing?
-            save_inv()                         # Unfinished
+            buffer = "save"                    
+            save_inv()                         
             #add save game
-    elif buffer in input_positive:      # Yes
+    
+    # Yes | Positive Response
+    elif buffer in input_positive:      
         buffer = "yes"          
-    elif buffer in input_negative:      # No
+    
+    # No | Negative Response
+    elif buffer in input_negative:      
         buffer = "no"           
-    elif buffer in input_undecided:     # Maybe
-        buffer = "perhaps"     
-    elif "swim" in buffer:              # Swim
+    
+    # Maybe | Uncertain Response
+    elif buffer in input_undecided:     
+        buffer = "perhaps"  
+    
+    # Directional Movement | Swimming
+    elif "swim" in buffer:          
         if any(direction in input_buffer for direction in input_up):
             buffer = "swim up"
         elif any(direction in input_buffer for direction in input_down):
@@ -113,43 +140,71 @@ def user_input():                                       # Primary Parser. Return
             buffer = ""
             delay_print("You cannot swim in that direction.\n")
         return buffer
+    
+    # Item Use
     elif "use" in buffer:               # Use
         return buffer
+    
+    # Undefined Response
     else:
         delay_print('\nThis is not a valid input. Type "help" or "h" if you are stuck.\n')
+    
     return buffer
 
-def start_game():                                       # Prompt user to start game.
-    global input_buffer     # Allow the function access to the global variable.
-    clear_buffer()          # Reset the buffer before beginning the program.
-    while input_buffer not in input_positive and input_buffer not in input_negative and input_buffer not in input_undecided:     # Loop until yes, no or perhaps is said.
-        delay_print("\nWould you like to play a game?\n")                                   # Prompt user
-        input_buffer = user_input()                                                         # Get input
-    if input_buffer in input_positive:                                                               # If yes
-        sleep(1)                                                                            # Sleep
-        return input_buffer                                                                 # Return to master control panel
-    elif input_buffer in input_negative:                                                              # If no
-        sleep(1)                                                                            # Sleep
-        return input_buffer                                                                 # Return to master control panel
-    elif input_buffer in input_undecided:                                                         # If perhaps
-        input_buffer = ""                                                                   # Reset Buffer
-        while input_buffer not in input_positive and input_buffer not in input_negative and input_buffer not in input_undecided:         # Loop until yes, no or perhaps is said
-            delay_print("\nPerhaps yes or perhaps no?\n")                                           # Prompt user
-            input_buffer = user_input()                                                             # Get input
-        if input_buffer in input_undecided:                                                               # If perhaps
-            input_buffer = ""                                                                       # Reset Buffer                               
-            sleep(3)                                                                                # Sleep
-            while input_buffer not in input_positive and input_buffer not in input_negative and input_buffer not in input_undecided:     # Loop until yes, not or perhaps is said
-                delay_print("\nNo really. Do you want to play this game or not?\n")                 # Prompt user
-                input_buffer = user_input()                                                         # Get input
-        if input_buffer in input_positive:                                                          # If yes
-            sleep(1)                                                                                # Sleep
-            return input_buffer                                                                     # Return to master control panel
-        elif input_buffer in input_negative:                                                        # If no
-            sleep(1)                                                                                # Sleep
-            delay_print("\nOk. Fine. Have it your way.\n")                                          # 
-            exit()                                                                                  # Exit game
-        elif input_buffer in input_undecided:                                                       # Easter Egg for Cole Sanheim
+def start_game():           # Prompt user to start game.
+    
+    global input_buffer     
+    clear_buffer()          
+    
+    # Loop Until: Yes, No, Maybe
+    while input_buffer not in input_positive and input_buffer not in input_negative and input_buffer not in input_undecided:
+        delay_print("\nWould you like to play a game?\n")                                   
+        input_buffer = user_input()                                                         
+    
+    # If Positive:
+    if input_buffer in input_positive:                                                      
+        sleep(1)                                                                            
+        return input_buffer  
+    
+    # If Negative:
+    elif input_buffer in input_negative:                                                              
+        sleep(1)                                                                            
+        return input_buffer                                                                 
+    
+    # If Undecided #1:
+    elif input_buffer in input_undecided:                                                         
+        
+        input_buffer = ""       # Reset Buffer | Change to clear_buffer() and test.
+        
+        # Loop Until: Yes, No, Maybe
+        while input_buffer not in input_positive and input_buffer not in input_negative and input_buffer not in input_undecided:         
+            delay_print("\nPerhaps yes or perhaps no?\n")                                           
+            input_buffer = user_input()                                                             
+        
+        # If Undecided #2:
+        if input_buffer in input_undecided:                                                               
+            
+            input_buffer = ""   # Reset Buffer | Change to clear_buffer() and test.                                                                                        
+            sleep(3)                                                                                
+            
+            # Loop Until: Yes, No, Maybe
+            while input_buffer not in input_positive and input_buffer not in input_negative and input_buffer not in input_undecided:     
+                delay_print("\nNo really. Do you want to play this game or not?\n")                 
+                input_buffer = user_input()                                                         
+        
+        # If Positive:
+        if input_buffer in input_positive:                                                          
+            sleep(1)                                                                                
+            return input_buffer                                                                     
+        
+        # If Negative:
+        elif input_buffer in input_negative:                                                        
+            sleep(1)                                                                                
+            delay_print("\nOk. Fine. Have it your way.\n")                                           
+            exit()                                                                                  
+        
+        # If Undecided #3:
+        elif input_buffer in input_undecided:   # Easter Egg for Cole Sanheim
             delay_print("\n.")                                                                      
             delay_print(".")                                                                        
             delay_print(".\n")                                                                      
@@ -170,30 +225,47 @@ def start_game():                                       # Prompt user to start g
             delay_print("Well you know what?\n")                                                    
             delay_print("PERHAPS I LEAVE!\n")                                                       
             delay_print("PERHAPS THAT!\n")                                                          
-            exit()                                                                                  # Exit game
-        else:                                                                                       # Catch-all statement for previous if/else logic
+            exit()                                                                                  
+        
+        # If Invalid Response:
+        else:                                                                                       
             delay_print("\nYou're really not making this easy for me, are you?\n")                  
-    else:                                                                                           # If user inputs an invalid response
-        sleep(1)                                                                                    # Sleep
-        delay_print("\nIt's a yes or no question.")                                                 # Inform
-        sleep(3)                                                                                    # Sleep
-        start_game()                                                                                # Restart Function
+    
+    # If Invalid Response:
+    else:                                                                                           
+        sleep(1)                                                                                    
+        delay_print("\nIt's a yes or no question.")                                                 
+        sleep(3)                                                                                    
+        start_game()                                                                                
 
-def get_name():                                         # Gets Name of User
-    global user_name                                    # Tell the function that the variable name is referring to the global variable.
+def get_name():             # Gets Name of User
+    
+    # Bring Global Variables Into Function:
+    global user_name                                    
     global input_buffer
-    valid_name = 0
+    global inventory_file
+    
+    valid_name = 0  # Flag | Change to Boolean True/False for Clarity
     clear_buffer()
+    
+    # Loop Until: Name is Valid
     while valid_name == 0:
         delay_print("\nAdventurer, what is your name?\n")
         user_name = input("> ")
         valid_name = 1
+        
+        # If Name > 20 Characters:
         if len(user_name) > 20:
             delay_print("\nThat name is too long.\nPlease enter up to a max of 20 characters.")
             valid_name = 0
-        if user_name in input_inventory or user_name in input_help or user_name in input_examine or user_name in input_save or user_name in input_load:       # Ensures username is not a command name.
+        
+        # If Name is a System Command:
+        if user_name in input_inventory or user_name in input_help or user_name in input_examine or user_name in input_save or user_name in input_load:
             valid_name = 0
             delay_print("\nThat is not a valid name.")
+            # This will need to be updated as system commands are added.
+        
+        # Check if User Entered Name Correctly:
         if valid_name == 1:
             delay_print(f"\nYou entered: {user_name} \n\nIs this correct?\n".format(user_name))
             input_buffer = user_input()
@@ -204,22 +276,32 @@ def get_name():                                         # Gets Name of User
             else:
                 delay_print("\nThat is not a valid answer.")
                 valid_name = 0
-    global inventory_file                                                                       # Bring global variable into function.
+                
+    # Create Inventory File Based on Player's Name:
     inventory_file = f"{user_name}_inventory".format(user_name).lower()                         # Save inventory file name as <user_name>_inventory
-    delay_print(f"\nUnderstood, {user_name}.\nYour adventure awaits.\n\n".format(user_name))    # Notify User
+    delay_print(f"\nUnderstood, {user_name}.\nYour adventure awaits.\n\n".format(user_name))
     
-def tutorial():
-    delay_print("\nWelcome to <insert_game_name_here>. This is a text adventure.\n")            # Add game name.
+def tutorial():             # Tutorial for Player
+    delay_print("\nWelcome to <insert_game_name_here>. This is a text adventure.\n")
+    
+    # Add the name of the game here: ^^^
+    # Once the name of the game has been decided.
+    
     delay_print("The idea of the game is to progress through the story by solving puzzle rooms.\n")
     delay_print("There is no 2D or 3D display. Everything in this game is described to you, while you play the game in your head.\n")
     delay_print("You may find it helpful to have a piece of pen and paper handy when solving certain puzzles.\n")
     delay_print('If you are ever stuck, you can type "help" or "h" to get a list of commands you can use to interact with the world.\n')
     delay_print("Give it a try now.\n")
+    
     input_buffer = user_input()
+    
+    # Loop Until: User Types "help" or "h"
     while input_buffer not in input_help:
         delay_print('You inputted the incorrect command. Try typing "help" or "h" for short.\n')
         input_buffer = user_input()
+        
     sleep(5)
+    
     delay_print('Great job. Anytime you see a ">" symbol, you can type "help" or "h" to bring up the help menu again.\n')
     delay_print("This is all you need to begin your adventure.\n")
     delay_print("We hope you enjoy your journey, traveler.\n\n")
@@ -236,56 +318,90 @@ exit_event = False                      # This boolean variable is used to check
 oxygen_remaining = [0]                  # Keeps track of remaining time left before function ends.
 countdown_running = True
 
-def countdown_event():                  # Countdown Clock for Oxygen Puzzle
+def countdown_event():                  # Countdown Clock for Oxygen Puzzle | Credit to Austin L. Howard for this threading solution.
     global countdown_running
+    
+    # Loop Until: 60 Seconds Have Passed
     for i in range(60, 0, -1):          # Count for 10 seconds.
+        
+        # If Player is Correct:
         if exit_event is True:          # If user is correct.
             break                       # Break out of loop. Resume function.
+        
         oxygen_remaining[0] = i         # Stores current countdown value.
         for i in range(10):             # 0.1 * 10 iterations = 1 second sleep
             sleep(0.1)                  # Sleep 1/10th of a second.
+            
+            # If Player is Correct:
             if exit_event is True:      # Check if the exit_event is set every 1/10th of a second.
                 break                   # If exit is set, break out of loop, resume function.
+    
+    # If Player Succeeded:
     if oxygen_remaining[0] > 1:         # If user suceeded with oxygen remaining:
         countdown_running = False
         return                          # Return back to chapter_01()
+    
+    # If Player Failed:
     else:                               # If user failed: 
         countdown_running = False
         print("\b\b\r", end="")
         delay_print("As you struggle to make your way out of the water, your chest gives weigh.\nYou open your mouth, gasping for air, as water rushes into your lungs.\nYou have perished. Game over.\n") 
         sys.exit()
-    # Credit to Austin L. Howard for this solution.
 
-def question():                         # Prompts User Repeatedly
+def question():                         # Prompts User Repeatedly | Credit to Austin L. Howard for this threading solution.
+    
     global input_buffer                 
     global exit_event                   # Used to define when to stop
     global countdown_running            # Used as a stop flag for question_thread
+    
     player_restrained = True            # Checks if the player is still in shackles
     clear_buffer()
+    
+    # Loop For: 60 Second Countdown
     while countdown_running == True:                                     # Indefinitely Loop
-        if exit_event is False:                     # Bug fix. Prevents an additional > prompt.
+        
+        # If Player has not Solved Puzzle Yet:
+        if exit_event is False:                     
             delay_print("You are drowning. What do you do?\n")
-            input_buffer = user_input()             # Get user input
-        if input_buffer == "use key" or input_buffer == "use key on shackles":               # If 
+            input_buffer = user_input()             
+        
+        # If Near Correct Answer:
+        if input_buffer == "use key" or input_buffer == "use key on shackles":                
             delay_print("\nuse <what object?> on <what object?>\n")
             continue
+        
+        # If Correct Answer:
         elif "use rusty key on shackles" in input_buffer:
             player_restrained = False
             delay_print("\nAs you feel in your pocket, you find a rusty key.\nYou twist the key into the lock.\nThe key snaps as the lock releases.\nKicking your feet, you knock off the chains that bound you.\n")
-        elif player_restrained == False and input_swim in input_buffer: # If the player is not bound by the shackles and tries to swim:
-            if input_buffer == "swim up": # If input_buffer == "swim up"
-                exit_event = True                       # Sets Exit Event for countdown_event() | Marker for correct answer
-            elif input_buffer == "swim down":
-                delay_print("\nThe darkness grows as the faint light above you begins to dim.\n")
-            else:
-                delay_print("\nYour hands press up against a cold stone wall. Moss and algae fill the cracks and crevasis of the black-stone bricks.\n")
+        
+        # If Player Restrained:
         elif "swim" in input_buffer and player_restrained == True:
             delay_print("\nYou attempt to kick your feet, but you are still bound by the shackles that hold you.\nYou make no progress.\n")
+        
+        # If Player Unrestrained:
+        elif player_restrained == False and input_swim in input_buffer: # If the player is not bound by the shackles and tries to swim:
+            
+            # If Correct Answer:
+            if input_buffer == "swim up": # If input_buffer == "swim up"
+                exit_event = True                       # Sets Exit Event for countdown_event() | Marker for correct answer
+            
+            # If Movement Down:
+            elif input_buffer == "swim down":
+                delay_print("\nThe darkness grows as the faint light above you begins to dim.\n")
+            
+            # If movement Left, Right, Forward, Backward:
+            else:
+                delay_print("\nYour hands press up against a cold stone wall. Moss and algae fill the cracks and crevasis of the black-stone bricks.\n")
+        
+        # If System Command Called:
         elif input_buffer in input_help or input_buffer in input_inventory:     # If help or inv are called:
             continue                                                            # Print normally
+        
+        # If invalid input:
         else:                                                                   # Catch all | If incorrect answer:
             continue                                                            # Error handling is passed to user_input() for wrong answers
-    # Credit to Austin L. Howard for this solution.
+    
 
 # ============================================================================================================================================
 

@@ -1,6 +1,8 @@
-# Author: Rhean Propp
-# Date: January 28, 2022
-# Desc: Genral functions that do not call other functions are placed in this file.
+# ================================================================================ #
+# Author: Rhean Propp                                                              #
+# Date: January 28, 2022                                                           #
+# Desc: Genral functions that do not call other functions are placed in this file. #
+# ================================================================================ #
 
 import sys                  # Used for delay_print()
 import random               # Used for delay_print()
@@ -44,4 +46,3 @@ def short_hand_commands():
     print("\tu | Moves player updwards\n\t  |")
     print("\ti | Displays player inventory\n\t  |")
     print("\th | Displays help menu\n\t  |")
-    

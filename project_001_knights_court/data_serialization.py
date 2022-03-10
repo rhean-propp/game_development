@@ -1,6 +1,8 @@
-# Author: Rhean Propp
-# Date: February 15th, 2022
-# Desc: Serialize Game Data | Save States, Inventory, Character Name
+# ================================================================== #
+# Author: Rhean Propp                                                #
+# Date: February 15th, 2022                                          #
+# Desc: Serialize Game Data | Save States, Inventory, Character Name #
+# ================================================================== #
 
 import pickle
 
