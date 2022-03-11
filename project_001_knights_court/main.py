@@ -54,13 +54,6 @@ input_load = ["load game", "load"]
 # Player commands for interaction | user_input()
 input_examine = ["examine", "look at", "look", "view", "probe"]
 
-# Movement Types
-input_jump = ["jump", "hop", "leap", "vault"]
-input_run = ["run", "dash", "sprint"]
-input_walk = ["walk", "step"]
-input_climb = "climb"
-input_swim = "swim"
-
 # ============================================================================================================================================
 
 
@@ -125,22 +118,6 @@ def user_input():           # Primary Parser. Returns sanitized input.
     # Maybe | Uncertain Response
     elif buffer in input_undecided:     
         buffer = "perhaps"  
-    
-    # Directional Movement | Swimming
-    elif "swim" in buffer:          
-        if any(direction in input_buffer for direction in input_up):
-            buffer = "swim up"
-        elif any(direction in input_buffer for direction in input_down):
-            buffer = "swim down"
-        elif any(direction in input_buffer for direction in input_right):
-            buffer = "swim right"
-        elif any(direction in input_buffer for direction in input_left):
-            buffer = "swim left"
-        else:
-            buffer = ""
-            delay_print("You cannot swim in that direction.\n")
-        return buffer
-    
     # Item Use
     elif "use" in buffer:               # Use
         return buffer
@@ -148,7 +125,106 @@ def user_input():           # Primary Parser. Returns sanitized input.
     # Undefined Response
     else:
         delay_print('\nThis is not a valid input. Type "help" or "h" if you are stuck.\n')
+        
+    # Directional Movement | Swimming
+    for swim in input_swim:
+        if swim in buffer:          
+            for up in input_up:
+                if up in buffer:
+                    buffer = "swim up"
+            for down in input_down:
+                if down in buffer:
+                    buffer = "swim down"
+            for forward in input_forward:
+                if forward in buffer:
+                    buffer = "swim forward"
+            for backward in input_backward:
+                if backward in buffer:
+                    buffer = "swim backwards"
+            for left in input_left:
+                if left in buffer:
+                    buffer = "swim left"
+            for right in input_right:
+                if right in buffer:
+                    buffer = "swim forward"
+        return buffer
     
+    return buffer
+    '''
+    # This can be used as its own seperate function.
+            for up in input_up:
+                if up in buffer:
+                    buffer = "swim up"
+            for down in input_down:
+                if down in buffer:
+                    buffer = "swim down"
+            for forward in input_forward:
+                if forward in buffer:
+                    buffer = "swim forward"
+            for backward in input_backward:
+                if backward in buffer:
+                    buffer = "swim backwards"
+            for left in input_left:
+                if left in buffer:
+                    buffer = "swim left"
+            for right in input_right:
+                if right in buffer:
+                    buffer = "swim forward"
+    '''
+
+def direction_sort(direction_type, buffer):
+        
+    buffer = input_buffer
+    
+    # Upwards Movement
+    for up in input_up:
+        for walk in input_walk:
+            if walk in buffer:
+                delay_print("You cannot {direction_type} {direction}.\n".format(walk, up))
+        for run in input_run:
+            if run in buffer:
+                delay_print("You cannot {direction_type} {direction}.\n".format(run, up))
+        if up in buffer:
+            buffer = "{direction_type} up".format(direction_type)
+    
+    # Downwards Movement
+    for down in input_down:
+        for walk in input_walk:
+            if walk in buffer:
+                delay_print("You cannot {direction_type} {direction}.\n".format(walk, down))
+        for run in input_run:
+            if run in buffer:
+                delay_print("You cannot {direction_type} {direction}.\n".format(run, down))
+        if down in buffer:
+            buffer = "{direction_type} down".format(direction_type)
+    
+    # Forwards / North Movement
+    for forward in input_forward:
+        for climb in input_climb:
+            if climb in buffer:
+                delay_print("You cannot {direction_type} {direction}.\n".format(climb, forward))
+        if forward in buffer:
+            buffer = "{direction_type} forward".format(direction_type)
+    
+    # Backwards / South Movement
+    for backward in input_backward:
+        for climb in input_climb:
+            if climb in buffer:
+                delay_print("You cannot {direction_type} {direction}.\n".format(climb, backward))
+        if backward in buffer:
+            buffer = "{direction_type} backward".format(direction_type)
+    
+    # Left / Westwards Movement
+    for left in input_left:
+        if left in buffer:
+            buffer = "{direction_type} left".format(direction_type)
+    
+    # Right / Eastwards Movement
+    for right in input_right:
+        if right in buffer:
+            buffer = "{direction_type} right".format(direction_type)
+                
+    print(buffer)
     return buffer
 
 def start_game():           # Prompt user to start game.

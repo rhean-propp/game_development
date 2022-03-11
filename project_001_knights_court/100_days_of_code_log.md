@@ -276,13 +276,24 @@ This is a bit of an ambitious first puzzle, but it should set us on the right tr
 1. Viewed: https://youtu.be/hLLaw9BI-EE
 2. Viewed: https://youtu.be/pnWINBJ3-yA
 
-**Thoughts:** Worked on researching classes today. Will look into implimenting them into the user_input() function for parsing the directional movements and additional player commands. 
+**Thoughts:**
+Worked on researching classes today. Will look into implimenting them into the user_input() function for parsing the directional movements and additional player commands. 
 
 ### Day 25: March 9th, 2022
 ##### Code Readability
 
 **Today's Progress:**
-1. Modified all functions in main.py for readibility.
+1. Modified all functions in main.py for readability.
 2. Added a credits markdown file.
 
-**Thoughts:** I need to get more comfortable with reading through my code. The file is pretty large and it's easy to get lost. I dedicated today to working on the readibilty and editing the comments so they all made sense.
+**Thoughts:**
+I need to get more comfortable with reading through my code. The file is pretty large and it's easy to get lost. I dedicated today to working on the readibilty and editing the comments so they all made sense.
+
+### Day 26: March 10th, 2022
+##### 
+
+**Today's Progress:**
+1. Created direction_sort() function for parsing string content from user_input()
+2. 
+
+**Thoughts:**
