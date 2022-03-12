@@ -172,57 +172,92 @@ def user_input():           # Primary Parser. Returns sanitized input.
                     buffer = "swim forward"
     '''
 
-def direction_sort(direction_type, buffer):
-        
-    buffer = input_buffer
+def direction_sort(buffer):
     
+    command = buffer.split(' ')
+    direction_type = command[0]
+    direction = command[1] 
+    '''
     # Upwards Movement
     for up in input_up:
         for walk in input_walk:
             if walk in buffer:
-                delay_print("You cannot {direction_type} {direction}.\n".format(walk, up))
+                delay_print("You cannot {0} {1}.\n".format(walk, up))
         for run in input_run:
             if run in buffer:
-                delay_print("You cannot {direction_type} {direction}.\n".format(run, up))
+                delay_print("You cannot {0} {1}.\n".format(run, up))
         if up in buffer:
-            buffer = "{direction_type} up".format(direction_type)
+            buffer = "{0} up".format(direction_type)
     
     # Downwards Movement
     for down in input_down:
         for walk in input_walk:
             if walk in buffer:
-                delay_print("You cannot {direction_type} {direction}.\n".format(walk, down))
+                delay_print("You cannot {0} {1}.\n".format(walk, down))
         for run in input_run:
             if run in buffer:
-                delay_print("You cannot {direction_type} {direction}.\n".format(run, down))
+                delay_print("You cannot {0} {1}.\n".format(run, down))
         if down in buffer:
-            buffer = "{direction_type} down".format(direction_type)
+            buffer = "{0} down".format(direction_type)
     
     # Forwards / North Movement
-    for forward in input_forward:
-        for climb in input_climb:
-            if climb in buffer:
-                delay_print("You cannot {direction_type} {direction}.\n".format(climb, forward))
+    for forward in input_forward:       # Iterate through forward_input
+        for climb in input_climb:       # Iterate through climb_input
+            #print(climb)
+            #print(forward)
+            if climb in buffer and forward in buffer:     
+                #print(climb)
+                #print(forward)    
+                delay_print("You cannot {0} {1}.\n".format(climb, forward))
+                
         if forward in buffer:
-            buffer = "{direction_type} forward".format(direction_type)
+            buffer = "{0} forward".format(direction_type)
     
     # Backwards / South Movement
     for backward in input_backward:
         for climb in input_climb:
-            if climb in buffer:
-                delay_print("You cannot {direction_type} {direction}.\n".format(climb, backward))
+            if climb in buffer and backward in buffer:
+                delay_print("You cannot {0} {1}.\n".format(climb, backward))
         if backward in buffer:
-            buffer = "{direction_type} backward".format(direction_type)
+            buffer = "{0} backward".format(direction_type)
     
     # Left / Westwards Movement
     for left in input_left:
         if left in buffer:
-            buffer = "{direction_type} left".format(direction_type)
+            buffer = "{0} left".format(direction_type)
     
     # Right / Eastwards Movement
     for right in input_right:
         if right in buffer:
-            buffer = "{direction_type} right".format(direction_type)
+            buffer = "{0} right".format(direction_type)
+    
+    '''
+    flag = False
+    for climb in input_climb:
+        for forward in input_forward:
+            if forward in buffer and flag == False:
+                delay_print("You cannot {0} {1}.\n".format(climb, forward))
+                flag = True
+            if forward in buffer:
+                buffer = "{0} forward".format(direction_type)
+        for backward in input_backward:
+            if backward in buffer:
+                delay_print("You cannot {0} {1}.\n".format(climb, backward))
+            
+                
+    '''
+    for forward in input_forward:       # Iterate through forward_input
+        for climb in input_climb:       # Iterate through climb_input
+            print(climb)
+            print(forward)
+            if climb in buffer and forward in buffer:     
+                #print(climb)
+                #print(forward)    
+                delay_print("You cannot {0} {1}.\n".format(climb, forward))
+                
+        if forward in buffer:
+            buffer = "{0} forward".format(direction_type)
+    '''
                 
     print(buffer)
     return buffer
@@ -578,7 +613,7 @@ while input_buffer not in input_negative and input_buffer not in input_positive:
         delay_print("\nThe prologue is about a 5 minute read. If you like to play games for the story, it is recommended.\n")
     else: 
         continue
-'''
+
 chapter_01()
 
 delay_print('\nWith little air left to spare, you swim to the surface.\nYou take a gasp of air as you begin to take in your surroundings.\n')
@@ -587,8 +622,12 @@ delay_print("Looking upwards through the brick layed shaft, you can see the smal
 delay_print("You tread water in a pool with a diamater of no more than 50ft.\n")
 delay_print("On each of the four sides of the pool, there are statues of two claw formed hands stretched upwards.\n")
 delay_print("The grotto is too dark to see much of anything else.\n")
+'''
 
+delay_print("Insert Movement Type and direction: ")
+direction_command = input()
 
+direction_sort(direction_command)
 
 #create_inv(user_name, inventory_file)       # Creates <user_name>_inventory file | Adds Crumpled Note
 #add_inv_item("Sword", 1)                    # Adds <item>,<quantity> to inventory_file

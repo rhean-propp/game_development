@@ -7,7 +7,8 @@
 1. Began work on user_input() function.
 2. Worked on help()'s integration with user_input()
 
-**Thoughts:** I coudln't get user_input() to work properly. I want to be able to call it from anytime in the program. There are two problems. The first is after call, the program continues to prompt the user. 2. How do I call help() from user_input() and return to the prompt from the last question asked to the user.
+**Thoughts:**
+I coudln't get user_input() to work properly. I want to be able to call it from anytime in the program. There are two problems. The first is after call, the program continues to prompt the user. 2. How do I call help() from user_input() and return to the prompt from the last question asked to the user.
 
 ### Day 1: February 14th, 2022
 ##### Setup & Bug Fixes
@@ -21,7 +22,8 @@
 6. Completed start_game() function. Returns to game_exe.py
 7. Added shorthand form to help and inventory commands.
 
-**Thoughts:** Overall, a productive session. It took some digging to find out I needed a while loop to correctly referrence help() and inventory() from within user_input(). You can now call help() or inventory() at anytime from within the prompt. I did notice that having shorthand commands would be super helpful. I haven't figured out how to do this for yes and no yet. I'm super excited to get the ball rolling on the story. Once I have a save file set up, and the inventory working, I should be able to start working on the first chapter. I want there to be interactables so I for sure need the inventory() command working correctly. Since I'm using this, it'll go hand in hand with getting the savefile to work as well. It'd be worth doing both of them at the same time. I want to be careful that I don't get to side-tracked with features that I don't bother writing the story.
+**Thoughts:**
+Overall, a productive session. It took some digging to find out I needed a while loop to correctly referrence help() and inventory() from within user_input(). You can now call help() or inventory() at anytime from within the prompt. I did notice that having shorthand commands would be super helpful. I haven't figured out how to do this for yes and no yet. I'm super excited to get the ball rolling on the story. Once I have a save file set up, and the inventory working, I should be able to start working on the first chapter. I want there to be interactables so I for sure need the inventory() command working correctly. Since I'm using this, it'll go hand in hand with getting the savefile to work as well. It'd be worth doing both of them at the same time. I want to be careful that I don't get to side-tracked with features that I don't bother writing the story.
 
 ### Day 2: February 15th, 2022
 ##### Adventerer Name & Research
@@ -32,7 +34,8 @@
 3. Added error handling to get_name()
 4. Added a TODO list markdown file.
 
-**Thoughts:** Today wasn't as productive as yesterday. I spent a little more time researching what modules I wanted to use in the game. We will be using some serializing for the game saves and inventory management. Pickle seems like the way to go. I've decided I want to stick with python for the time being. At some point, i'll need to bulid a GUI for the game. But good news is, it can be done in python. So we're going to give it a shot. Added the get_name() function with error handling. Added a TODO list file.
+**Thoughts:**
+Today wasn't as productive as yesterday. I spent a little more time researching what modules I wanted to use in the game. We will be using some serializing for the game saves and inventory management. Pickle seems like the way to go. I've decided I want to stick with python for the time being. At some point, i'll need to bulid a GUI for the game. But good news is, it can be done in python. So we're going to give it a shot. Added the get_name() function with error handling. Added a TODO list file.
 
 ### Day 3: February 15th, 2022
 ##### Circular Hell
@@ -42,7 +45,8 @@
 2. Added game_pickle.py file for data serialization.
 3. Encountered a bug with circular imports. Current solution might be classes.
 
-**Thoughts:** Overall, today was a good learning experience. I spent some time working with the pickle module. But shortly thereafter I realized I had ran into a problem with circular imports. After some further research, it looks like classes are the solution to my problem, which I'll begin implimenting tomorrow.
+**Thoughts:**
+Overall, today was a good learning experience. I spent some time working with the pickle module. But shortly thereafter I realized I had ran into a problem with circular imports. After some further research, it looks like classes are the solution to my problem, which I'll begin implimenting tomorrow.
 
 ### Day 4: February 16th, 2022
 ##### Refactor & Test
@@ -55,7 +59,8 @@
 5. Added section labels to main.py
 6. Completed get_name() 
 
-**Thoughts:** The circular import bug was more problematic than I thought. It turns out, if any functions call another function that are in seperate files, a circular import problem will arise. To resolve this, I refactored the code and moved the majoraty of the functions into main.py. This is not exactly how I want to handle the game. I would like to have a chapters.py file to place the main game into. However, this might not be possible. At least, I haven't thought of a solution yet.
+**Thoughts:**
+The circular import bug was more problematic than I thought. It turns out, if any functions call another function that are in seperate files, a circular import problem will arise. To resolve this, I refactored the code and moved the majoraty of the functions into main.py. This is not exactly how I want to handle the game. I would like to have a chapters.py file to place the main game into. However, this might not be possible. At least, I haven't thought of a solution yet.
 
 For the time being, the only functions that can be placed into a seperate file of their own are functions that do not call other functions. Such as help() and possibly the functions for data_serialization. However, we shall see how data_serialization.py turns out.
 
@@ -68,7 +73,8 @@ For the time being, the only functions that can be placed into a seperate file o
 3. Modified help() to be more readable and easily modifiable.
 4. Created error handling for inv and save commands.
 
-**Thoughts:** The beginning setup is near complete. All that's left to do is to create an inventory addition and ensure that it saves. Once that's done, we can start working on the main chapter of the game. I'm reasonbly happy with the progress that's been made thus far. It's taken some time to get the setup complete, but having this done early will avoid some major headaches longterm.
+**Thoughts:**
+The beginning setup is near complete. All that's left to do is to create an inventory addition and ensure that it saves. Once that's done, we can start working on the main chapter of the game. I'm reasonbly happy with the progress that's been made thus far. It's taken some time to get the setup complete, but having this done early will avoid some major headaches longterm.
 
 ### Day 6: February 18th, 2022
 ##### Updating & Saving the User Inventory
@@ -82,7 +88,8 @@ For the time being, the only functions that can be placed into a seperate file o
 6. Completed create_inv()
 7. Completed load_inv()
 
-**Thoughts:** Today was a productive day. I definitely extended the time I would normally work on the project. There were a number of bugs that needed to be resolved and I want to have the platform ready to start writing the story. The next problem is, I haven't ever written a story before. Not a full fledged one. So this is totally new. I can imagine that I will begin the prologue and end up re-writting the entire first chapter later on down the road as the story becomes more clear with the direction I want to take it. This is okay. At the very least, i'll still be coding and learning how to integrate the items and puzzles around the rooms I'm going to put the character in. On the bright side, I can likely take my time writing the story and drop in small parts as the character moves through the levels. This way I can finish reading Robert McKee's STORY book before finishing my own story. I'm excited. The platform is finally ready to begin writing the chapter_01 prototype.
+**Thoughts:**
+Today was a productive day. I definitely extended the time I would normally work on the project. There were a number of bugs that needed to be resolved and I want to have the platform ready to start writing the story. The next problem is, I haven't ever written a story before. Not a full fledged one. So this is totally new. I can imagine that I will begin the prologue and end up re-writting the entire first chapter later on down the road as the story becomes more clear with the direction I want to take it. This is okay. At the very least, i'll still be coding and learning how to integrate the items and puzzles around the rooms I'm going to put the character in. On the bright side, I can likely take my time writing the story and drop in small parts as the character moves through the levels. This way I can finish reading Robert McKee's STORY book before finishing my own story. I'm excited. The platform is finally ready to begin writing the chapter_01 prototype.
 
 ### Day 7: February 19th, 2022
 ##### Story Prologue
@@ -92,7 +99,8 @@ For the time being, the only functions that can be placed into a seperate file o
 2. Wrote the introduction to the story.
 3. Moved Master Control Panel to the bottom of main.py to let all of the functions get loaded in before they are called.
 
-**Thoughts:** As far as logic problems goes, today was quite light. It entirely involved story writing and kicking things off to a good start. The prologue is in a first draft stage. I'll have to go over it again on a different day to make sure I like it. But in it's current state, it is going in the correct direction. I'm looking forward to writing more.
+**Thoughts:**
+As far as logic problems goes, today was quite light. It entirely involved story writing and kicking things off to a good start. The prologue is in a first draft stage. I'll have to go over it again on a different day to make sure I like it. But in it's current state, it is going in the correct direction. I'm looking forward to writing more.
 
 ### Day 8: February 20th, 2022
 ##### Character by Character Print
@@ -102,7 +110,8 @@ For the time being, the only functions that can be placed into a seperate file o
 2. Removed excessive sleep() functions in main.py
 3. Updated story print() statements to delay_print()
 
-**Thoughts:** This has to be my most favorite feature yet. Delay print essentially prints each character one at a time at a random interval to make the computer look as if it is a real person typing. It's not perfect, but it's close. The game feels a bit more human now than it did before.
+**Thoughts:**
+This has to be my most favorite feature yet. Delay print essentially prints each character one at a time at a random interval to make the computer look as if it is a real person typing. It's not perfect, but it's close. The game feels a bit more human now than it did before.
 
 ### Day 9: February 21st, 2022
 ##### Second Draft Prologue
@@ -110,7 +119,8 @@ For the time being, the only functions that can be placed into a seperate file o
 **Today's Progress:**
 1. Revised prologue() function
 
-**Thoughts:** This is the second draft for the prologue. In its current state, it is an acceptable kick-start to the adventure. It will go over a final revision upon the rest of the chapters being written for the story.
+**Thoughts:**
+This is the second draft for the prologue. In its current state, it is an acceptable kick-start to the adventure. It will go over a final revision upon the rest of the chapters being written for the story.
 
 ### Day 10: February 22nd, 2022
 ##### Bug Fixes & Improvements
@@ -121,7 +131,8 @@ For the time being, the only functions that can be placed into a seperate file o
 3. Added an easter egg in user_input()
 4. Added some comments explaining code functionality in main.py
 
-**Thoughts:** Today was a bit rushed. So I focused on bug fixes an performance improvements. Added some shorthand commands for more fun interacting with the computer.
+**Thoughts:**
+Today was a bit rushed. So I focused on bug fixes an performance improvements. Added some shorthand commands for more fun interacting with the computer.
 
 ### Day 11: February 23rd, 2022
 ##### Tutorial
@@ -132,7 +143,8 @@ For the time being, the only functions that can be placed into a seperate file o
 3. Modified prologue() story.
 4. Created future logic for master control panel.
 
-**Thoughts:** I'm often going back to the prologue() function to tweak it. At some point, it might get completely re-written. Depending on the direction the story takes. Added the tutorial() function which only covers the help command right now. It's better than nothing lol. I didn't feel as though it was necessary to cover inventory commands or movement commands. At least, not yet. I'll need to ask someone about this. It might be simple for me to use, but for someone who's never played a text adventure before, it might not be so intuitive.
+**Thoughts:**
+I'm often going back to the prologue() function to tweak it. At some point, it might get completely re-written. Depending on the direction the story takes. Added the tutorial() function which only covers the help command right now. It's better than nothing lol. I didn't feel as though it was necessary to cover inventory commands or movement commands. At least, not yet. I'll need to ask someone about this. It might be simple for me to use, but for someone who's never played a text adventure before, it might not be so intuitive.
 
 The prototype is getting closer to completion. I believe I have all of the primary functions created except for save_game() and load_game(). These I'll create once the first 3 puzzles rooms have been completed. I'm ballparking 10 puzzles rooms per chapter would be a good size for a game. With 10 chapters needed to complete the game. I'd like the save_game() and load_game functions to leave the player off at the last puzzle they were attempting to solve. Though, I might make some checkpoints.
 
@@ -147,7 +159,8 @@ We're getting into the territory of story writing now, and I can't say this is m
 3. Updated conditional if/else logic to include elif and else statements which were missing previously.
 4. Removed logic from prologue() and tutorial() functions and placed them in master control panel.
 
-**Thoughts:** We made a lot of updates today, and I have no idea if everything is written correctly. In fact, I expect a lot of bugs next session. We'll probably spend a good hour bug fixing all of the lists before moving on. However, The lists we added thanks to Lubos' suggestions will definitely improve the speed of writing the logic and the simplicity of understanding it down the road.
+**Thoughts:**
+We made a lot of updates today, and I have no idea if everything is written correctly. In fact, I expect a lot of bugs next session. We'll probably spend a good hour bug fixing all of the lists before moving on. However, The lists we added thanks to Lubos' suggestions will definitely improve the speed of writing the logic and the simplicity of understanding it down the road.
 
 ### Day 13: February 25th, 2022
 ##### Bug Fixes
@@ -159,7 +172,8 @@ We're getting into the territory of story writing now, and I can't say this is m
 4. Removed double error print when an invalid response is given to the prompt.
 5. Added clear_buffer() function.
 
-**Thoughts:** The more I work on this project, the more I realize just how much there is to do. Realistically, I want to have a prototype completed by day 30. Which, is likely still possible, but the project scope is starting to get quite large. I didn't realize just how much work goes into creating interactive fiction. I started doing more reserach on some of the commands many of these games would allow their users to make. It floored me just how many options there are and ways you can interact with the world.
+**Thoughts:**
+The more I work on this project, the more I realize just how much there is to do. Realistically, I want to have a prototype completed by day 30. Which, is likely still possible, but the project scope is starting to get quite large. I didn't realize just how much work goes into creating interactive fiction. I started doing more reserach on some of the commands many of these games would allow their users to make. It floored me just how many options there are and ways you can interact with the world.
 
 For that reason alone, it feelsl like puzzle rooms and chapters will take a great deal of time to make and craft. Especially if you want them to be challenging. There are a lot of features that these games have that seem basic. Or things you really should have in your game. It wouldn't be considered complete without. When I signed up for this project, I believed I could have a working fully functional interactive fiction game made within 100 days. Although now, this project feels like it could take up to a year to complete. Which is fine. I'm still going to see it through to its end.
 
@@ -175,7 +189,8 @@ Here's hoping.
 2. Wrote introduction to first puzzle.
 3. Researched threading.
 
-**Thoughts:** I encountered a problem while creating the first puzzle. The character falls into water and has a limited time to solve the puzzle before he dies. I wasn't sure how exactly to make this work so I started doing some research. It looks like what I might need will either be threading or multiprocessing.
+**Thoughts:**
+I encountered a problem while creating the first puzzle. The character falls into water and has a limited time to solve the puzzle before he dies. I wasn't sure how exactly to make this work so I started doing some research. It looks like what I might need will either be threading or multiprocessing.
 
 I spent the last half-hour learning about how threading works and if i'm not mistaken, multiprocessing might be what I need to make this happen.
 
@@ -192,7 +207,8 @@ This is a bit of an ambitious first puzzle, but it should set us on the right tr
 3. Researched ncurse library
 4. Worked on solving the oxygen problem.
 
-**Thoughts:** I'm stuck. I'm probably going to need an hour or two dedicated to solving this problem. Although I think I'm on the right track with threading. I'm pretty tired from competing in the CTF this weekend, so today wasn't my best work. But I worked on it nonetheless.
+**Thoughts:**
+I'm stuck. I'm probably going to need an hour or two dedicated to solving this problem. Although I think I'm on the right track with threading. I'm pretty tired from competing in the CTF this weekend, so today wasn't my best work. But I worked on it nonetheless.
 
 ### Day 16: February 28th, 2022
 ##### Oxygen Progress
@@ -201,7 +217,8 @@ This is a bit of an ambitious first puzzle, but it should set us on the right tr
 1. Made progress on the oxygen problem.
 2. Problem is now 80% solved.
 
-**Thoughts:** We're close. All that's left to do with this function is get the oxygen remaining to display, and somehow figure out how to allow the program to terminate while requesting user input. If we can do this, we're boolin.
+**Thoughts:**
+We're close. All that's left to do with this function is get the oxygen remaining to display, and somehow figure out how to allow the program to terminate while requesting user input. If we can do this, we're boolin.
 
 ### Day 17: March 1st, 2022
 ##### Oxygen Solved
@@ -210,7 +227,8 @@ This is a bit of an ambitious first puzzle, but it should set us on the right tr
 1. Worked with Austin L. Howard to solve the oxygen problem.
 2. Full credit to Austin for solving the problem. A big thank you to him.
 
-**Thoughts:** I'd like to say a big thank you to Austin L. Howard for helping me solve the oxygen problem. I was stuck for quite a few days and starting to feel quite discouraged about the project. It feels like I can start making solid progress again. Looking forward to writing out the puzzle solution and implimenting the movement commands soon.
+**Thoughts:**
+I'd like to say a big thank you to Austin L. Howard for helping me solve the oxygen problem. I was stuck for quite a few days and starting to feel quite discouraged about the project. It feels like I can start making solid progress again. Looking forward to writing out the puzzle solution and implimenting the movement commands soon.
 
 ### Day 18: March 2nd, 2022
 ##### Writing the First Puzzle
@@ -220,7 +238,8 @@ This is a bit of an ambitious first puzzle, but it should set us on the right tr
 2. Resolved additional ">" symbol printing upon exit of loop.
 3. Wrote the water puzzle.
 
-**Thoughts:** Today was successful and productive. The first puzzle is almost complete. There are a lot of features to add with the input parsing. I need to come up with a solid system for using commands with items in the user's inventory. However, we're off to a great start. Looking forward to making more puzzles like this one.
+**Thoughts:**
+Today was successful and productive. The first puzzle is almost complete. There are a lot of features to add with the input parsing. I need to come up with a solid system for using commands with items in the user's inventory. However, we're off to a great start. Looking forward to making more puzzles like this one.
 
 ### Day 19: March 3rd, 2022
 ##### Bug Fixes
@@ -228,7 +247,8 @@ This is a bit of an ambitious first puzzle, but it should set us on the right tr
 **Today's Progress:**
 1. Fixed scrambled output bug causing two print statements to overlap.
 
-**Thoughts:** Bug fixes today. There is a problem with the question thread not ending after completing the oxygen puzzle. We'll need to figure out how to properly close the thread before moving on. Force quitting the thread sounds like it's a bad programming practice.
+**Thoughts:**
+Bug fixes today. There is a problem with the question thread not ending after completing the oxygen puzzle. We'll need to figure out how to properly close the thread before moving on. Force quitting the thread sounds like it's a bad programming practice.
 
 ### Day 20: March 4th, 2022
 ##### Bug Fixes With a Side of: New Bugs to Fix
@@ -239,7 +259,8 @@ This is a bit of an ambitious first puzzle, but it should set us on the right tr
 3. Enabled threads to run properly.
 4. Added a feature to rewrite over the "> " on input() call when doing a timer based delay_print() statement
 
-**Thoughts:** 20 Days! We're going strong. I've got a few more bugs to fix with the threads. They're a bit tricky to wrap your head around at first, but we're making headway.
+**Thoughts:**
+20 Days! We're going strong. I've got a few more bugs to fix with the threads. They're a bit tricky to wrap your head around at first, but we're making headway.
 
 ### Day 21: March 5th, 2022
 ##### Preparing Actionable Commands
@@ -249,7 +270,8 @@ This is a bit of an ambitious first puzzle, but it should set us on the right tr
 2. Added a resources page to keep track of important links and references.
 3. Added descriptive text for the first puzzle room.
 
-**Thoughts:** The bug causing the swim up command to break is now magically working again. You love to see it. Couldn't tell you why either. The program is getting long enough now that I start getting lost in the sauce. I'm unsure how to handle movement in the game.
+**Thoughts:**
+The bug causing the swim up command to break is now magically working again. You love to see it. Couldn't tell you why either. The program is getting long enough now that I start getting lost in the sauce. I'm unsure how to handle movement in the game.
 
 ### Day 22: March 6th, 2022
 ##### Building Help
@@ -259,7 +281,8 @@ This is a bit of an ambitious first puzzle, but it should set us on the right tr
 2. Added short_hand_commands() help menu.
 3. Added movement types for latter parsing by user_input()
 
-**Thoughts:** Days are starting to blend together. There is also way too many global variables. I'm not sure if I can move them yet, but I might be able to.
+**Thoughts:** 
+Days are starting to blend together. There is also way too many global variables. I'm not sure if I can move them yet, but I might be able to.
 
 ### Day 23: March 7th, 2022
 ##### Input Parsing
@@ -267,7 +290,8 @@ This is a bit of an ambitious first puzzle, but it should set us on the right tr
 **Today's Progress:**
 1. Working on user_input() to parse directional movement
 
-**Thoughts:** I'm struggling to read through my code. It's getting long. I need a better way to sort all of the functions. Input parsing is far more difficult than I thought it would be. I haven't got a great idea/gameplan in my head how I will do it yet. Need more time to get everything running smoothly.
+**Thoughts:**
+I'm struggling to read through my code. It's getting long. I need a better way to sort all of the functions. Input parsing is far more difficult than I thought it would be. I haven't got a great idea/gameplan in my head how I will do it yet. Need more time to get everything running smoothly.
 
 ### Day 24: March 8th, 2022
 ##### Researching Classes
@@ -290,10 +314,24 @@ Worked on researching classes today. Will look into implimenting them into the u
 I need to get more comfortable with reading through my code. The file is pretty large and it's easy to get lost. I dedicated today to working on the readibilty and editing the comments so they all made sense.
 
 ### Day 26: March 10th, 2022
-##### 
+##### Command Parsing
 
 **Today's Progress:**
 1. Created direction_sort() function for parsing string content from user_input()
-2. 
 
 **Thoughts:**
+Created the direction_sort() function. It is not done yet. Need to work on error handling.
+Considering removing the ability to move left/right/forward/backwards and keep it to north/south/east/west. This might make it easier to visualize where the character is. I haven't decided yet. It might make more sense to keep both, and use whatever the users feels is the correct command in the moment.
+
+Say perhaps they're scaling a wall. You wouldn't really want to use east/west to move left and right along the wall. It would work, but it wouldn't make as much sense as saying climb left or climb right.
+
+Moving backwards is tricky. Since it would make more sense to say move south.
+
+### Day 27: March 11th, 2022
+##### 
+
+**Today's Progress:**
+1. Worked on directional input parsing
+
+**Thoughts:**
+Nested for loops get pretty wild. Working on geting the directional input parsing to work. There is currently a bug that prints all lines from the direction to the error console. Need to adjust the program so it only prints the error that the player entered incorrectly.

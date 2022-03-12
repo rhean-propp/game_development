@@ -21,28 +21,6 @@ def delay_print(string):                        # Prints strings character by ch
             sleep(0.3)                          # Pause for a random time between 0.3 and 0.5 seconds
         sys.stdout.flush()                      # Flush the character from stdout.
         sleep(random.uniform(0.02, 0.07))       # Adjusts overall typing speed.
-    
-def direction_sort(direction_type, buffer):
-    for up in input_up:
-        if up in buffer:
-            buffer = "swim up"
-        for down in input_down:
-            if down in buffer:
-                buffer = "swim down"
-        for forward in input_forward:
-            if forward in buffer:
-                buffer = "swim forward"
-        for backward in input_backward:
-            if backward in buffer:
-                buffer = "swim backwards"
-        for left in input_left:
-            if left in buffer:
-                buffer = "swim left"
-        for right in input_right:
-            if right in buffer:
-                buffer = "swim forward
-    return buffer
-    
 
 # =================== #
 # Help Menu Functions #
