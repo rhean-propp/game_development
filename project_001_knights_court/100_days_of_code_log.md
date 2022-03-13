@@ -328,10 +328,21 @@ Say perhaps they're scaling a wall. You wouldn't really want to use east/west to
 Moving backwards is tricky. Since it would make more sense to say move south.
 
 ### Day 27: March 11th, 2022
-##### 
+##### Direction Input Parsing 
 
 **Today's Progress:**
 1. Worked on directional input parsing
 
 **Thoughts:**
 Nested for loops get pretty wild. Working on geting the directional input parsing to work. There is currently a bug that prints all lines from the direction to the error console. Need to adjust the program so it only prints the error that the player entered incorrectly.
+
+### Day 28: March 12th, 2022
+##### Direction Sort
+
+**Today's Progress:**
+1. Made headway on direction_sort()
+
+**Thoughts:**
+The function, direction_sort() needs a way to properly parse the buffer string before letting it run through the rest of the function. Currently it takes the buffer and splits it.
+"climb up" becomes "climb", "up" and "hello climb forward" becomes "hello", "climb", "forward"
+This could be a problem later on. Best sanitize the input now so it doesn't become a game breaking bug later on.

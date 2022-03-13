@@ -174,92 +174,42 @@ def user_input():           # Primary Parser. Returns sanitized input.
 
 def direction_sort(buffer):
     
+    # Only call this function if the buffer variable has been verified as a legitimate command.
+    # There is no verification that commands are authentic. User can input "hello climb up" and it will break this function
+    # Alternatively, don't split the buffer.
+    # Find solution
+    
     command = buffer.split(' ')
     direction_type = command[0]
     direction = command[1] 
-    '''
-    # Upwards Movement
-    for up in input_up:
-        for walk in input_walk:
-            if walk in buffer:
-                delay_print("You cannot {0} {1}.\n".format(walk, up))
-        for run in input_run:
-            if run in buffer:
-                delay_print("You cannot {0} {1}.\n".format(run, up))
-        if up in buffer:
-            buffer = "{0} up".format(direction_type)
     
-    # Downwards Movement
-    for down in input_down:
-        for walk in input_walk:
-            if walk in buffer:
-                delay_print("You cannot {0} {1}.\n".format(walk, down))
-        for run in input_run:
-            if run in buffer:
-                delay_print("You cannot {0} {1}.\n".format(run, down))
-        if down in buffer:
-            buffer = "{0} down".format(direction_type)
+    # Walking
+    if direction_type in input_walk:
+        if direction in input_up:
+            delay_print("You cannot {0} {1}.\n".format(direction_type, direction))
+        elif direction in input_down:
+            delay_print("You cannot {0} {1}.\n".format(direction_type, direction))
+        else:
+            return "{0} {1}".format(direction_type, direction)
     
-    # Forwards / North Movement
-    for forward in input_forward:       # Iterate through forward_input
-        for climb in input_climb:       # Iterate through climb_input
-            #print(climb)
-            #print(forward)
-            if climb in buffer and forward in buffer:     
-                #print(climb)
-                #print(forward)    
-                delay_print("You cannot {0} {1}.\n".format(climb, forward))
-                
-        if forward in buffer:
-            buffer = "{0} forward".format(direction_type)
-    
-    # Backwards / South Movement
-    for backward in input_backward:
-        for climb in input_climb:
-            if climb in buffer and backward in buffer:
-                delay_print("You cannot {0} {1}.\n".format(climb, backward))
-        if backward in buffer:
-            buffer = "{0} backward".format(direction_type)
-    
-    # Left / Westwards Movement
-    for left in input_left:
-        if left in buffer:
-            buffer = "{0} left".format(direction_type)
-    
-    # Right / Eastwards Movement
-    for right in input_right:
-        if right in buffer:
-            buffer = "{0} right".format(direction_type)
-    
-    '''
-    flag = False
-    for climb in input_climb:
-        for forward in input_forward:
-            if forward in buffer and flag == False:
-                delay_print("You cannot {0} {1}.\n".format(climb, forward))
-                flag = True
-            if forward in buffer:
-                buffer = "{0} forward".format(direction_type)
-        for backward in input_backward:
-            if backward in buffer:
-                delay_print("You cannot {0} {1}.\n".format(climb, backward))
+    # Running
+    if direction_type in input_run:
+        if direction in input_up:
+            delay_print("You cannot {0} {1}.\n".format(direction_type, direction))
+        elif direction in input_down:
+            delay_print("You cannot {0} {1}.\n".format(direction_type, direction))
+        else:
+            return "{0} {1}".format(direction_type, direction)d
+
+    # Climbing
+    if direction_type in input_climb:
+        if direction in input_forward:
+            delay_print("You cannot {0} {1}.\n".format(direction_type, direction))
+        elif direction in input_backward:
+            delay_print("You cannot {0} {1}.\n".format(direction_type, direction))
+        else:
+            return "{0} {1}".format(direction_type, direction)
             
-                
-    '''
-    for forward in input_forward:       # Iterate through forward_input
-        for climb in input_climb:       # Iterate through climb_input
-            print(climb)
-            print(forward)
-            if climb in buffer and forward in buffer:     
-                #print(climb)
-                #print(forward)    
-                delay_print("You cannot {0} {1}.\n".format(climb, forward))
-                
-        if forward in buffer:
-            buffer = "{0} forward".format(direction_type)
-    '''
-                
-    print(buffer)
     return buffer
 
 def start_game():           # Prompt user to start game.
