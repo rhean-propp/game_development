@@ -37,11 +37,11 @@ input_up = ["up", "upward", "upwards", "u"]
 input_down = ["down", "downward", "downwards", "d"]
 
 # Movement Types | user_input()
-input_jump = ["jump", "hop", "leap", "vault"]
-input_run = ["run", "dash", "sprint"]
-input_walk = ["walk", "step"]
-input_climb = ["climb"]
 input_swim = ["swim"]
+input_climb = ["climb"]
+input_walk = ["walk", "step"]
+input_run = ["run", "dash", "sprint"]
+input_jump = ["jump", "hop", "leap", "vault"]
 
 # Universal commands | user_input()
 input_inventory = ["inventory", "inv", "i"]
@@ -125,54 +125,10 @@ def user_input():           # Primary Parser. Returns sanitized input.
     # Undefined Response
     else:
         delay_print('\nThis is not a valid input. Type "help" or "h" if you are stuck.\n')
-        
-    # Directional Movement | Swimming
-    for swim in input_swim:
-        if swim in buffer:          
-            for up in input_up:
-                if up in buffer:
-                    buffer = "swim up"
-            for down in input_down:
-                if down in buffer:
-                    buffer = "swim down"
-            for forward in input_forward:
-                if forward in buffer:
-                    buffer = "swim forward"
-            for backward in input_backward:
-                if backward in buffer:
-                    buffer = "swim backwards"
-            for left in input_left:
-                if left in buffer:
-                    buffer = "swim left"
-            for right in input_right:
-                if right in buffer:
-                    buffer = "swim forward"
-        return buffer
     
     return buffer
-    '''
-    # This can be used as its own seperate function.
-            for up in input_up:
-                if up in buffer:
-                    buffer = "swim up"
-            for down in input_down:
-                if down in buffer:
-                    buffer = "swim down"
-            for forward in input_forward:
-                if forward in buffer:
-                    buffer = "swim forward"
-            for backward in input_backward:
-                if backward in buffer:
-                    buffer = "swim backwards"
-            for left in input_left:
-                if left in buffer:
-                    buffer = "swim left"
-            for right in input_right:
-                if right in buffer:
-                    buffer = "swim forward"
-    '''
 
-def direction_sort(buffer):
+def direction_sort(buffer): # Ensures Player Cannot Move Invalidly
     
     # Only call this function if the buffer variable has been verified as a legitimate command.
     # There is no verification that commands are authentic. User can input "hello climb up" and it will break this function
@@ -180,35 +136,35 @@ def direction_sort(buffer):
     # Find solution
     
     command = buffer.split(' ')
-    direction_type = command[0]
+    movement_type = command[0]
     direction = command[1] 
     
     # Walking
-    if direction_type in input_walk:
+    if movement_type in input_walk:
         if direction in input_up:
-            delay_print("You cannot {0} {1}.\n".format(direction_type, direction))
+            delay_print(f"You cannot {movement_type} {direction}.\n")
         elif direction in input_down:
-            delay_print("You cannot {0} {1}.\n".format(direction_type, direction))
+            delay_print(f"You cannot {movement_type} {direction}.\n")
         else:
-            return "{0} {1}".format(direction_type, direction)
+            return f"{movement_type} {direction}"
     
     # Running
-    if direction_type in input_run:
+    if movement_type in input_run:
         if direction in input_up:
-            delay_print("You cannot {0} {1}.\n".format(direction_type, direction))
+            delay_print(f"You cannot {movement_type} {direction}.\n")
         elif direction in input_down:
-            delay_print("You cannot {0} {1}.\n".format(direction_type, direction))
+            delay_print(f"You cannot {movement_type} {direction}.\n")
         else:
-            return "{0} {1}".format(direction_type, direction)d
+            return f"{movement_type} {direction}"
 
     # Climbing
-    if direction_type in input_climb:
+    if movement_type in input_climb:
         if direction in input_forward:
-            delay_print("You cannot {0} {1}.\n".format(direction_type, direction))
+            delay_print(f"You cannot {movement_type} {direction}.\n")
         elif direction in input_backward:
-            delay_print("You cannot {0} {1}.\n".format(direction_type, direction))
+            delay_print(f"You cannot {movement_type} {direction}.\n")
         else:
-            return "{0} {1}".format(direction_type, direction)
+            return f"{movement_type} {direction}"
             
     return buffer
 
@@ -328,7 +284,7 @@ def get_name():             # Gets Name of User
         
         # Check if User Entered Name Correctly:
         if valid_name == 1:
-            delay_print(f"\nYou entered: {user_name} \n\nIs this correct?\n".format(user_name))
+            delay_print(f"\nYou entered: {user_name} \n\nIs this correct?\n")
             input_buffer = user_input()
             if input_buffer in input_negative:
                 valid_name = 0
@@ -339,8 +295,8 @@ def get_name():             # Gets Name of User
                 valid_name = 0
                 
     # Create Inventory File Based on Player's Name:
-    inventory_file = f"{user_name}_inventory".format(user_name).lower()                         # Save inventory file name as <user_name>_inventory
-    delay_print(f"\nUnderstood, {user_name}.\nYour adventure awaits.\n\n".format(user_name))
+    inventory_file = f"{user_name.lower()}_inventory"                        # Save inventory file name as <user_name>_inventory
+    delay_print(f"\nUnderstood, {user_name}.\nYour adventure awaits.\n\n")
     
 def tutorial():             # Tutorial for Player
     delay_print("\nWelcome to <insert_game_name_here>. This is a text adventure.\n")
@@ -491,16 +447,17 @@ def prologue():
     delay_print("He raises his hands into the sky, as dark clouds begin to form.\n")
     delay_print("The gaze of the Enidra pierces into your soul.\n")
     delay_print("As you look up, you can see the somber faces of the choir.\n")
-    delay_print(f'"{user_name}, your crimes are now forgiven."\n'.format(user_name))
+    delay_print(f'"{user_name}, your crimes are now forgiven."\n')
     delay_print("The priest thrusts his hands downwards.\n")
     delay_print("The ground shakes as howls of lost souls wail from the abyss below.\n")
-    delay_print(f'"May the Enidra have mercy on our souls."\n'.format(user_name))
+    delay_print(f'"May the Enidra have mercy on our souls."\n')
     delay_print("You feel the hand of your friend, Yuri, rest his hand on your shoulder.\n")
     delay_print("At the next moment, you watch you are pushed into the abyss below.\n")
-    
+
+'''
 def chapter_01():
     global input_buffer
-    '''
+    
     delay_print("\nThe air rushes past your face with fierce velocity.\n")
     delay_print("Weightless, as you plummet, your life flashing before your eyes.\n")
     delay_print("You await death's arrival.\n")
@@ -509,7 +466,7 @@ def chapter_01():
     delay_print("You are about to drown.\n")
     delay_print("What do you do?\n")
     input_buffer = user_input()
-    '''
+    
     
     # Oxygen Puzzle | Credit to Austin L. Howard for the solution.
     question_thread = Thread(target=question)           # Associate question() function with thread.
@@ -518,6 +475,27 @@ def chapter_01():
     countdown_thread.start()                            # Start oxygen countdown
     question_thread.start()                             # Prompt user until oxygen countdown ends.
     countdown_thread.join()                             # Waits for countdown_thread to finish before proceeding in chapter_01()
+    
+    delay_print('\nWith little air left to spare, you swim to the surface.\nYou take a gasp of air as you begin to take in your surroundings.\n')
+    delay_print("\nPillars of blackstone rise 60ft to the celing of this grand grotto.\n")
+    delay_print("Looking upwards through the brick layed shaft, you can see the small dot of light from the top of the crater.\n")
+    delay_print("You tread water in a pool with a diamater of no more than 50ft.\n")
+    delay_print("On each of the four sides of the pool, there are statues of two claw formed hands stretched upwards.\n")
+    delay_print("The grotto is too dark to see much of anything else.\n")
+'''
+    
+# Chapter 01 Refactoring Into a Class
+
+class chapter_01:
+    def __init__(self):
+        pass
+    
+    # Define Countdown
+    
+    # Define Question
+    
+    # How does the player move through rooms?
+        # Do we need room objects?
 
 # ============================================================================================================================================
 
@@ -565,13 +543,6 @@ while input_buffer not in input_negative and input_buffer not in input_positive:
         continue
 
 chapter_01()
-
-delay_print('\nWith little air left to spare, you swim to the surface.\nYou take a gasp of air as you begin to take in your surroundings.\n')
-delay_print("\nPillars of blackstone rise 60ft to the celing of this grand grotto.\n")
-delay_print("Looking upwards through the brick layed shaft, you can see the small dot of light from the top of the crater.\n")
-delay_print("You tread water in a pool with a diamater of no more than 50ft.\n")
-delay_print("On each of the four sides of the pool, there are statues of two claw formed hands stretched upwards.\n")
-delay_print("The grotto is too dark to see much of anything else.\n")
 '''
 
 delay_print("Insert Movement Type and direction: ")

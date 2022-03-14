@@ -346,3 +346,18 @@ Nested for loops get pretty wild. Working on geting the directional input parsin
 The function, direction_sort() needs a way to properly parse the buffer string before letting it run through the rest of the function. Currently it takes the buffer and splits it.
 "climb up" becomes "climb", "up" and "hello climb forward" becomes "hello", "climb", "forward"
 This could be a problem later on. Best sanitize the input now so it doesn't become a game breaking bug later on.
+
+### Day 29: March 13th, 2022
+##### Planning & Organizing
+
+**Today's Progress:**
+1. Updated format strings to be compliant with python 3.10
+2. Removed unecessry code.
+3. Started refactoring chapter_01 into a class.
+
+**Thoughts:**
+Didn't complete a lot today. Tidied up some code. I'm taking a guess that the chapter_01 function needs to be a class. If we refactor it, we can call the question and countdown_timer threads within it. Then the player can still move around in the room. Parts of the room or the room itself could be an object. I need to figure out how to make the oxygen puzzle run once, then not run again.
+
+As far as user_input() goes, we have for the most part finished the direction_sort function. The user_input fucntion might also work best as a class. Putting the direction_sort() function into the class as a callable method might be a good way of handling the input parsing.
+
+I haven't been giving the project as much attention as I'd like to. 100 Days of Code is no joke. Though we're going to see it through. I often get lost in my own code and unsure where to keep progressing to get the prototype done. But it'll come in time.

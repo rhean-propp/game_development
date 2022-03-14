@@ -22,9 +22,9 @@ def save_inv(inventory_file):                   # Updates user_inventory | Pickl
 def load_inv(inventory_file, user_name):                        # Loads user_inventory & prints to screen.
     infile = open(inventory_file, 'rb')                         # Open binary file
     inv_dict = pickle.load(infile)                              # Load dictionary
-    print(f"{user_name}'s Inventory:\n".format(user_name))      # Prints <user_name>'s Inventory Title
+    print(f"{user_name}'s Inventory:\n")                        # Prints <user_name>'s Inventory Title
     for key, value in inv_dict.items():                         # Iterate through dictionary.
-        print(f"\t{value} | {key}".format(value, key))          # Print value and key.c
+        print(f"\t{value} | {key}")                             # Print value and key.c
     print("")                                                   # Print newline.
     infile.close()                                              # Close file
     
