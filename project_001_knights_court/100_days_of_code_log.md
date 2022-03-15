@@ -361,3 +361,23 @@ Didn't complete a lot today. Tidied up some code. I'm taking a guess that the ch
 As far as user_input() goes, we have for the most part finished the direction_sort function. The user_input fucntion might also work best as a class. Putting the direction_sort() function into the class as a callable method might be a good way of handling the input parsing.
 
 I haven't been giving the project as much attention as I'd like to. 100 Days of Code is no joke. Though we're going to see it through. I often get lost in my own code and unsure where to keep progressing to get the prototype done. But it'll come in time.
+
+### Day 30: March 14th, 2022
+##### Code Review & Function Integration
+
+**Today's Progress:**
+1. Reviewing Code
+2. Working on integrating direction_sort() into user_input()
+
+**Thoughts:**
+Tried making chapter_01 into a class, but i'm unsure how it's going to work. I was thinking you could have different funtions within the class that would be rooms. But the problem is the initialize method will always be called each time the class is called. And if I have the oxygen puzzle in there, it will get called multiple times, which shouldn't happen. I'm not sure what to do.
+
+Spent quite a bit more time on the program today than I normally do. I've noticed 1 hour isn't always enough time to really get into the meat of the problems. I might switch to doing 2 hours a day on the weekends to cover some of the harder problems more effecitvely.
+
+I'm a bit bummed out that I don't have the prototype finished yet. I was expecting i'd be pretty close by day 30. But no. On our current rate of progress, we're aiming to have the prototype complete by day 100. Which is fine. Once I have the major commands writen for allowing the player to move around the world, writing the story and puzzles will go faster.
+
+There are some functions like save_game() and interactable commands such as examine that need to be figured out. There are a large number of intereactable commands to create. But I will likely be adding them as we build the puzzles.
+
+Realistically, if I want to finish this game and see it to the full end which I would expect would be roughly around 10 chapters | 100 puzzles, it will be a year. It could be longer depending on how in-depth we go. I really want to finish this project though. We're doing good. Get stuck occasionally, but I just want to get this completed. We might just end up doing 365 Days of code instead of just 100 lol.
+
+I'm buying myself a nice scotch after I finish this project.

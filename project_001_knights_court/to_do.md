@@ -11,7 +11,8 @@
 8. Refactor chapter_01() into a class.
 
 ### Bugs
-1. Resolve "." not displaying after a print. Character cursor overlap bug.
+1. [BUG] Resolve "." not displaying after a print. Character cursor overlap bug.
+2. [BUG] direction_sort is not correctly being called. Conditional logic is broken.
 
 ### Puzzle Plans
 1. Cryptographic note. | Reference ram journal

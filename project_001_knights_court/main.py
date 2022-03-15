@@ -42,6 +42,7 @@ input_climb = ["climb"]
 input_walk = ["walk", "step"]
 input_run = ["run", "dash", "sprint"]
 input_jump = ["jump", "hop", "leap", "vault"]
+input_move = ["swim", "climb", "walk", "step", "run", "dash", "sprint", "jump", "hop", "leap", "vault"]
 
 # Universal commands | user_input()
 input_inventory = ["inventory", "inv", "i"]
@@ -69,36 +70,41 @@ def clear_buffer():         # Clears the input_buffer global variable.
 def user_input():           # Primary Parser. Returns sanitized input.
     
     # Get User Input | Lowercase | Store
-    buffer = input("> ").lower()                       
+    buffer = input("> ").lower()               
     
-    # --------------------------------------- #
-    # Check if User Entered a System Command: #
-    # --------------------------------------- #
+    # ======================================================== #
+    # Directional Movement Commands
+    # ======================================================== #
+    
+    #for movement_type in input_move:
+    #    if movement_type in buffer:
+    #        buffer = direction_sort(buffer)
+    #        return buffer
+    
+    # ======================================================== #
+    # Help Menu Commands
+    # ======================================================== #
     
     # Help Commands
     if buffer in input_help:                             
         buffer = "help"
-        help()          
+        help()                  # See functions.py
     
     # Move Command List
     elif buffer in input_move:          
         buffer = "move"
-        move_player()
+        move_player()           # See functions.py
     
     # Shorthand Command List
     elif buffer in input_shorthand:     
         buffer = "shorthand"
-        short_hand_commands()
+        short_hand_commands()   # See functions.py
+        
+    # ======================================================== #
+    # System Commands
+    # ======================================================== #                                    
     
-    # List Player Inventory
-    elif buffer in input_inventory:
-        if inventory_file == "":
-            delay_print("\nThe inventory cannot be loaded until you create your character.\n")
-        else:
-            buffer = "inventory"                                                    
-            load_inv(inventory_file, user_name)                                     
-    
-    # Save Player's Game | Unfinished
+    # Save Player's Game | data_serialization.py | Unfinished
     elif buffer in input_save:  
         if inventory_file == "":
             delay_print("\nThe inventory cannot be saved until you create your character.\n")
@@ -106,6 +112,10 @@ def user_input():           # Primary Parser. Returns sanitized input.
             buffer = "save"                    
             save_inv()                         
             #add save game
+            
+    # ======================================================== #
+    # Polar Response Commands
+    # ======================================================== #
     
     # Yes | Positive Response
     elif buffer in input_positive:      
@@ -118,9 +128,49 @@ def user_input():           # Primary Parser. Returns sanitized input.
     # Maybe | Uncertain Response
     elif buffer in input_undecided:     
         buffer = "perhaps"  
-    # Item Use
-    elif "use" in buffer:               # Use
+        
+    # ======================================================== #
+    # Player/World Interaction Commands
+    # ======================================================== #
+    
+    # List Player Inventory
+    elif buffer in input_inventory:
+        if inventory_file == "":
+            delay_print("\nThe inventory cannot be loaded until you create your character.\n")
+        else:
+            buffer = "inventory"                                                    
+            load_inv(inventory_file, user_name)
+    
+    # Item Use | Unfinished
+    elif "use" in buffer:               
         return buffer
+    
+    # ======================================================== #
+    # Directional Movement Commands
+    # ======================================================== #
+    
+    # Unsolved Problem:
+    
+    # If movement type (walk, run, etc) in buffer:
+        # call direction_sort(buffer)
+    
+    # Attempted Solutions:
+    
+    # for movement_type in input_move:
+        # if movement_type in buffer:
+            # direction_sort(buffer)
+    
+    # Can't use if buffer in movement_type.
+    # buffer can be "swim up" or "climb down".
+    # The direction after the movement type breaks this check.
+    
+    # elif any(movement_command in input_move for movement_command in input_move):
+    #    buffer = direction_sort(buffer)
+    #   This always validates to true.
+    
+    # ======================================================== #
+    # Invalid Input
+    # ======================================================== #
     
     # Undefined Response
     else:
@@ -135,10 +185,53 @@ def direction_sort(buffer): # Ensures Player Cannot Move Invalidly
     # Alternatively, don't split the buffer.
     # Find solution
     
+    # What if I grab just climb and I grab just forward?
+    # Then I would eliminate any other values.
+    # Then create a new variable with those two mashed together.
+    # But if I do that, do I even need the stuff below?
+    # Or does it just need to be reworked?
+    
+    # Old Parsing Method:
     command = buffer.split(' ')
     movement_type = command[0]
     direction = command[1] 
     
+    # Define Movement Type:
+    #if any(movement_command in input_walk for movement_command in input_move):
+        
+    
+    # Define Movement Type: | Invalid Logic
+    """
+    if input_walk in buffer:
+        movement_type = "walk"
+    elif input_run in buffer:
+        movement_type = "run"
+    elif input_climb in buffer:
+        movement_type = "climb"
+    elif input_swim in buffer:
+        movement_type = "swim"
+    elif input_jump in buffer:
+        movement_type = "jump"
+    else:
+        delay_print("Error: No movement type provided to direction_sort()\n")
+    
+    # Define Direction: | Invalid Logic
+    
+    if input_up in buffer:
+        direction = "up"
+    elif input_down in buffer:
+        direction = "down"
+    elif input_forward in buffer:
+        direction = "forward"
+    elif input_backward in buffer:
+        direction = "backward"
+    elif input_left in buffer:
+        direction = "left"
+    elif input_right in buffer:
+        direction = "right"
+    else:
+        delay_print("Error: No direction provided to direction_sort()\n")
+    """
     # Walking
     if movement_type in input_walk:
         if direction in input_up:
@@ -149,7 +242,7 @@ def direction_sort(buffer): # Ensures Player Cannot Move Invalidly
             return f"{movement_type} {direction}"
     
     # Running
-    if movement_type in input_run:
+    elif movement_type in input_run:
         if direction in input_up:
             delay_print(f"You cannot {movement_type} {direction}.\n")
         elif direction in input_down:
@@ -158,7 +251,7 @@ def direction_sort(buffer): # Ensures Player Cannot Move Invalidly
             return f"{movement_type} {direction}"
 
     # Climbing
-    if movement_type in input_climb:
+    elif movement_type in input_climb:
         if direction in input_forward:
             delay_print(f"You cannot {movement_type} {direction}.\n")
         elif direction in input_backward:
@@ -166,7 +259,9 @@ def direction_sort(buffer): # Ensures Player Cannot Move Invalidly
         else:
             return f"{movement_type} {direction}"
             
-    return buffer
+    else:
+        print(f"Movement type: {movement_type}")
+        return buffer
 
 def start_game():           # Prompt user to start game.
     
@@ -485,18 +580,103 @@ def chapter_01():
 '''
     
 # Chapter 01 Refactoring Into a Class
-
+"""
 class chapter_01:
     def __init__(self):
         pass
+        
+    def countdown_event():  # Used for oxygen_puzzle()
+        global countdown_running
+        
+        # Loop Until: 60 Seconds Have Passed
+        for i in range(60, 0, -1):          # Count for 10 seconds.
+            
+            # If Player is Correct:
+            if exit_event is True:          # If user is correct.
+                break                       # Break out of loop. Resume function.
+            
+            oxygen_remaining[0] = i         # Stores current countdown value.
+            for i in range(10):             # 0.1 * 10 iterations = 1 second sleep
+                sleep(0.1)                  # Sleep 1/10th of a second.
+                
+                # If Player is Correct:
+                if exit_event is True:      # Check if the exit_event is set every 1/10th of a second.
+                    break                   # If exit is set, break out of loop, resume function.
+        
+        # If Player Succeeded:
+        if oxygen_remaining[0] > 1:         # If user suceeded with oxygen remaining:
+            countdown_running = False
+            return                          # Return back to chapter_01()
+        
+        # If Player Failed:
+        else:                               # If user failed: 
+            countdown_running = False
+            print("\b\b\r", end="")
+            delay_print("As you struggle to make your way out of the water, your chest gives weigh.\nYou open your mouth, gasping for air, as water rushes into your lungs.\nYou have perished. Game over.\n") 
+            sys.exit()
+   
+    def question():         # Used for oxygen_puzzle()
+        
+        global input_buffer                 
+        global exit_event                   # Used to define when to stop
+        global countdown_running            # Used as a stop flag for question_thread
+        
+        player_restrained = True            # Checks if the player is still in shackles
+        clear_buffer()
+        
+        # Loop For: 60 Second Countdown
+        while countdown_running == True:                                     # Indefinitely Loop
+            
+            # If Player has not Solved Puzzle Yet:
+            if exit_event is False:                     
+                delay_print("You are drowning. What do you do?\n")
+                input_buffer = user_input()             
+            
+            # If Near Correct Answer:
+            if input_buffer == "use key" or input_buffer == "use key on shackles":                
+                delay_print("\nuse <what object?> on <what object?>\n")
+                continue
+            
+            # If Correct Answer:
+            elif "use rusty key on shackles" in input_buffer:
+                player_restrained = False
+                delay_print("\nAs you feel in your pocket, you find a rusty key.\nYou twist the key into the lock.\nThe key snaps as the lock releases.\nKicking your feet, you knock off the chains that bound you.\n")
+            
+            # If Player Restrained:
+            elif "swim" in input_buffer and player_restrained == True:
+                delay_print("\nYou attempt to kick your feet, but you are still bound by the shackles that hold you.\nYou make no progress.\n")
+            
+            # If Player Unrestrained:
+            elif player_restrained == False and input_swim in input_buffer: # If the player is not bound by the shackles and tries to swim:
+                
+                # If Correct Answer:
+                if input_buffer == "swim up": # If input_buffer == "swim up"
+                    exit_event = True                       # Sets Exit Event for countdown_event() | Marker for correct answer
+                
+                # If Movement Down:
+                elif input_buffer == "swim down":
+                    delay_print("\nThe darkness grows as the faint light above you begins to dim.\n")
+                
+                # If movement Left, Right, Forward, Backward:
+                else:
+                    delay_print("\nYour hands press up against a cold stone wall. Moss and algae fill the cracks and crevasis of the black-stone bricks.\n")
+            
+            # If System Command Called:
+            elif input_buffer in input_help or input_buffer in input_inventory:     # If help or inv are called:
+                continue                                                            # Print normally
+            
+            # If invalid input:
+            else:                                                                   # Catch all | If incorrect answer:
+                continue                                                            # Error handling is passed to user_input() for wrong answers
     
-    # Define Countdown
-    
-    # Define Question
-    
-    # How does the player move through rooms?
-        # Do we need room objects?
-
+    def oxygen_puzzle():
+        question_thread = Thread(target=question)           # Associate question() function with thread.
+        question_thread.daemon = True
+        countdown_thread = Thread(target=countdown_event)   # Associate countdown_event() function with thread.
+        countdown_thread.start()                            # Start oxygen countdown
+        question_thread.start()                             # Prompt user until oxygen countdown ends.
+        countdown_thread.join()                             # Waits for countdown_thread to finish before proceeding in chapter_01()
+"""
 # ============================================================================================================================================
 
 
@@ -545,10 +725,11 @@ while input_buffer not in input_negative and input_buffer not in input_positive:
 chapter_01()
 '''
 
-delay_print("Insert Movement Type and direction: ")
-direction_command = input()
+delay_print("Insert Movement Type and direction:\n")
+direction_command = user_input()
 
-direction_sort(direction_command)
+print(direction_command)
+#direction_sort(direction_command)
 
 #create_inv(user_name, inventory_file)       # Creates <user_name>_inventory file | Adds Crumpled Note
 #add_inv_item("Sword", 1)                    # Adds <item>,<quantity> to inventory_file
