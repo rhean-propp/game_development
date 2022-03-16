@@ -381,3 +381,13 @@ There are some functions like save_game() and interactable commands such as exam
 Realistically, if I want to finish this game and see it to the full end which I would expect would be roughly around 10 chapters | 100 puzzles, it will be a year. It could be longer depending on how in-depth we go. I really want to finish this project though. We're doing good. Get stuck occasionally, but I just want to get this completed. We might just end up doing 365 Days of code instead of just 100 lol.
 
 I'm buying myself a nice scotch after I finish this project.
+
+### Day 31: March 15th, 2022
+##### Directional Movement Parsing is Completed!
+
+**Today's Progress:**
+1. Renamed direction_sort() to movement_check()
+2. Correctly integrated movement_check() into user_input()
+
+**Thoughts:**
+Huzzah! We finally had a breakthrough. I am now correctly parsing directional movement commands. There is error handling for the player so if they try to type an invalid command, the game will inform them that what they tried doesn't work. This took 3 days to solve and it feels good. That is one massive roadblock out of the way. I can probably start writing the sections of the first room out now. We will need to work on creating an examine player command next. Which is probably the next big hurdle. But I should be able to figure it out faster now that i've got the directional movement parsing all sorted out.

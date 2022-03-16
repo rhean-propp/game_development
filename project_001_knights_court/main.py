@@ -35,6 +35,7 @@ input_right = ["right", "east", "e"]
 input_left = ["left", "west", "w"]
 input_up = ["up", "upward", "upwards", "u"]
 input_down = ["down", "downward", "downwards", "d"]
+input_direction = [input_forward, input_backward, input_right, input_left, input_up, input_down]
 
 # Movement Types | user_input()
 input_swim = ["swim"]
@@ -43,12 +44,13 @@ input_walk = ["walk", "step"]
 input_run = ["run", "dash", "sprint"]
 input_jump = ["jump", "hop", "leap", "vault"]
 input_move = ["swim", "climb", "walk", "step", "run", "dash", "sprint", "jump", "hop", "leap", "vault"]
+# If we make input_move a list of lists, does it break everything?
 
 # Universal commands | user_input()
 input_inventory = ["inventory", "inv", "i"]
 input_shorthand = ["shorthand", "short"]
-input_help = ["help", "halp", "h"]
-input_move = ["move"]
+input_help_guide = ["help", "halp", "h"]        # Need to update this changed list with the function
+input_move_guide = ["move"]                     # Need to update this changed list with the function | Do not call it input_move
 input_save = ["save game", "save"]
 input_load = ["load game", "load"]
 
@@ -76,22 +78,32 @@ def user_input():           # Primary Parser. Returns sanitized input.
     # Directional Movement Commands
     # ======================================================== #
     
-    #for movement_type in input_move:
-    #    if movement_type in buffer:
-    #        buffer = direction_sort(buffer)
-    #        return buffer
+    movement_command = False    # Flag
+    
+    # Check if buffer is a movement command:
+    for movement_type in input_move:                                #
+        if movement_type in buffer and movement_command == False:   # 
+            movement_command = True                                 # Set flag to true.
+    
+    # If the buffer is a movement Command, sanitize command:
+    if movement_command == True:
+        for movement_type in input_move:
+            for list in input_direction:
+                for direction in list:
+                    if buffer == f"{movement_type} {direction}":
+                        buffer = movement_check(movement_type, direction)
     
     # ======================================================== #
     # Help Menu Commands
     # ======================================================== #
     
     # Help Commands
-    if buffer in input_help:                             
+    elif buffer in input_help_guide:                             
         buffer = "help"
         help()                  # See functions.py
     
     # Move Command List
-    elif buffer in input_move:          
+    elif buffer in input_move_guide:          
         buffer = "move"
         move_player()           # See functions.py
     
@@ -146,29 +158,6 @@ def user_input():           # Primary Parser. Returns sanitized input.
         return buffer
     
     # ======================================================== #
-    # Directional Movement Commands
-    # ======================================================== #
-    
-    # Unsolved Problem:
-    
-    # If movement type (walk, run, etc) in buffer:
-        # call direction_sort(buffer)
-    
-    # Attempted Solutions:
-    
-    # for movement_type in input_move:
-        # if movement_type in buffer:
-            # direction_sort(buffer)
-    
-    # Can't use if buffer in movement_type.
-    # buffer can be "swim up" or "climb down".
-    # The direction after the movement type breaks this check.
-    
-    # elif any(movement_command in input_move for movement_command in input_move):
-    #    buffer = direction_sort(buffer)
-    #   This always validates to true.
-    
-    # ======================================================== #
     # Invalid Input
     # ======================================================== #
     
@@ -178,61 +167,9 @@ def user_input():           # Primary Parser. Returns sanitized input.
     
     return buffer
 
-def direction_sort(buffer): # Ensures Player Cannot Move Invalidly
+def movement_check(movement_type, direction):   # Ensures Player Cannot Move Invalidly
     
-    # Only call this function if the buffer variable has been verified as a legitimate command.
-    # There is no verification that commands are authentic. User can input "hello climb up" and it will break this function
-    # Alternatively, don't split the buffer.
-    # Find solution
-    
-    # What if I grab just climb and I grab just forward?
-    # Then I would eliminate any other values.
-    # Then create a new variable with those two mashed together.
-    # But if I do that, do I even need the stuff below?
-    # Or does it just need to be reworked?
-    
-    # Old Parsing Method:
-    command = buffer.split(' ')
-    movement_type = command[0]
-    direction = command[1] 
-    
-    # Define Movement Type:
-    #if any(movement_command in input_walk for movement_command in input_move):
-        
-    
-    # Define Movement Type: | Invalid Logic
-    """
-    if input_walk in buffer:
-        movement_type = "walk"
-    elif input_run in buffer:
-        movement_type = "run"
-    elif input_climb in buffer:
-        movement_type = "climb"
-    elif input_swim in buffer:
-        movement_type = "swim"
-    elif input_jump in buffer:
-        movement_type = "jump"
-    else:
-        delay_print("Error: No movement type provided to direction_sort()\n")
-    
-    # Define Direction: | Invalid Logic
-    
-    if input_up in buffer:
-        direction = "up"
-    elif input_down in buffer:
-        direction = "down"
-    elif input_forward in buffer:
-        direction = "forward"
-    elif input_backward in buffer:
-        direction = "backward"
-    elif input_left in buffer:
-        direction = "left"
-    elif input_right in buffer:
-        direction = "right"
-    else:
-        delay_print("Error: No direction provided to direction_sort()\n")
-    """
-    # Walking
+    # Walking Check
     if movement_type in input_walk:
         if direction in input_up:
             delay_print(f"You cannot {movement_type} {direction}.\n")
@@ -241,7 +178,7 @@ def direction_sort(buffer): # Ensures Player Cannot Move Invalidly
         else:
             return f"{movement_type} {direction}"
     
-    # Running
+    # Running Check
     elif movement_type in input_run:
         if direction in input_up:
             delay_print(f"You cannot {movement_type} {direction}.\n")
@@ -250,7 +187,7 @@ def direction_sort(buffer): # Ensures Player Cannot Move Invalidly
         else:
             return f"{movement_type} {direction}"
 
-    # Climbing
+    # Climbing Check
     elif movement_type in input_climb:
         if direction in input_forward:
             delay_print(f"You cannot {movement_type} {direction}.\n")
@@ -258,10 +195,10 @@ def direction_sort(buffer): # Ensures Player Cannot Move Invalidly
             delay_print(f"You cannot {movement_type} {direction}.\n")
         else:
             return f"{movement_type} {direction}"
-            
+    
+    # Valid Command        
     else:
-        print(f"Movement type: {movement_type}")
-        return buffer
+        return f"{movement_type} {direction}"
 
 def start_game():           # Prompt user to start game.
     
@@ -372,7 +309,7 @@ def get_name():             # Gets Name of User
             valid_name = 0
         
         # If Name is a System Command:
-        if user_name in input_inventory or user_name in input_help or user_name in input_examine or user_name in input_save or user_name in input_load:
+        if user_name in input_inventory or user_name in input_help_guide or user_name in input_examine or user_name in input_save or user_name in input_load:
             valid_name = 0
             delay_print("\nThat is not a valid name.")
             # This will need to be updated as system commands are added.
@@ -408,7 +345,7 @@ def tutorial():             # Tutorial for Player
     input_buffer = user_input()
     
     # Loop Until: User Types "help" or "h"
-    while input_buffer not in input_help:
+    while input_buffer not in input_help_guide:
         delay_print('You inputted the incorrect command. Try typing "help" or "h" for short.\n')
         input_buffer = user_input()
         
@@ -507,7 +444,7 @@ def question():                         # Prompts User Repeatedly | Credit to Au
                 delay_print("\nYour hands press up against a cold stone wall. Moss and algae fill the cracks and crevasis of the black-stone bricks.\n")
         
         # If System Command Called:
-        elif input_buffer in input_help or input_buffer in input_inventory:     # If help or inv are called:
+        elif input_buffer in input_help_guide or input_buffer in input_inventory:     # If help or inv are called:
             continue                                                            # Print normally
         
         # If invalid input:
@@ -729,7 +666,6 @@ delay_print("Insert Movement Type and direction:\n")
 direction_command = user_input()
 
 print(direction_command)
-#direction_sort(direction_command)
 
 #create_inv(user_name, inventory_file)       # Creates <user_name>_inventory file | Adds Crumpled Note
 #add_inv_item("Sword", 1)                    # Adds <item>,<quantity> to inventory_file
