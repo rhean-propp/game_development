@@ -391,3 +391,14 @@ I'm buying myself a nice scotch after I finish this project.
 
 **Thoughts:**
 Huzzah! We finally had a breakthrough. I am now correctly parsing directional movement commands. There is error handling for the player so if they try to type an invalid command, the game will inform them that what they tried doesn't work. This took 3 days to solve and it feels good. That is one massive roadblock out of the way. I can probably start writing the sections of the first room out now. We will need to work on creating an examine player command next. Which is probably the next big hurdle. But I should be able to figure it out faster now that i've got the directional movement parsing all sorted out.
+
+### Day 32: March 16th, 2022
+##### Testing & Lore
+
+**Today's Progress:**
+1. Edited story in chapter_01()
+2. Testing chapter_01()
+3. Worked on lore and plans for the story.
+
+**Thoughts:**
+I may eventually expand movement check into an error_handler function for the majoraty of player input. Worked on some story ideas for the game. Didn't do much coding in this update. Will need to make up for it this weekend.

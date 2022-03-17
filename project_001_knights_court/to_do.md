@@ -7,12 +7,11 @@
 4. Add actions for the player to use: examine, read, look, etc.
 5. Add a function for validating player input and providing errors when input is invalid.
 6. Finish help() after creation of all major player commands.
-7. Complete direction_sort()
-8. Refactor chapter_01() into a class.
+7. Refactor chapter_01() into a class.
 
 ### Bugs
 1. [BUG] Resolve "." not displaying after a print. Character cursor overlap bug.
-2. [BUG] direction_sort is not correctly being called. Conditional logic is broken.
+2. [BUG] Output does not correctly display after "swim up" command entered while restrained.
 
 ### Puzzle Plans
 1. Cryptographic note. | Reference ram journal

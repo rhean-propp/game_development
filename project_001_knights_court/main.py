@@ -486,19 +486,19 @@ def prologue():
     delay_print("You feel the hand of your friend, Yuri, rest his hand on your shoulder.\n")
     delay_print("At the next moment, you watch you are pushed into the abyss below.\n")
 
-'''
+
 def chapter_01():
     global input_buffer
     
-    delay_print("\nThe air rushes past your face with fierce velocity.\n")
-    delay_print("Weightless, as you plummet, your life flashing before your eyes.\n")
-    delay_print("You await death's arrival.\n")
-    delay_print("A loud crash echoes into your ears followed by the cold rush of liquid racing past your body.\n")
+    delay_print("\nThe air slices your skin as it rushes past your face.\n")
+    delay_print("Weightless; you plummet.\n")
+    delay_print("Death knocking at the door.\n")
+    delay_print("A loud crash echoes into your ears.\n")
+    delay_print("The cold rush of liquid races past your body.\n")
     delay_print("You open your eyes and come to your senses.\n")
-    delay_print("You are about to drown.\n")
-    delay_print("What do you do?\n")
+    delay_print("You are submerged, with little breath to spare.\n")
+    delay_print("You are about to drown, what do you do?\n")
     input_buffer = user_input()
-    
     
     # Oxygen Puzzle | Credit to Austin L. Howard for the solution.
     question_thread = Thread(target=question)           # Associate question() function with thread.
@@ -514,8 +514,7 @@ def chapter_01():
     delay_print("You tread water in a pool with a diamater of no more than 50ft.\n")
     delay_print("On each of the four sides of the pool, there are statues of two claw formed hands stretched upwards.\n")
     delay_print("The grotto is too dark to see much of anything else.\n")
-'''
-    
+
 # Chapter 01 Refactoring Into a Class
 """
 class chapter_01:
@@ -658,14 +657,8 @@ while input_buffer not in input_negative and input_buffer not in input_positive:
         delay_print("\nThe prologue is about a 5 minute read. If you like to play games for the story, it is recommended.\n")
     else: 
         continue
-
-chapter_01()
 '''
-
-delay_print("Insert Movement Type and direction:\n")
-direction_command = user_input()
-
-print(direction_command)
+chapter_01()
 
 #create_inv(user_name, inventory_file)       # Creates <user_name>_inventory file | Adds Crumpled Note
 #add_inv_item("Sword", 1)                    # Adds <item>,<quantity> to inventory_file
