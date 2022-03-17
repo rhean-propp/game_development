@@ -8,10 +8,11 @@
 5. Add a function for validating player input and providing errors when input is invalid.
 6. Finish help() after creation of all major player commands.
 7. Refactor chapter_01() into a class.
+8. Create game_over() function. Allows user to load a save game.
 
 ### Bugs
 1. [BUG] Resolve "." not displaying after a print. Character cursor overlap bug.
-2. [BUG] Output does not correctly display after "swim up" command entered while restrained.
+2. [BUG] Program does not correctly exit after the timer runs out on the oxygen puzzle.
 
 ### Puzzle Plans
 1. Cryptographic note. | Reference ram journal

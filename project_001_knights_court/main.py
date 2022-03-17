@@ -371,7 +371,7 @@ def countdown_event():                  # Countdown Clock for Oxygen Puzzle | Cr
     global countdown_running
     
     # Loop Until: 60 Seconds Have Passed
-    for i in range(60, 0, -1):          # Count for 10 seconds.
+    for i in range(5, 0, -1):          # Count for 10 seconds.
         
         # If Player is Correct:
         if exit_event is True:          # If user is correct.
@@ -395,6 +395,7 @@ def countdown_event():                  # Countdown Clock for Oxygen Puzzle | Cr
         countdown_running = False
         print("\b\b\r", end="")
         delay_print("As you struggle to make your way out of the water, your chest gives weigh.\nYou open your mouth, gasping for air, as water rushes into your lungs.\nYou have perished. Game over.\n") 
+        # Add game_over() function call here
         sys.exit()
 
 def question():                         # Prompts User Repeatedly | Credit to Austin L. Howard for this threading solution.
@@ -414,42 +415,42 @@ def question():                         # Prompts User Repeatedly | Credit to Au
             delay_print("You are drowning. What do you do?\n")
             input_buffer = user_input()             
         
-        # If Near Correct Answer:
-        if input_buffer == "use key" or input_buffer == "use key on shackles":                
-            delay_print("\nuse <what object?> on <what object?>\n")
-            continue
-        
-        # If Correct Answer:
-        elif "use rusty key on shackles" in input_buffer:
-            player_restrained = False
-            delay_print("\nAs you feel in your pocket, you find a rusty key.\nYou twist the key into the lock.\nThe key snaps as the lock releases.\nKicking your feet, you knock off the chains that bound you.\n")
-        
-        # If Player Restrained:
-        elif "swim" in input_buffer and player_restrained == True:
-            delay_print("\nYou attempt to kick your feet, but you are still bound by the shackles that hold you.\nYou make no progress.\n")
-        
-        # If Player Unrestrained:
-        elif player_restrained == False and input_swim in input_buffer: # If the player is not bound by the shackles and tries to swim:
+            # If Near Correct Answer:
+            if input_buffer == "use key" or input_buffer == "use key on shackles":                
+                delay_print("\nuse <what object?> on <what object?>\n")
+                continue
             
             # If Correct Answer:
-            if input_buffer == "swim up": # If input_buffer == "swim up"
-                exit_event = True                       # Sets Exit Event for countdown_event() | Marker for correct answer
+            elif "use rusty key on shackles" in input_buffer or "use rusty key on shackle" in input_buffer:
+                player_restrained = False
+                delay_print("\nAs you feel in your pocket, you find a rusty key.\nYou twist the key into the lock.\nThe key snaps as the lock releases.\nKicking your feet, you knock off the chains that bound you.\n")
             
-            # If Movement Down:
-            elif input_buffer == "swim down":
-                delay_print("\nThe darkness grows as the faint light above you begins to dim.\n")
+            # If Player Restrained:
+            elif "swim" in input_buffer and player_restrained == True:
+                delay_print("\nYou attempt to kick your feet, but you are still bound by the shackles that hold you.\nYou make no progress.\n")
             
-            # If movement Left, Right, Forward, Backward:
-            else:
-                delay_print("\nYour hands press up against a cold stone wall. Moss and algae fill the cracks and crevasis of the black-stone bricks.\n")
-        
-        # If System Command Called:
-        elif input_buffer in input_help_guide or input_buffer in input_inventory:     # If help or inv are called:
-            continue                                                            # Print normally
-        
-        # If invalid input:
-        else:                                                                   # Catch all | If incorrect answer:
-            continue                                                            # Error handling is passed to user_input() for wrong answers
+            # If Player Unrestrained:
+            elif player_restrained == False: # If the player is not bound by the shackles and tries to swim:
+                
+                # If Correct Answer:
+                if input_buffer == "swim up": # If input_buffer == "swim up"
+                    exit_event = True                       # Sets Exit Event for countdown_event() | Marker for correct answer
+                
+                # If Movement Down:
+                elif input_buffer == "swim down":
+                    delay_print("\nThe darkness grows as the faint light above you begins to dim.\n")
+                
+                # If movement Left, Right, Forward, Backward:
+                else:
+                    delay_print("\nYour hands press up against a cold stone wall. Moss and algae fill the cracks and crevasis of the black-stone bricks.\n")
+            
+            # If System Command Called:
+            elif input_buffer in input_help_guide or input_buffer in input_inventory:     # If help or inv are called:
+                continue                                                            # Print normally
+            
+            # If invalid input:
+            else:                                                                   # Catch all | If incorrect answer:
+                continue                                                            # Error handling is passed to user_input() for wrong answers
     
 
 # ============================================================================================================================================
@@ -486,10 +487,10 @@ def prologue():
     delay_print("You feel the hand of your friend, Yuri, rest his hand on your shoulder.\n")
     delay_print("At the next moment, you watch you are pushed into the abyss below.\n")
 
-
 def chapter_01():
     global input_buffer
-    
+    '''
+    # Begin Drowning Puzzle
     delay_print("\nThe air slices your skin as it rushes past your face.\n")
     delay_print("Weightless; you plummet.\n")
     delay_print("Death knocking at the door.\n")
@@ -497,12 +498,11 @@ def chapter_01():
     delay_print("The cold rush of liquid races past your body.\n")
     delay_print("You open your eyes and come to your senses.\n")
     delay_print("You are submerged, with little breath to spare.\n")
-    delay_print("You are about to drown, what do you do?\n")
-    input_buffer = user_input()
+    '''
     
-    # Oxygen Puzzle | Credit to Austin L. Howard for the solution.
+    # Drowning Puzzle | Credit to Austin L. Howard for the solution.
     question_thread = Thread(target=question)           # Associate question() function with thread.
-    question_thread.daemon = True
+    question_thread.daemon = True                       # Daemon Thread ensures question_thread ends when its parent thread (countdown_thread) ends.
     countdown_thread = Thread(target=countdown_event)   # Associate countdown_event() function with thread.
     countdown_thread.start()                            # Start oxygen countdown
     question_thread.start()                             # Prompt user until oxygen countdown ends.
