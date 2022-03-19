@@ -7,7 +7,7 @@
 from functions import *             # General functions that do not call other functions.
 from data_serialization import *    # Saves game state, inventory and username
 from time import sleep              # Timed messages
-import threading                    # Used for Oxygen Clock in Chapter_01       # Is this actually used?
+#import threading                    # Used for Oxygen Clock in Chapter_01       # Is this actually used?
 from threading import Thread
 
 # ============================================================================================================================================
@@ -511,7 +511,7 @@ def chapter_01():
     countdown_thread.join()                             # Waits for countdown_thread to finish before proceeding in chapter_01()
     
     if player_death == True:
-        sys.exit()
+        game_over()
     
     # Exit function here if condition is true.
     
@@ -522,104 +522,6 @@ def chapter_01():
     delay_print("On each of the four sides of the pool, there are statues of two claw formed hands stretched upwards.\n")
     delay_print("The grotto is too dark to see much of anything else.\n")
 
-# Chapter 01 Refactoring Into a Class
-"""
-class chapter_01:
-    def __init__(self):
-        pass
-        
-    def countdown_event():  # Used for oxygen_puzzle()
-        global countdown_running
-        
-        # Loop Until: 60 Seconds Have Passed
-        for i in range(60, 0, -1):          # Count for 10 seconds.
-            
-            # If Player is Correct:
-            if exit_event is True:          # If user is correct.
-                break                       # Break out of loop. Resume function.
-            
-            oxygen_remaining[0] = i         # Stores current countdown value.
-            for i in range(10):             # 0.1 * 10 iterations = 1 second sleep
-                sleep(0.1)                  # Sleep 1/10th of a second.
-                
-                # If Player is Correct:
-                if exit_event is True:      # Check if the exit_event is set every 1/10th of a second.
-                    break                   # If exit is set, break out of loop, resume function.
-        
-        # If Player Succeeded:
-        if oxygen_remaining[0] > 1:         # If user suceeded with oxygen remaining:
-            countdown_running = False
-            return                          # Return back to chapter_01()
-        
-        # If Player Failed:
-        else:                               # If user failed: 
-            countdown_running = False
-            print("\b\b\r", end="")
-            delay_print("As you struggle to make your way out of the water, your chest gives weigh.\nYou open your mouth, gasping for air, as water rushes into your lungs.\nYou have perished. Game over.\n") 
-            sys.exit()
-   
-    def question():         # Used for oxygen_puzzle()
-        
-        global input_buffer                 
-        global exit_event                   # Used to define when to stop
-        global countdown_running            # Used as a stop flag for question_thread
-        
-        player_restrained = True            # Checks if the player is still in shackles
-        clear_buffer()
-        
-        # Loop For: 60 Second Countdown
-        while countdown_running == True:                                     # Indefinitely Loop
-            
-            # If Player has not Solved Puzzle Yet:
-            if exit_event is False:                     
-                delay_print("You are drowning. What do you do?\n")
-                input_buffer = user_input()             
-            
-            # If Near Correct Answer:
-            if input_buffer == "use key" or input_buffer == "use key on shackles":                
-                delay_print("\nuse <what object?> on <what object?>\n")
-                continue
-            
-            # If Correct Answer:
-            elif "use rusty key on shackles" in input_buffer:
-                player_restrained = False
-                delay_print("\nAs you feel in your pocket, you find a rusty key.\nYou twist the key into the lock.\nThe key snaps as the lock releases.\nKicking your feet, you knock off the chains that bound you.\n")
-            
-            # If Player Restrained:
-            elif "swim" in input_buffer and player_restrained == True:
-                delay_print("\nYou attempt to kick your feet, but you are still bound by the shackles that hold you.\nYou make no progress.\n")
-            
-            # If Player Unrestrained:
-            elif player_restrained == False and input_swim in input_buffer: # If the player is not bound by the shackles and tries to swim:
-                
-                # If Correct Answer:
-                if input_buffer == "swim up": # If input_buffer == "swim up"
-                    exit_event = True                       # Sets Exit Event for countdown_event() | Marker for correct answer
-                
-                # If Movement Down:
-                elif input_buffer == "swim down":
-                    delay_print("\nThe darkness grows as the faint light above you begins to dim.\n")
-                
-                # If movement Left, Right, Forward, Backward:
-                else:
-                    delay_print("\nYour hands press up against a cold stone wall. Moss and algae fill the cracks and crevasis of the black-stone bricks.\n")
-            
-            # If System Command Called:
-            elif input_buffer in input_help or input_buffer in input_inventory:     # If help or inv are called:
-                continue                                                            # Print normally
-            
-            # If invalid input:
-            else:                                                                   # Catch all | If incorrect answer:
-                continue                                                            # Error handling is passed to user_input() for wrong answers
-    
-    def oxygen_puzzle():
-        question_thread = Thread(target=question)           # Associate question() function with thread.
-        question_thread.daemon = True
-        countdown_thread = Thread(target=countdown_event)   # Associate countdown_event() function with thread.
-        countdown_thread.start()                            # Start oxygen countdown
-        question_thread.start()                             # Prompt user until oxygen countdown ends.
-        countdown_thread.join()                             # Waits for countdown_thread to finish before proceeding in chapter_01()
-"""
 # ============================================================================================================================================
 
 
@@ -665,8 +567,9 @@ while input_buffer not in input_negative and input_buffer not in input_positive:
     else: 
         continue
 '''
-chapter_01()
+#chapter_01()
 
+game_over()
 #create_inv(user_name, inventory_file)       # Creates <user_name>_inventory file | Adds Crumpled Note
 #add_inv_item("Sword", 1)                    # Adds <item>,<quantity> to inventory_file
 #save_inv(inventory_file)                    # Saves inventory_file with pickle module.

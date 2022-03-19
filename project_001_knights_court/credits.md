@@ -18,6 +18,7 @@ Thank you.
 1. Cole Sanheim
 
 ### Art:
+1. Sourced ASCII Fonts From: https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20
 
 ### Music:
 

@@ -419,10 +419,53 @@ I may not always have the motivation to code. But at the very least I've had the
 At this point, what we've created is a game engine. It's nowhere near done, and has a lot of work to do, but I could eventually make this into a library for people to use. That would be pretty sweet.
 
 ### Day 34: March 18th, 2022
-##### Bug Fixes
+##### Bug Fix
 
 **Today's Progress:**
 1. Fixed [BUG] where program does not correctly exit after the timer runs out on the oxygen puzzle.
 
 **Thoughts:**
 On a time crunch today. Didn't have much time to work on the project. However, I fixed an annoying bug that wasn't allowing the program to quit on a game over death.
+
+### Day 35: March 19th, 2022
+##### ASCII Art & Planning
+
+**Today's Progress:**
+1. Added a game_over() function to display ascii art and quit the program.
+2. Prepared plans for future additions of the game and engine.
+
+**Thoughts:**
+I probably have a little bit of testing left to do, but the next step is making multiple sections within the room that the player can move around in. I'm fairly certain I'm going to need classes for the chapter() functions. Otherwise there's no way to move back from one room to the next. Especially if room text will change after a player has solved the puzzle in that room.
+
+I'm a bit uneasy about playing around with classes, since I know I'm going to experience enough bugs I will have no idea at first how to fix. I've been avoiding them for as long as I can and now i'm approaching that area where I'm really going to need to start working with them otherwise I'm not going to be making much progress anymore.
+
+As far as player movement goes, I'd like to have a north, south, east and west side of a room. I'd like to make rooms in a grid basis. The first room is a 9x9 grid. The center box is where the water is located. If I do this, it might be beneficial to allow the player to move northwest, northeast, southwest and southeast. But it shouldn't be necessary in order to get the game working. More of an extended feature than anything. And if I did do this, how would I translate those commands as they are translated previously? North = Forward, South = Backward. What would Northwest be? Front left? It might be easier to only allow the player to move left/right forward/back. It would also be pretty cool to suggest to the player to make a map. Or the player could pick up map of the area to see where they are.
+
+I could write the maps like so:
+
+      N
+      |
+  W --+-- E
+      |
+      S
+ ___ ___ ___
+|   |   |   |
+|___|___|___|
+|   |   |   |
+|___|___|___|
+|   |   |   |
+|___|___|___|
+
+ASCII art for the maps would be super cool. Something a player could pick up after completing a section, or a reward. It would also help with the level design. Rooms wouldn't just be 9x9 boxes, but hallways with smaller rooms, nooks and crannies.
+
+This passion project has become more of an obsession. It used to be something I felt I ought to do, but now it feels like something I want to do. I like that I can move from one problem to another. Take a break on problems that are stumping me to work on another aspect of the project and come back to the roadblock later. I don't feel like I have to intensely think out a solution, but I can take my time to figure out the problems instead.
+
+The learning journey has been very rewarding thus far. I've learned about data serialization, parsing strings, proper code commenting, threading, project organization, and many more little things that are too much to number. Even though it's an interactive fiction game that's going to be very niche, I find it pretty satisfying to build. Enough so that I really want to continue the project after the 100 days of code challenge. Though I might challenge myself to 365 days of code, just so I can keep the momentum going.
+
+I definitely don't write a lot each day. Yesterday I only spent 10 minutes writing code. I had to fly out the door. But I still acomplished something. The routine is helpful to keep the momentum going. I think if I took breaks on the weekdays or weekends, It would be more difficult to keep making progress on the project. It's easier to take one-more break after taking the first one. It's much easier to just say to yourself, I need to get this done today. Where in my schedule can I complete it?
+
+I'm really looking forward to the day I can publish this on steam. It'll be very rewarding, I'm sure. But after that, I'll probably just start on the next project. No sense stopping there.
+
+Also i'm bumping up the scotch date to completing 100 Days of Code. I'm getting that bottle of Oban. We'll get a nicer bottle after we get to our release date.
+
+Side note: There's something just so relaxing about listing to the Legend of Zelda soundtrack while making this game. I do it every session. I really never get sick of the music. I love it.

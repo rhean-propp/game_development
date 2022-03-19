@@ -5,14 +5,14 @@
 2. Add save_game() and load_game() functions to data_serialization.
 3. Add save_game() and load_game() to the help menu.
 4. Add actions for the player to use: examine, read, look, etc.
-5. Add a function for validating player input and providing errors when input is invalid.
+5. Add full functionality for validating player input and providing errors when input is invalid.
 6. Finish help() after creation of all major player commands.
 7. Refactor chapter_01() into a class.
-8. Create game_over() function. Allows user to load a save game.
+8. Begin basic movement around the first room in chapter_01()
+9. Build movement so a player can move from one end of a room to another and back again.
 
 ### Bugs
 1. [BUG] Resolve "." not displaying after a print. Character cursor overlap bug.
-2. [BUG] Program does not correctly exit after the timer runs out on the oxygen puzzle.
 
 ### Puzzle Plans
 1. Cryptographic note. | Reference ram journal
