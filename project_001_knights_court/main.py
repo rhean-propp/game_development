@@ -366,12 +366,14 @@ def tutorial():             # Tutorial for Player
 exit_event = False                      # This boolean variable is used to check if the user inputted the correct answer.
 oxygen_remaining = [0]                  # Keeps track of remaining time left before function ends.
 countdown_running = True
+player_death = False
 
 def countdown_event():                  # Countdown Clock for Oxygen Puzzle | Credit to Austin L. Howard for this threading solution.
     global countdown_running
+    global player_death
     
     # Loop Until: 60 Seconds Have Passed
-    for i in range(5, 0, -1):          # Count for 10 seconds.
+    for i in range(60, 0, -1):          # Count for 10 seconds.
         
         # If Player is Correct:
         if exit_event is True:          # If user is correct.
@@ -395,8 +397,8 @@ def countdown_event():                  # Countdown Clock for Oxygen Puzzle | Cr
         countdown_running = False
         print("\b\b\r", end="")
         delay_print("As you struggle to make your way out of the water, your chest gives weigh.\nYou open your mouth, gasping for air, as water rushes into your lungs.\nYou have perished. Game over.\n") 
+        player_death = True
         # Add game_over() function call here
-        sys.exit()
 
 def question():                         # Prompts User Repeatedly | Credit to Austin L. Howard for this threading solution.
     
@@ -507,6 +509,11 @@ def chapter_01():
     countdown_thread.start()                            # Start oxygen countdown
     question_thread.start()                             # Prompt user until oxygen countdown ends.
     countdown_thread.join()                             # Waits for countdown_thread to finish before proceeding in chapter_01()
+    
+    if player_death == True:
+        sys.exit()
+    
+    # Exit function here if condition is true.
     
     delay_print('\nWith little air left to spare, you swim to the surface.\nYou take a gasp of air as you begin to take in your surroundings.\n')
     delay_print("\nPillars of blackstone rise 60ft to the celing of this grand grotto.\n")

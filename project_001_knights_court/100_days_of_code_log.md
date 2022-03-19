@@ -403,12 +403,11 @@ Huzzah! We finally had a breakthrough. I am now correctly parsing directional mo
 **Thoughts:**
 I may eventually expand movement check into an error_handler function for the majoraty of player input. Worked on some story ideas for the game. Didn't do much coding in this update. Will need to make up for it this weekend.
 
-### Day 33: March 16th, 2022
+### Day 33: March 17th, 2022
 ##### Bug Fixes
 
 **Today's Progress:**
 1. Fixed [BUG] where output would not correctly display after entering "swim up" command while restrained.
-2. 
 
 **Thoughts:**
 The wear of an hour a day eventually gets to you. I know i'm a third of the way to my goal, but it's easy to get sidetracked or want to do something else. Although, I know I made the commitment to myself, and I think that's whats really keeping me going. I can't lie, theres been some days where I've only worked on the project from 15 - 30 minutes. But I still logged on and did something. Even if it was something super small. I've also had days where I've gone over and worked on the project for 2 - 2.5 hours. It doesn't entirely balance it out, but at the very least, I'm still doing it daily.
@@ -418,3 +417,12 @@ This is my first big project. Part of the discouragement comes from the growing 
 I may not always have the motivation to code. But at the very least I've had the discipline. Grateful for that.
 
 At this point, what we've created is a game engine. It's nowhere near done, and has a lot of work to do, but I could eventually make this into a library for people to use. That would be pretty sweet.
+
+### Day 34: March 18th, 2022
+##### Bug Fixes
+
+**Today's Progress:**
+1. Fixed [BUG] where program does not correctly exit after the timer runs out on the oxygen puzzle.
+
+**Thoughts:**
+On a time crunch today. Didn't have much time to work on the project. However, I fixed an annoying bug that wasn't allowing the program to quit on a game over death.
