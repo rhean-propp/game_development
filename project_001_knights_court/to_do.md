@@ -10,6 +10,8 @@
 7. Refactor chapter_01() into a class.
 8. Begin basic movement around the first room in chapter_01()
 9. Build movement so a player can move from one end of a room to another and back again.
+10. After a player death, the game over screen should prompt the player to restore to a previous save.
+11. Create matrix system for xyz co-ordinates for player movement.
 
 ### Bugs
 1. [BUG] Resolve "." not displaying after a print. Character cursor overlap bug.

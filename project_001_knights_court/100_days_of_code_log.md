@@ -469,3 +469,26 @@ I'm really looking forward to the day I can publish this on steam. It'll be very
 Also i'm bumping up the scotch date to completing 100 Days of Code. I'm getting that bottle of Oban. We'll get a nicer bottle after we get to our release date.
 
 Side note: There's something just so relaxing about listing to the Legend of Zelda soundtrack while making this game. I do it every session. I really never get sick of the music. I love it.
+
+### Day 35: March 19th, 2022
+##### Research
+
+**Today's Progress:**
+1. Began planning matrix creation for player movement.
+2. Researched Linked lists
+3. Researched how 2D/3D movement works within game engines.
+
+**Thoughts:**
+Lane provided the solution for the problem of player movement. I need matrices to allow the player to move throughout the world.
+
+I need a translation and transformation matrix for player movement.
+
+A vector is multiplied to the matrix to adjust the position of the player.
+
+  x  y  z  t  
+  -----------       ---       ----
+| 1  0  0  vx |    | x |     | x1 |
+| 0  1  0  vy |    | y |  =  | y1 |
+| 0  0  1  vz |    | z |     | z1 |
+| 0  0  0  1  |    | 1 |     | 1  |
+  ------------      ---       ----
