@@ -470,7 +470,7 @@ Also i'm bumping up the scotch date to completing 100 Days of Code. I'm getting 
 
 Side note: There's something just so relaxing about listing to the Legend of Zelda soundtrack while making this game. I do it every session. I really never get sick of the music. I love it.
 
-### Day 35: March 19th, 2022
+### Day 36: March 20th, 2022
 ##### Research
 
 **Today's Progress:**
@@ -492,3 +492,15 @@ A vector is multiplied to the matrix to adjust the position of the player.
 | 0  0  1  vz |    | z |     | z1 |
 | 0  0  0  1  |    | 1 |     | 1  |
   ------------      ---       ----
+
+Made up for the shortage on work done this week by working on research for over 2 hours today.
+
+### Day 37: March 21st, 2022
+##### Research
+
+**Today's Progress:**
+1. Started work on coordinate system.
+2. Learned about matrices and working with a transformation matrix.
+
+**Thoughts:**
+No programming today. Only research and planning. Worked on a coordinate system. Using the first room in the world as a framework for everything else.
