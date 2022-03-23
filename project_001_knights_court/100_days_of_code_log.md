@@ -504,3 +504,15 @@ Made up for the shortage on work done this week by working on research for over 
 
 **Thoughts:**
 No programming today. Only research and planning. Worked on a coordinate system. Using the first room in the world as a framework for everything else.
+
+### Day 38: March 22nd, 2022
+##### Research
+
+**Today's Progress:**
+1. Testing co-ordinate system.
+2. Further research on movement systems.
+
+**Thoughts:**
+I'm not sure how to handle this aspect of the game engine. There are two lines of thought. The first being a co-ordinate system. The other, a 3D linked list. I'm unsure how i'm going to mark individual boxes and areas as movable and walkable areas. This feels like a complex problem that is quite out of my league of understanding at the moment.
+
+I've found two solutions that involve movement. One is a coordinate system, while the other is a system that seems to be comprised mostly of classes. Ive ordered two books to help me solve this problem. I need some expert guidance. It took some digging to find the books that (hopefully) will help.
