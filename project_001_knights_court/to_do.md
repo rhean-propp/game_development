@@ -7,11 +7,11 @@
 4. Add actions for the player to use: examine, read, look, etc.
 5. Add full functionality for validating player input and providing errors when input is invalid.
 6. Finish help() after creation of all major player commands.
-7. Refactor chapter_01() into a class.
-8. Begin basic movement around the first room in chapter_01()
-9. Build movement so a player can move from one end of a room to another and back again.
-10. After a player death, the game over screen should prompt the player to restore to a previous save.
-11. Create matrix system for xyz co-ordinates for player movement.
+7. Begin basic movement around the first room in chapter_01()
+8. Build movement so a player can move from one end of a room to another and back again.
+9. After a player death, the game over screen should prompt the player to restore to a previous save.
+10. Create matrix system for xyz co-ordinates for player movement.
+11. Refactor code to run inside of a while True loop. AKA the game loop
 
 ### Bugs
 1. [BUG] Resolve "." not displaying after a print. Character cursor overlap bug.
@@ -23,6 +23,7 @@
 1. Add character_creation() function.
 2. Create a flashing prompt.
 3. Create an oxygen display for the oxygen puzzle in chapter_01() | Research ncurse library
+4. Use pygame for implimenting GUI, cursor and sound effects.
 
 ### Long-Term Features
 1. CRT Terminal GUI

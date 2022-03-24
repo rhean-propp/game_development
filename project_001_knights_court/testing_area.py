@@ -26,19 +26,22 @@ for x in range (-3, 3):             # East/West
 # Print Output
 #print(coordinates)
 
-
 # Movement Testing:
-player_location = (0,0,0)
-print(player_location)
+#player_location = (0,0,0)
+#print(player_location)
 
-class room():
-    def __init__(self, name, description, n, e, s, w):
-        self.name = name
-        self.description = description
-        self.n = n 
-        self.e = e
-        self.s = s
-        self.w = w
+class Weapon():             # Parent Class
+    def __str__(self):
+        return self.name
+    
+class Rock(Weapon):
+    def __init__(self):
+        self.name = "Rock"
+        self.description = "A fist sized rock. Suitable for bludgeoning."
+        self.damage = 5
+    
+    def __str__(self):
+        return print(f"\nName: {str(self.name)}\nDescription: {str(self.description)}\nDamage: {str(self.damage)}\n")
     
     # def get_name():
     
@@ -46,5 +49,5 @@ class room():
     
     # def set_description():
         
-
+print(Rock)
 

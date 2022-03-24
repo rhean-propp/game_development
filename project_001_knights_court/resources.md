@@ -10,3 +10,6 @@
 ### Character Movement:
 1. https://youtu.be/iCazI3nKBf0
 2. https://youtu.be/5yclc-pp2zE
+
+# GUI
+1. pygame_gui | works with pygame2 | https://github.com/MyreMylar/pygame_gui

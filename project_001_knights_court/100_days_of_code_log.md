@@ -516,3 +516,19 @@ No programming today. Only research and planning. Worked on a coordinate system.
 I'm not sure how to handle this aspect of the game engine. There are two lines of thought. The first being a co-ordinate system. The other, a 3D linked list. I'm unsure how i'm going to mark individual boxes and areas as movable and walkable areas. This feels like a complex problem that is quite out of my league of understanding at the moment.
 
 I've found two solutions that involve movement. One is a coordinate system, while the other is a system that seems to be comprised mostly of classes. Ive ordered two books to help me solve this problem. I need some expert guidance. It took some digging to find the books that (hopefully) will help.
+
+### Day 39: March 23rd, 2022
+##### Research
+
+**Today's Progress:**
+1. Learned about the pygame library.
+2. Researched pygame_gui library.
+3. Researched classes
+4. Worked on custom weapon classes.
+
+**Thoughts:**
+It looks like the pygame and pygame_gui libraries are the solution to creating a GUI interface for the game. Along with Sound FX, Music and animations.
+
+Classes:
+
+The __str__ method is used for debugging. Instead of returning a pointer of the object, it returns the object as a string.
