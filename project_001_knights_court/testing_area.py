@@ -32,7 +32,7 @@ for x in range (-3, 3):             # East/West
 
 class Weapon():             # Parent Class
     def __str__(self):
-        return self.name
+        return self
     
 class Rock(Weapon):
     def __init__(self):
@@ -41,13 +41,16 @@ class Rock(Weapon):
         self.damage = 5
     
     def __str__(self):
-        return print(f"\nName: {str(self.name)}\nDescription: {str(self.description)}\nDamage: {str(self.damage)}\n")
+        return f"\nName: {self.name}\nDescription: {self.description}\nDamage: {self.damage}\n"
     
     # def get_name():
     
     # def get_description():
     
     # def set_description():
-        
-print(Rock)
+
+rock = Rock()       # Object creation. This is our newly created rock.
+weapon = Weapon(rock)
+
+print(weapon)
 

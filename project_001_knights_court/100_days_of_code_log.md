@@ -532,3 +532,15 @@ It looks like the pygame and pygame_gui libraries are the solution to creating a
 Classes:
 
 The __str__ method is used for debugging. Instead of returning a pointer of the object, it returns the object as a string.
+
+### Day 40: March 24th, 2022
+##### Research
+
+**Today's Progress:**
+1. Learned about the super() function.
+2. Learned about class inheritance.
+
+**Thoughts:**
+I've been making slow progress on the project this week. Lots of learning. I am starting to better understand classes and class inheritence. I'm going to start using them and I think I'm starting to get an understanding of how to impliment them in the program to make my life easier.
+
+Building your own engine is no joke, though I'm really glad I took on this project.
