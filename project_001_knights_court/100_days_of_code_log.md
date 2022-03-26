@@ -544,3 +544,16 @@ The __str__ method is used for debugging. Instead of returning a pointer of the 
 I've been making slow progress on the project this week. Lots of learning. I am starting to better understand classes and class inheritence. I'm going to start using them and I think I'm starting to get an understanding of how to impliment them in the program to make my life easier.
 
 Building your own engine is no joke, though I'm really glad I took on this project.
+
+### Day 41: March 25th, 2022
+##### Research
+
+**Today's Progress:**
+1. Started reading Make Your Own Python Text Adventure - Phillip Johnson
+2. Started reading The LIttle book of Adventure Game Programming in JAVA - Huw Collingbourne
+3. Attempted building the groundwork for the class structure.
+
+**Thoughts:**
+I have a rough idea how to solve the map, rooms and player movement now. We're going to be using classes. There will be a parent class of map, with subclasses of room and player. The player subclass keeps track of which room the player is currently located in. The room class holds items that are in the room, along with interactables, a description and index for the player to move to.
+
+The map parent class I haven't understood how it will work yet. But we're going to try a rough draft here to get this working.
