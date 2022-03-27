@@ -27,39 +27,40 @@ class Map():             # Parent Class
         return self
     
 class Room(Map):
-    def __init__(self, name, description, index, aN, aS, aW, aE):
-        self.name = name
-        self.description = description
-        self.index = index
+    def __init__(self, name, description, index, aN, aS, aW, aE):       # Variables passed when declaring object.
         
+        self.name = name                    # Room Name
+        self.description = description      # Room description
+        self.index = index                  # Index of room
+        
+        self.north = aN                     # Index of adjacent room north.
+        self.south = aS                     # Index of adjacent room south.
+        self.west = aW                      # Index of adjacent room west.
+        self.east = aE                      # Index of adjacent room east.
+        
+    def getN(self):             # Pass instance to method
+        return self.north       # Return instance variable?
+    
+    def setN(self, aN):
         self.north = aN
+    
+    def getS(self):
+        return self.south
+    
+    def setS(self, aS):
         self.south = aS
-        self.west = aW
+        
+    def getE(self):
+        return self.east
+    
+    def setE(self, aE):
         self.east = aE
         
-    def getN():
-        return north
+    def getW(self):
+        return self.west
     
-    def setN(aN):
-        north = aN
-    
-    def getS():
-        return south
-    
-    def setS(aS):
-        south = aS
-        
-    def getE():
-        return east
-    
-    def setE(aE):
-        east = aE
-        
-    def getW():
-        return west
-    
-    def setW(aW):
-        west = aW
+    def setW(self, aW):
+        self.west = aW
     
     def __str__(self):
         return f"\nName: {self.name}\nDescription: {self.description}\nIndex: {self.index}\n"
@@ -71,13 +72,10 @@ class Player(Map):
     def get_location():
         print("Print Index[x] for room # player is in.\n")
     
-    # def get_name():
-    
-    # def get_description():
-    
-    # def set_description():
+room0 = Room("Cave\n", "Dark and musty.\n", 0, 1, 1, 1, 1)
+room0.setN(4)
+print(room0.getN())
 
-rock = Rock()       # Object creation. This is our newly created rock.
-weapon = Weapon(rock)
 
-print(weapon)
+
+#print(weapon)

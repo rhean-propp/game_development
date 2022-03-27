@@ -557,3 +557,13 @@ Building your own engine is no joke, though I'm really glad I took on this proje
 I have a rough idea how to solve the map, rooms and player movement now. We're going to be using classes. There will be a parent class of map, with subclasses of room and player. The player subclass keeps track of which room the player is currently located in. The room class holds items that are in the room, along with interactables, a description and index for the player to move to.
 
 The map parent class I haven't understood how it will work yet. But we're going to try a rough draft here to get this working.
+
+### Day 42: March 26th, 2022
+##### Understanding Classes
+
+**Today's Progress:**
+1. Built an experimental Room() subclass and Map() superclass.
+2. Starting to understand OOP
+
+**Thoughts:**
+I finally made some progress. I am starting to understand classes. I don't have my head wrapped around them entirely just yet, but today we definitely made some serious headway. I was able to create getter and setter methods for the Room() class and properly call them.
