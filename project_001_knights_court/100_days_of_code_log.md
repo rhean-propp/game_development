@@ -567,3 +567,82 @@ The map parent class I haven't understood how it will work yet. But we're going 
 
 **Thoughts:**
 I finally made some progress. I am starting to understand classes. I don't have my head wrapped around them entirely just yet, but today we definitely made some serious headway. I was able to create getter and setter methods for the Room() class and properly call them.
+
+### Day 43: March 27th, 2022
+##### Instance Variables vs. Class Variables
+
+**Today's Progress:**
+1. Started learning about the "self" variable.
+2. Learned about the difference between class variables and instance variables.
+
+**Thoughts:**
+This is a compilation of today's research involving classes. There is still more to learn before I get a comfortable understanding of what in the world is going on:
+
+================================================================================================================================================
+
+* Attribute
+	* An attribute can be defined in one of two ways:
+		* Instance Variable
+			* Varies from object to object.
+		* Class Variable ( Static Variable )
+			* Declared within a class, but outside of anyu instance method or constructor (__init__).
+
+
+================================================================================================================================================
+
+* Class Variables ( Static Variables )
+	* Defined within a class
+	* Shared with all instances (objects) of a class.
+	* When accessing class variables, it is recommended to use the class name.
+		* class Student()
+			school_name = 'ABC School'	# Class Variable
+			def __init__(self, name):
+				self.name = name	# Instance Variable
+		* print(Student.school_name)		# Printing Class Variable
+		* print(self.
+
+* Instance Variables
+	* Owned by the instances of a class.
+		* For different instances, the instance variables are different.
+	* A variable defined inside a class.
+		* For which each instantiated object of the class has a seperate copy, or instance.
+	* Has similarities with a class variable, but is non-static.
+	* An class variable is declared in a class but outside of constructors, methods or blocks.
+	* Instance variables are created when an object is instantiated.
+		* Instance variables are accessible to all the constructors, methods or blocks in the class.
+
+================================================================================================================================================
+
+* Class Methods
+	* Inform about the status of the classs.
+
+* Instance Methods
+	* Set or get details about instances or objects.
+	* When defining, the foremost parameter of the method must always be self.
+	* Can easily access different attributes and methods with the help of the self variable.
+	* By using the self.__class__ attribute, instance methods can also access the class.
+	* Are able to modify the class state.
+
+================================================================================================================================================
+
+* The self Variable
+	* Has the power to modify the state of an object.
+	* The self variable is replaced by the object
+		* obj = myClass()
+		* obj.instance_method()
+		* or
+		* myClass.instance_method(obj)
+	* Not a defined keyword, but a convention
+	* Self represents the instance or objects of a class and binds the attributes of a class with specific arguments.
+	* The use of the self variable in python helps to differentiate between the instance attributes (and methods) and local variables.
+
+================================================================================================================================================
+
+* __init__
+	* The __init__ method is a constructor
+	* This method is called when the object is created.
+	* It sets up the initial state of the object
+
+* __dict__
+	* Contains all variables and their values within them.
+

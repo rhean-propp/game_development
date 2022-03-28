@@ -27,8 +27,12 @@ class Map():             # Parent Class
         return self
     
 class Room(Map):
+    # Class Variables:
+    # Class Variable #1
+    
     def __init__(self, name, description, index, aN, aS, aW, aE):       # Variables passed when declaring object.
         
+        # Instance Variables:
         self.name = name                    # Room Name
         self.description = description      # Room description
         self.index = index                  # Index of room
@@ -39,7 +43,7 @@ class Room(Map):
         self.east = aE                      # Index of adjacent room east.
         
     def getN(self):             # Pass instance to method
-        return self.north       # Return instance variable?
+        return self.north       # 
     
     def setN(self, aN):
         self.north = aN
