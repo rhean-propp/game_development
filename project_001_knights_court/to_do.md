@@ -35,3 +35,5 @@
 7. Adjustable Music and Sound FX
 8. Colorblind mode for CRT Monitor
 9. Change font. Courier new.
+10. Create discord release for final version of the game.
+11. Create steam release for final version of the game.

@@ -585,7 +585,7 @@ This is a compilation of today's research involving classes. There is still more
 		* Instance Variable
 			* Varies from object to object.
 		* Class Variable ( Static Variable )
-			* Declared within a class, but outside of anyu instance method or constructor (__init__).
+			* Declared within a class, but outside of any instance method or constructor (__init__).
 
 
 ================================================================================================================================================
@@ -599,7 +599,6 @@ This is a compilation of today's research involving classes. There is still more
 			def __init__(self, name):
 				self.name = name	# Instance Variable
 		* print(Student.school_name)		# Printing Class Variable
-		* print(self.
 
 * Instance Variables
 	* Owned by the instances of a class.
@@ -646,3 +645,68 @@ This is a compilation of today's research involving classes. There is still more
 * __dict__
 	* Contains all variables and their values within them.
 
+### Day 44: March 28th, 2022
+##### Namespaces, Method Types and Dunder Methods
+
+**Today's Progress:**
+1. Added .gitignore file to prevent __pychache__ from being uploaded to the git repository. Thanks to Trevor Kanten for the suggestion.
+2. Learned about built-in, global and local namespaces.
+3. Learned about decorator flags.
+
+**Thoughts:**
+
+Compilation of Today's Research:
+
+=================
+Types of Methods:
+=================
+
+* Instance Method
+	* Takes one parameter, self.
+	* Can modify instance state.
+	* Can also access the class itself through the self.__class__ attribute.
+		* Can modify class states.
+
+* Class Method
+	* Takes a cls parameter that points to the class.
+	* Cannot modify instance state.
+	
+* Static Method
+	* Does not take any self or cls parameter.
+	* Can have arbitrary parameters passed to it.
+	* Restricted data access.
+	* Primarily used to namespace your methods.
+	* Have limited use cases.
+		* Cannot access the properties of the class.
+	* Used when you need a utility function that doesn't access any properties of a class, but makes sense that it belongs to the class.
+
+===========
+Namespaces:
+===========
+
+* Namespaces
+	* A collection of currently defined symbolic names along with information about the object that each name references.
+	* Similar to a dictionary in which the keys are the object names and the values are the objects themselves.
+	* The python interpreter understands what exact method or variable one is trying to point to in the code, depending upon the namespace.
+
+* Types of Namespaces
+	* Built-in namespace
+		* print()
+		* id()
+	* Global namespace
+		* Created when a user creates a module
+	* Local namespace
+		* Created within local functions
+	* The built-in namespace encompasses the global namespace.
+		* The global namespace encompasses the local namespace.
+
+* What is a namespace?
+* What is a namespace used for?
+
+===============
+Dunder Methods:
+===============
+
+* What is a dunder method?
+* What is the purpose of a dunder method?
+* How many dunder methods are there?
