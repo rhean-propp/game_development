@@ -13,6 +13,7 @@ Thank you.
 4. Cole Sanheim
 5. D'artagnan Boocock
 6. Jack Chen
+7. Trevor Kanten
 
 ### Testing:
 1. Cole Sanheim

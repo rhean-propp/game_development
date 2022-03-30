@@ -710,3 +710,41 @@ Dunder Methods:
 * What is a dunder method?
 * What is the purpose of a dunder method?
 * How many dunder methods are there?
+
+### Day 45: March 28th, 2022
+##### Class Methods & Static Methods
+
+**Today's Progress:**
+1. Learned the difference between instance variables and class variables and when to use them.
+2. Learned applications for class methods and static methods.
+
+**Thoughts:**
+
+* The self variable is passed because the instance is automatically passed as a parameter.
+* Mathods always take the self variable because they are always passed the instance when called.
+
+================
+Instance Method:
+================
+
+* Frequently used.
+
+=============
+Class Method:
+=============
+
+* Need a class method decorator at the top.
+* @classmethod
+* def set_raise_amt(cls, amount);
+* 	  pass
+
+* Class methods can also be used as alternative constructors.
+
+==============
+Static Method:
+==============
+
+* Does not get passed self or cls.
+* Does not use the instance or the class.
+* Can have custom variables passed to it.
+* A method should be a static method if it does not access the class or the instance anywhere in the function.

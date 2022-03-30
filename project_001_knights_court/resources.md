@@ -13,3 +13,4 @@
 
 # GUI
 1. pygame_gui | works with pygame2 | https://github.com/MyreMylar/pygame_gui
+2. pygame_gui | Documentation | https://pygame-gui.readthedocs.io/en/latest/index.html
