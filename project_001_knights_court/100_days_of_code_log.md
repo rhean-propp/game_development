@@ -711,7 +711,7 @@ Dunder Methods:
 * What is the purpose of a dunder method?
 * How many dunder methods are there?
 
-### Day 45: March 28th, 2022
+### Day 45: March 29th, 2022
 ##### Class Methods & Static Methods
 
 **Today's Progress:**
@@ -748,3 +748,29 @@ Static Method:
 * Does not use the instance or the class.
 * Can have custom variables passed to it.
 * A method should be a static method if it does not access the class or the instance anywhere in the function.
+
+### Day 46: March 30th, 2022
+##### Wrapping Up Classes Research
+
+**Today's Progress:**
+1. Learned about class inheritance.
+2. Covered dunder methods.
+3. Learned about __str__
+4. Learned about __repr__
+
+**Thoughts:**
+
+I finished the classes playlist from Corey Shafer today. I have a much better idea how to use and impliment classes into my code now. I am well aware that I still don't know everything there is to know about classes, but I am more aware of what I don't know now. So if I do need to learn something else for implimentation for the game, I should be able to learn it. The time I took to work on the research has been really refreshing, and a nice break from directly programming the game. I feel like tomorrow I'm going to have a much more fresh look at creating the map and room solution.
+
+We haven't got a lot of progress done on the game this week, but I feel like I've grown as a programmer spending the time learning more about classes. I'm glad I did. Looking forward to seeing what all I've accomplished by day 100. Both in the project and what I've learned.
+
+* What is Method resolution order?
+	* The order in which python looks for the __init__ method when searching through class inheritence.
+* What is builtins.object?
+	* 
+* What is the super() function?
+	* A function that referrences the parent class.
+* How do I use NotImplimented?
+* How do I use the property decorator?
+* How and when should I use decorators?
+
