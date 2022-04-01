@@ -12,6 +12,8 @@
 9. After a player death, the game over screen should prompt the player to restore to a previous save.
 10. Create matrix system for xyz co-ordinates for player movement.
 11. Refactor code to run inside of a while True loop. AKA the game loop
+12. Move all items into items.py
+13. Work integration of items.py into the inventory function.
 
 ### Bugs
 1. [BUG] Resolve "." not displaying after a print. Character cursor overlap bug.

@@ -774,3 +774,19 @@ We haven't got a lot of progress done on the game this week, but I feel like I'v
 * How do I use the property decorator?
 * How and when should I use decorators?
 
+### Day 47: March 30th, 2022
+##### Working With Classes
+
+**Today's Progress:**
+1. Created items.py
+2. Added a Weapon class
+3. Added a handful of item classes.
+4. Begun work on code structure.
+
+**Thoughts:**
+
+I'm back in the thick of it again. I'm considering refactoring some of the code.
+
+I think for the room objects, we'll use an (x,y,z) co-ordinate system. It will be a lot easier to keep track of, and I can draw it out on grid paper.
+
+I can pass tuples into the object to observe what locations are connected to each other. I will need another value to pass to indicate the player can not move in that direction. Maybe a False variable.

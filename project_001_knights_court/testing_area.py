@@ -41,30 +41,6 @@ class Room(Map):
         self.south = aS                     # Index of adjacent room south.
         self.west = aW                      # Index of adjacent room west.
         self.east = aE                      # Index of adjacent room east.
-        
-    def getN(self):             # Pass instance to method
-        return self.north       # 
-    
-    def setN(self, aN):
-        self.north = aN
-    
-    def getS(self):
-        return self.south
-    
-    def setS(self, aS):
-        self.south = aS
-        
-    def getE(self):
-        return self.east
-    
-    def setE(self, aE):
-        self.east = aE
-        
-    def getW(self):
-        return self.west
-    
-    def setW(self, aW):
-        self.west = aW
     
     def __str__(self):
         return f"\nName: {self.name}\nDescription: {self.description}\nIndex: {self.index}\n"
@@ -76,10 +52,11 @@ class Player(Map):
     def get_location():
         print("Print Index[x] for room # player is in.\n")
     
-room0 = Room("Cave\n", "Dark and musty.\n", 0, 1, 1, 1, 1)
-room0.setN(4)
-print(room0.getN())
-
-
-
 #print(weapon)
+
+# When I instantiate a room object, I need to know what rooms are connected to it.
+# N/S/E/W should point to an index number, that index number referrs to the instance of the room.
+# 
+
+room_0 = Room("The Pit\n", "A cold and dark room.\n", 0, 1, 2, 3, 4)
+room_1 = Room("Ice Cave\n", "Cold pillars of ice cover the walls.\n", 1, 5, 0, -1, -1)
