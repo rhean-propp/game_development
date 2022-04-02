@@ -790,3 +790,14 @@ I'm back in the thick of it again. I'm considering refactoring some of the code.
 I think for the room objects, we'll use an (x,y,z) co-ordinate system. It will be a lot easier to keep track of, and I can draw it out on grid paper.
 
 I can pass tuples into the object to observe what locations are connected to each other. I will need another value to pass to indicate the player can not move in that direction. Maybe a False variable.
+
+### Day 48: March 30th, 2022
+##### 
+
+**Today's Progress:**
+1. Added rooms.py
+2. Worked through thought logic of the map, player position, and how to impliment xyz values.
+
+**Thoughts:**
+
+Making progress. Short code today, busy day. I will continue with the project and give it more attention as much as I can.
