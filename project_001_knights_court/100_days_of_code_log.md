@@ -817,3 +817,16 @@ I feel like the problem is 80% solved. I'm just tired and not able to see the wh
 100 Days of code was no joke. It's not easy programming every day. Some days you really don't want to. But it's nice to see the progress I've made thus far.
 
 I'm not going to give up. There's plenty of work left to do.
+
+### Day 50: April 2nd, 2022
+##### 3D Plotting
+
+**Today's Progress:**
+1. Working on 3D Plotting the map.
+2. Attempting to deconstruct reality.
+
+**Thoughts:**
+
+This is so far out of my comfort zone. I'm pretty sure I need a 3D list to store all of the plotpoints that the player can move to. There is a number of problems. The first is, I'm not sure how to generate this list. Secondly, how do I mentally picture the Z-axis? I have a basic understanding of how a 2D list would work. But once we add the Z-axis, everything gets way more complex.
+
+I'm curious how other people have solved this problem, and how I can figure out how to conceptualize this in my head. Once I can get the visualization of how this should work, writing the code shouldn't be too difficult.

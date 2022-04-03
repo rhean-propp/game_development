@@ -65,10 +65,43 @@ class Player(Map):
     
     # Need a function if player moves (n,s,e,w), that value passed from created room object is the value for the room coordinate.
 
-room_0 = Room("Cave\n", "\Dark and cold.\n", (0,0,0), (0,1,0), (0,-1,0), (-1,0,0), (1,0,0))
+#room_0 = Room("Cave\n", "\Dark and cold.\n", (0,0,0), (0,1,0), (0,-1,0), (-1,0,0), (1,0,0))
 
 # x = horizontal x
 # y = horizontal y
 # z = vertical z
 
-print(room_0.north)
+# [x,y,z]
+cube3d = [
+         [[1,1,1], [2,1,1], [3,1,1]],
+         [[1,2,1], [2,2,1], [3,2,1]],
+         [[1,3,1], [2,3,1], [3,3,1]],
+         
+         [[1,1,2], [2,1,2], [3,1,2]],
+         [[1,2,2], [2,2,2], [3,2,2]],
+         [[1,3,2], [2,3,2], [3,3,2]],
+         
+         [[1,1,3], [2,1,3], [3,1,3]],
+         [[1,2,3], [2,2,3], [3,2,3]],
+         [[1,3,3], [2,3,3], [3,3,3]],
+         ]
+
+print(cube3d[0][0][0])
+
+# Testing a 3D 3x3x3 cube
+'''
+x = 0
+y = 0
+z = 0
+
+while x < 3:
+    x += 1
+    while y < 3:
+        y += 1
+        while z < 3:
+            z += 1
+            mytuple = (x,y,z)
+            print(mytuple)
+'''            
+                
+    
