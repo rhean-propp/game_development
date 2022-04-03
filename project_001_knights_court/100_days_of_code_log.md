@@ -774,7 +774,7 @@ We haven't got a lot of progress done on the game this week, but I feel like I'v
 * How do I use the property decorator?
 * How and when should I use decorators?
 
-### Day 47: March 30th, 2022
+### Day 47: March 31st, 2022
 ##### Working With Classes
 
 **Today's Progress:**
@@ -791,13 +791,29 @@ I think for the room objects, we'll use an (x,y,z) co-ordinate system. It will b
 
 I can pass tuples into the object to observe what locations are connected to each other. I will need another value to pass to indicate the player can not move in that direction. Maybe a False variable.
 
-### Day 48: March 30th, 2022
-##### 
+### Day 48: April 1st, 2022
+##### Room / Map Classes
 
 **Today's Progress:**
 1. Added rooms.py
-2. Worked through thought logic of the map, player position, and how to impliment xyz values.
+2. Worked through thought logic of the map, player position, and how to implement xyz values.
 
 **Thoughts:**
 
 Making progress. Short code today, busy day. I will continue with the project and give it more attention as much as I can.
+
+### Day 49: April 2nd, 2022
+##### Room / Map Classes
+
+**Today's Progress:**
+1. Outlined player movement in the Player() class.
+2. Added Item & Rusty Key as class.
+
+**Thoughts:**
+Even though I've done enough research on classes. It's still complex to work with them. This is part because of the coordinate problem. It is a complex problem that is not easy to wrap your head around. I've got a start, and we're going somewhere, but it's also unclear where I should wind up.
+
+I feel like the problem is 80% solved. I'm just tired and not able to see the whole picture clearly.
+
+100 Days of code was no joke. It's not easy programming every day. Some days you really don't want to. But it's nice to see the progress I've made thus far.
+
+I'm not going to give up. There's plenty of work left to do.
