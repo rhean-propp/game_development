@@ -839,4 +839,14 @@ I'm curious how other people have solved this problem, and how I can figure out 
 
 **Thoughts:**
 
-Encountered a problem with the cube. When I go to print the address, it reverses the print statement, printing the coordinates backwareds. I'm not sure yet how to fix this. 
+Encountered a problem with the cube. When I go to print the address, it reverses the print statement, printing the coordinates backwards. I'm not sure yet how to fix this. 
+
+### Day 52: April 5th, 2022
+##### 
+
+**Today's Progress:**
+1. Worked on understanding the xyz generation method provided by Austin L. Howard
+
+**Thoughts:**
+
+I'm a bit lost, sometimes programs can get quite complex and breaking them down to understand them isn't always easy. But we're making progress. Even if it's slow.
