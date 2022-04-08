@@ -17,6 +17,7 @@
 
 ### Bugs
 1. [BUG] Resolve "." not displaying after a print. Character cursor overlap bug.
+2. [BUG] Program alters index when printing out by 1.
 
 ### Puzzle Plans
 1. Cryptographic note. | Reference ram journal

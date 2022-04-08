@@ -842,7 +842,7 @@ I'm curious how other people have solved this problem, and how I can figure out 
 Encountered a problem with the cube. When I go to print the address, it reverses the print statement, printing the coordinates backwards. I'm not sure yet how to fix this. 
 
 ### Day 52: April 5th, 2022
-##### 
+##### List Generation
 
 **Today's Progress:**
 1. Worked on understanding the xyz generation method provided by Austin L. Howard
@@ -850,3 +850,52 @@ Encountered a problem with the cube. When I go to print the address, it reverses
 **Thoughts:**
 
 I'm a bit lost, sometimes programs can get quite complex and breaking them down to understand them isn't always easy. But we're making progress. Even if it's slow.
+
+### Day 53: April 6th, 2022
+##### 
+
+**Today's Progress:**
+1. Worked on understanding the grid system.
+2. Evaluating if I need a 3D grid or even a grid system in general.
+
+**Thoughts:**
+
+I need to review how I want room creation to work. Because it's a confusing problem that could be tackled in a number of ways.
+
+I want to create an object that is a room. That room knows about it's other nearby rooms, but they are not loaded into memory. The only object that is loaded into memory is the current room the player is standing in. Once a player leaves a room, the previous room should be cleared from memory.
+
+This makes me wonder if I need a grid at all, or if I can just individually create each object as the story progresses. I'm not sure who to ask, or if I should just try it, and if it doesn't work, rework it.
+
+I've been stuck without much progress for a while now. I'd like to get the ball rolling again and make some headway. I keep getting bogged down in this grid system, when I barely understand how I would impliment it. I don't really have a plan for how to make this work. I have rough ideas in my head I'd like to try out but some of these pathways are rather difficult for a novice programmer.
+
+I would like a challenge, but I don't want to put my brain through a meat processor.
+
+I might do a node based system when creating each object so it is aware of the rooms around it. But this had something to do with perhaps storing all objects in memory at once which a bad practice? I'm not sure, I don't know enough to know what are both good and bad practices are, especially when starting out. This is why I find leet code much more frustrating for beginners. It's hard to understand where to even begin when you're told you should be focused on doing it the correct way. While the correct way may be far more complex than simply accomplishing the task itself.
+
+I just want to get this done. I might just start powering through some code ideas. Wether they are best practice or not. I can come back and refactor my code when I have more experience under my belt. Otherwise i'm just going to get far too discouraged to even bother continuing the project. I want to see some results.
+
+### Day 54: April 7th, 2022
+##### 
+
+**Today's Progress:**
+1. Refactored map.py
+2. Removed the Map class.
+3. Removed xyz coordinate system.
+4. Clarified Room function.
+5. Learned about data encapsulation.
+
+**Thoughts:**
+
+I might have found the solution to the mapping problem.
+
+So I do need an index. But I don't necessarily need a grid system. But in a sense, I do. Let me explain.
+
+The solution was explained in The Little Book of Adventure Game Programming in Java: Chapter 2 - The Map.
+
+Essentially, when each room object is created, it is aware of what rooms are connected to it. We will call these room exits. These room exits contain an integer value. This integer value is the index for an array. This array we will call map.
+
+The map array is a list of all room objects. So in order to load a room, the player must move to the index. When the player moves to that index, the object is loaded into memory.
+
+I believe initially I was on course to create the game like this, but got side tracked and stuck in the mud. We're back on track and should soon have this problem solved.
+
+In regards to data encapsulation, I learned that python doesn't have private variables. However, data encapsulation is still possible through a standard convention. Variables with two underscores "__" are not to be called outside of a class. But rather modified and called by the methods within that class.
