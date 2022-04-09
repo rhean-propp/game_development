@@ -899,3 +899,15 @@ The map array is a list of all room objects. So in order to load a room, the pla
 I believe initially I was on course to create the game like this, but got side tracked and stuck in the mud. We're back on track and should soon have this problem solved.
 
 In regards to data encapsulation, I learned that python doesn't have private variables. However, data encapsulation is still possible through a standard convention. Variables with two underscores "__" are not to be called outside of a class. But rather modified and called by the methods within that class.
+
+### Day 55: April 8th, 2022
+##### Building the World
+
+**Today's Progress:**
+1. Began appending room objects to the map list.
+2. Defined the __repr__ method.
+3. Working on __str__ method.
+
+**Thoughts:**
+
+Tired today. Made a little bit of progress though. We should be able to try testing moving the player between rooms soon. I need to figure out how to print out __str__ before I keep going though.
