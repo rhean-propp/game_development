@@ -911,3 +911,17 @@ In regards to data encapsulation, I learned that python doesn't have private var
 **Thoughts:**
 
 Tired today. Made a little bit of progress though. We should be able to try testing moving the player between rooms soon. I need to figure out how to print out __str__ before I keep going though.
+
+### Day 56: April 9th, 2022
+##### 
+
+**Today's Progress:**
+1. Learned how to correctly call the __str__ dunder method.
+2. Formatted Room's __str__ output.
+3. Began work on player class.
+
+**Thoughts:**
+I got the __str__ dunder method to work for the Room class. Now that I have 4 rooms set up, I should be able to create a singular object variable that is loaded in based on conditional logic. We should be able to use a while loop to continually get player input. Then as the player moves, print the index that the player is in. If the player attempts to exit out of the wrong direction, an error message should be displayed to the player.
+
+This is a little bit more in-depth, but I can break these down into more simple problems.
+
