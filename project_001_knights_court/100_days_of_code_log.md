@@ -913,7 +913,7 @@ In regards to data encapsulation, I learned that python doesn't have private var
 Tired today. Made a little bit of progress though. We should be able to try testing moving the player between rooms soon. I need to figure out how to print out __str__ before I keep going though.
 
 ### Day 56: April 9th, 2022
-##### 
+##### QoL
 
 **Today's Progress:**
 1. Learned how to correctly call the __str__ dunder method.
@@ -925,3 +925,11 @@ I got the __str__ dunder method to work for the Room class. Now that I have 4 ro
 
 This is a little bit more in-depth, but I can break these down into more simple problems.
 
+### Day 57: April 9th, 2022
+##### Player Movement
+
+**Today's Progress:**
+1. Created test environment for moving the player.
+
+**Thoughts:**
+Today is a really good day. My first prototype for player movement is done. I can use the map, which is created the room objects. I can reference the object instance variables. Everything works. It's with classes and it works. I'm so happy! It took so long to figure this out hahaha.

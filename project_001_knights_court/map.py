@@ -42,14 +42,32 @@ map.append(Room("Cave", "A dismal cave with walls covered in luminous moss", 2, 
 map.append(Room("Dungeon", "A nasty, dark cell", 3, 2, NOEXIT, 1, NOEXIT))                                 # Connected to Room 2 and Room 1
 
 # Print Out All Room Objects
+'''
 x = 0
 while x < len(map):
     print(map[x].__str__())
     x+=1
-
+'''
 # To Do:
 # ======
 # Create testing area for the player to move around in.
 
+while True:
+    print("What room # do you want to move to?\n")
+    test_input = input("> ")
+    print(test_input)
 
-
+    if  "0" in test_input:
+        player_character = Player("Xenquish", "A royal knight.", 0)
+    
+    if "1" in test_input:
+        player_character = Player("Xenquish", "A royal knight.", 1)
+        
+    if "2" in test_input:
+        player_character = Player("Xenquish", "A royal knight.", 2)
+        
+    if "3" in test_input:
+        player_character = Player("Xenquish", "A royal knight.", 3)
+        
+    #print(xenquish)
+    print(map[player_character.index].name)
