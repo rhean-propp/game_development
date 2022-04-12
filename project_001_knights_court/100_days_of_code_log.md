@@ -933,3 +933,21 @@ This is a little bit more in-depth, but I can break these down into more simple 
 
 **Thoughts:**
 Today is a really good day. My first prototype for player movement is done. I can use the map, which is created the room objects. I can reference the object instance variables. Everything works. It's with classes and it works. I'm so happy! It took so long to figure this out hahaha.
+
+### Day 58: April 9th, 2022
+##### Adv. Room Creation
+
+**Today's Progress:**
+1. Removed unused index variable from Room() class.
+2. Worked out thought process for associating puzzles with rooms. 
+
+**Thoughts:**
+
+Ok. So I have a rough outline of how the player can move from one room to another. Now I need a way of creating puzzles inside these rooms. I already have one built puzzle. The oxygen puzzle which uses threading. I'm not sure how I can make this part of the object. Do I want a seperate file just for created rooms? Here I would define the objects i'm creating with their own methods?
+
+Do I need a puzzle class? Or should puzzles still be their own seperate functions that are called when a player is inside a certain room?
+
+If I want to associate a puzzle with a room, how do I do that? Should the puzzle be in its own function? Or should the puzzle be a method within the object?
+
+If the puzzle is a method within the object, can I create methods that are specific to individual objects? Is that a thing?
+

@@ -15,7 +15,7 @@ class Room:
         # Name / Description:
         self.name = name                    # Room Name
         self.description = description      # Room description
-        self.index = index
+        #self.index = index                  # Is this used? Refer to map[] index instead?
         
         # Define Exit Points | Values indicate list index for "map" list
         self.north_exit = aN
@@ -36,10 +36,20 @@ class Player:
         self.description = description      # Player Description
         self.index = index                  # Player Location
         
-map.append(Room("Troll Room", "A dank room that smells of troll.", 0, NOEXIT, 1, NOEXIT, 2))               # Connected to Room 1 and Room 2
-map.append(Room("Forest", "A leafy woodland", 1, 0, NOEXIT, NOEXIT, 3))                                    # Connected to Room 0 and Room 3
-map.append(Room("Cave", "A dismal cave with walls covered in luminous moss", 2, NOEXIT, 3, 0, NOEXIT))     # Connected to Room 3 and Room 0
-map.append(Room("Dungeon", "A nasty, dark cell", 3, 2, NOEXIT, 1, NOEXIT))                                 # Connected to Room 2 and Room 1
+# Room Creation & Appending to the Map List        
+map.append(
+    Room(
+        "Void's End",                           # Room Name
+        "A dark hemisphere filled with 4 statues surrounding a pool of dark liquid in the center.",        # Initial Description
+        NOEXIT,                                     # North Exit
+        1,                                          # South Exit
+        NOEXIT,                                     # West Exit
+        2                                           # East Exit
+        )
+    )               
+map.append(Room("Forest", "A leafy woodland", 0, NOEXIT, NOEXIT, 3))                                    
+map.append(Room("Cave", "A dismal cave with walls covered in luminous moss", NOEXIT, 3, 0, NOEXIT))     
+map.append(Room("Dungeon", "A nasty, dark cell", 2, NOEXIT, 1, NOEXIT))                                 
 
 # Print Out All Room Objects
 '''
@@ -48,10 +58,8 @@ while x < len(map):
     print(map[x].__str__())
     x+=1
 '''
-# To Do:
-# ======
-# Create testing area for the player to move around in.
 
+# Test Sample of Player Movement
 while True:
     print("What room # do you want to move to?\n")
     test_input = input("> ")
