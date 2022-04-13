@@ -8,7 +8,7 @@ class Weapon:
     
     def __str__(self):
         return self.name
-    
+
 
 # Weapon Subclasses
 class Rock(Weapon):

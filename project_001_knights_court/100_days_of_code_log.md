@@ -925,7 +925,7 @@ I got the __str__ dunder method to work for the Room class. Now that I have 4 ro
 
 This is a little bit more in-depth, but I can break these down into more simple problems.
 
-### Day 57: April 9th, 2022
+### Day 57: April 10th, 2022
 ##### Player Movement
 
 **Today's Progress:**
@@ -934,7 +934,7 @@ This is a little bit more in-depth, but I can break these down into more simple 
 **Thoughts:**
 Today is a really good day. My first prototype for player movement is done. I can use the map, which is created the room objects. I can reference the object instance variables. Everything works. It's with classes and it works. I'm so happy! It took so long to figure this out hahaha.
 
-### Day 58: April 9th, 2022
+### Day 58: April 11th, 2022
 ##### Adv. Room Creation
 
 **Today's Progress:**
@@ -951,3 +951,18 @@ If I want to associate a puzzle with a room, how do I do that? Should the puzzle
 
 If the puzzle is a method within the object, can I create methods that are specific to individual objects? Is that a thing?
 
+### Day 59: April 12th, 2022
+##### Adv. Room Creation
+
+**Today's Progress:**
+1. Researched when to use class inheritence.
+2. Researched code organization through packages and modules.
+
+**Thoughts:**
+Started covering how to organize my program with packages and modules. Getting a bit lost in classes and how to proceed with the next steps. Nothing out of the originary, haha. I find the project very dense and difficult to maneuver. I think I'm at a stage where if I can get my entire program organized and still operational, it will help me to continue building it. Right now, everything feels quite messy. Even though I've done my best to organize it, it's not where it could be.
+
+I still often feel discouraged about just how much there is to learn about programming. I can write a few scripts, but developing a full application is a whole different story. The more you learn, the more you realize how much there is to learn, and how little you really know. Then you wonder how can you ever learn all there is to know? It feels like climbing a never ending mountain, but you can always take a breath to admire the view from wherever you are along the journey.
+
+When I set out to do this project, I thought that I wouldn't run into many hiccups. That there might be some challenges, but it wouldn't ever really be all that hard. But in reality, it was far more challenging than I was expecting. Learning how to teach yourself without the aid of others is perhaps the most difficult. There are of course mentors and friends who are willing to lend a hand when you've been stuck on a problem for a while, but you in a sense have to be your own guru. You have to figure out where your problem is, then work towards the solution for that problem.
+
+This is especially difficult when you don't really know what the problem is. Defining the problem is half the problem. Sometimes the concepts feel so advanced that you have to say: "Ok, I need to go over the fundementals." Which is okay. There's nothing wrong with that. It's a very humbling experience. I don't think I ever want to stop learning how to program. There's something very captivating about it all. It's a challenge I've never really encountered before and I find it very rewarding. But it is no joke. If you ever think programming won't kick your ass, you're dead wrong.

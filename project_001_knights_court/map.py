@@ -39,7 +39,7 @@ class Player:
 # Room Creation & Appending to the Map List        
 map.append(
     Room(
-        "Void's End",                           # Room Name
+        "Void's End",                               # Room Name
         "A dark hemisphere filled with 4 statues surrounding a pool of dark liquid in the center.",        # Initial Description
         NOEXIT,                                     # North Exit
         1,                                          # South Exit
