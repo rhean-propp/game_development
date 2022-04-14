@@ -1,5 +1,9 @@
 # TO DO:
 
+### Current Tasks
+1. Integrate room movement test code with oxygen puzzle execution.
+2. Reorganize code.
+
 ### Prototype Completion
 1. Build 10 puzzles for chapter_01
 2. Add save_game() and load_game() functions to data_serialization.
@@ -10,11 +14,9 @@
 7. Begin basic movement around the first room in chapter_01()
 8. Build movement so a player can move from one end of a room to another and back again.
 9. After a player death, the game over screen should prompt the player to restore to a previous save.
-10. Build testing ground to allow player to move back and forth between rooms.
-11. Refactor code to run inside of a while True loop. AKA the game loop
-12. Move all items into items.py
-13. Work integration of items.py into the inventory function.
-14. Re-Organize code to place functions / classes that are related to each other in their own seperate files.
+10. Refactor code to run inside of a while True loop. AKA the game loop
+11. Move all items into items.py
+12. Work integration of items.py into the inventory function.
 
 ### Bugs
 1. [BUG] Resolve "." not displaying after a print. Character cursor overlap bug.

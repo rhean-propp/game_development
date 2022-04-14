@@ -952,7 +952,7 @@ If I want to associate a puzzle with a room, how do I do that? Should the puzzle
 If the puzzle is a method within the object, can I create methods that are specific to individual objects? Is that a thing?
 
 ### Day 59: April 12th, 2022
-##### Adv. Room Creation
+##### Learning Code Organization
 
 **Today's Progress:**
 1. Researched when to use class inheritence.
@@ -966,3 +966,13 @@ I still often feel discouraged about just how much there is to learn about progr
 When I set out to do this project, I thought that I wouldn't run into many hiccups. That there might be some challenges, but it wouldn't ever really be all that hard. But in reality, it was far more challenging than I was expecting. Learning how to teach yourself without the aid of others is perhaps the most difficult. There are of course mentors and friends who are willing to lend a hand when you've been stuck on a problem for a while, but you in a sense have to be your own guru. You have to figure out where your problem is, then work towards the solution for that problem.
 
 This is especially difficult when you don't really know what the problem is. Defining the problem is half the problem. Sometimes the concepts feel so advanced that you have to say: "Ok, I need to go over the fundementals." Which is okay. There's nothing wrong with that. It's a very humbling experience. I don't think I ever want to stop learning how to program. There's something very captivating about it all. It's a challenge I've never really encountered before and I find it very rewarding. But it is no joke. If you ever think programming won't kick your ass, you're dead wrong.
+
+### Day 60: April 12th, 2022
+##### Organization
+
+**Today's Progress:**
+1. Added docs folder for .md files.
+2. Created README.md
+
+**Thoughts:**
+I need to place the puzzle mechanic for the starting room outside of the Room object class. Started organizing the program a bit more. I'm not even sure where to start, but we'll get there.
