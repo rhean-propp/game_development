@@ -3,6 +3,7 @@
 ### Current Tasks
 1. Integrate room movement test code with oxygen puzzle execution.
 2. Reorganize code.
+3. Correctly parse string input into a list of words against a delimiter string.
 
 ### Prototype Completion
 1. Build 10 puzzles for chapter_01

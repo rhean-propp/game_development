@@ -967,7 +967,7 @@ When I set out to do this project, I thought that I wouldn't run into many hiccu
 
 This is especially difficult when you don't really know what the problem is. Defining the problem is half the problem. Sometimes the concepts feel so advanced that you have to say: "Ok, I need to go over the fundementals." Which is okay. There's nothing wrong with that. It's a very humbling experience. I don't think I ever want to stop learning how to program. There's something very captivating about it all. It's a challenge I've never really encountered before and I find it very rewarding. But it is no joke. If you ever think programming won't kick your ass, you're dead wrong.
 
-### Day 60: April 12th, 2022
+### Day 60: April 13th, 2022
 ##### Organization
 
 **Today's Progress:**
@@ -976,3 +976,12 @@ This is especially difficult when you don't really know what the problem is. Def
 
 **Thoughts:**
 I need to place the puzzle mechanic for the starting room outside of the Room object class. Started organizing the program a bit more. I'm not even sure where to start, but we'll get there.
+
+### Day 61: April 14th, 2022
+##### Research
+
+**Today's Progress:**
+1. Read introduction and chapter 1 of Adventure Game Programming in Java by Huw Collingbourne.
+
+**Thoughts:**
+Learned that I need to properly parse input correctly with a delimiter list. The parse should result in a list of words that were used by the user. I can't believe I didn't think of this. I'm going to add this to the user_input function right away.
