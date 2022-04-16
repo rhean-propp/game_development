@@ -4,8 +4,12 @@
 # Desc: Primary Game Functions #
 # ============================ #
 
+# Local Imports
 from functions import *             # General functions that do not call other functions.
 from data_serialization import *    # Saves game state, inventory and username
+from map import *
+
+# External Library Imports
 from time import sleep              # Timed messages
 #import threading                    # Used for Oxygen Clock in Chapter_01       # Is this actually used?
 from threading import Thread
@@ -581,9 +585,35 @@ while input_buffer not in input_negative and input_buffer not in input_positive:
 '''
 #chapter_01()
 
+# Game Loop | Runs the Entire Game
+#while True:
+#    print("Enter a command: ")
+#    user_input()
+
+player_character = Player("Xenquish", "A royal knight.", 0)
+
+# Game Loop | Pseudo Code
 while True:
-    print("Enter a command: ")
-    user_input()
+    if player_character.index == 0:
+        print("Index 0")
+        # Game Startup
+        # Prompt Tutorial
+            # Check flag.
+        # Prompt Prologue
+            # Check Flag
+        # Start Oxygen Puzzle
+            # Check flag
+        # If player moves to new room:
+            # Change player_character.index to new room number.
+    elif player_character.index == 1:
+        print("Index 1")
+    elif player_character.index == 2:
+        print("Index 2")
+    elif player_character.index == 3:
+        print("Index 3")
+    else:
+        print("Error: Player index out of bounds.\n")
+        
 
 #game_over()
 #create_inv(user_name, inventory_file)       # Creates <user_name>_inventory file | Adds Crumpled Note

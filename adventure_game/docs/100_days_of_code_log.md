@@ -1004,3 +1004,14 @@ I'm having a hard time telling if i've lost motivation for the project, and I'm 
 I want to continue this project and I want to see it to the end. I also want to do a really great job of making it a game worth playing. Not something i've simply finished for the sake of finishing it. There's 28 days until the challenge is complete. Which is all well and good, but considering how little i've managed to contribute this last month, it hardly feels like im making much of any progress at all.
 
 Maybe i'm being too hard on myself. I just want to make this happen.
+
+### Day 63: April 16th, 2022
+##### Game Loop Structure
+
+**Today's Progress:**
+1. Worked on solving how the game loop will run.
+
+**Thoughts:**
+The game loop is tricky. I think the biggest challenge I've had with learning how to program is structure. Learning how to approach problems to break them down into smaller problems. But there are times when you have to look at the whole and work backwards. Which is a weird line of thinking.
+
+Either way, we have a heading for the game loop. I'm pretty sure referrencing the class index variable for the Player class is a good way to go about filtering what sections of the game to run. I'm not 100% sure if this is the best way to do this, but its a start.

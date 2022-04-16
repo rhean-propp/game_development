@@ -51,6 +51,7 @@ while x < len(map):
 '''
 
 # Test Sample of Player Movement
+'''
 while True:
     print("What room # do you want to move to?\n")
     test_input = input("> ")
@@ -70,3 +71,4 @@ while True:
         
     #print(xenquish)
     print(map[player_character.index].name)
+'''
