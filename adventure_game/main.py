@@ -53,6 +53,7 @@ input_help_guide = ["help", "halp", "h"]        # Need to update this changed li
 input_move_guide = ["move"]                     # Need to update this changed list with the function | Do not call it input_move
 input_save = ["save game", "save"]
 input_load = ["load game", "load"]
+input_quit = ["quit game", "quit", "q"]
 
 # Player commands for interaction | user_input()
 input_examine = ["examine", "look at", "look", "view", "probe"]
@@ -124,6 +125,17 @@ def user_input():           # Primary Parser. Returns sanitized input.
             buffer = "save"                    
             save_inv()                         
             #add save game
+    
+    # Quit Game
+    elif buffer in input_quit:
+        buffer = "q"
+        print("Warning: If you quit without saving, progress may be lost.\nDo you still wish to quit?\n")
+        buffer = user_input()
+        if buffer == "yes":
+            delay_print("Exiting game...")
+            exit()
+        else:
+            delay_print("Resuming game...\n")
             
     # ======================================================== #
     # Polar Response Commands
@@ -569,7 +581,11 @@ while input_buffer not in input_negative and input_buffer not in input_positive:
 '''
 #chapter_01()
 
-game_over()
+while True:
+    print("Enter a command: ")
+    user_input()
+
+#game_over()
 #create_inv(user_name, inventory_file)       # Creates <user_name>_inventory file | Adds Crumpled Note
 #add_inv_item("Sword", 1)                    # Adds <item>,<quantity> to inventory_file
 #save_inv(inventory_file)                    # Saves inventory_file with pickle module.

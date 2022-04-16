@@ -985,3 +985,22 @@ I need to place the puzzle mechanic for the starting room outside of the Room ob
 
 **Thoughts:**
 Learned that I need to properly parse input correctly with a delimiter list. The parse should result in a list of words that were used by the user. I can't believe I didn't think of this. I'm going to add this to the user_input function right away.
+
+### Day 62: April 15th, 2022
+##### Staying on Track
+
+**Today's Progress:**
+1. Changed parent directory from knights_court to adventure_game
+2. Created a trello board for keeping track of what is currently being worked on.
+3. Created quit functionality for user_input() function.
+
+**Thoughts:**
+I need to break the code down further into bite size chucnks. I often look at all of the things I need to do and get overwhelmed and struggle to do anything significantly productive. The primary reason for this comes from the code base being so big and seemingly unorganized, while having a large list of things that need to be fixed or built upon in order to progress.
+
+The map.py code is a great example. I know I need to start incorporating player movement into the main function in side the main.py file, but how do I do this correctly? I know there should be a running while loop in there, and the user should be able to quit the game. Maybe i'm missing functionality before including this?
+
+I'm having a hard time telling if i've lost motivation for the project, and I'm just doing barely enough to qualify this as a submission for each day, or if my head is so busy with life outside this project that it makes the project itself much more difficult to focus on.
+
+I want to continue this project and I want to see it to the end. I also want to do a really great job of making it a game worth playing. Not something i've simply finished for the sake of finishing it. There's 28 days until the challenge is complete. Which is all well and good, but considering how little i've managed to contribute this last month, it hardly feels like im making much of any progress at all.
+
+Maybe i'm being too hard on myself. I just want to make this happen.

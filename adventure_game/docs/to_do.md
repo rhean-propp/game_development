@@ -1,6 +1,6 @@
 # TO DO:
 
-### Current Tasks
+### In-Progress
 1. Integrate room movement test code with oxygen puzzle execution.
 2. Reorganize code.
 3. Correctly parse string input into a list of words against a delimiter string.
@@ -13,11 +13,11 @@
 5. Add full functionality for validating player input and providing errors when input is invalid.
 6. Finish help() after creation of all major player commands.
 7. Begin basic movement around the first room in chapter_01()
-8. Build movement so a player can move from one end of a room to another and back again.
-9. After a player death, the game over screen should prompt the player to restore to a previous save.
-10. Refactor code to run inside of a while True loop. AKA the game loop
-11. Move all items into items.py
-12. Work integration of items.py into the inventory function.
+8. After a player death, the game over screen should prompt the player to restore to a previous save.
+9. Refactor code to run inside of a while True loop. AKA the game loop
+10. Move all items into items.py
+11. Work integration of items.py into the inventory function.
+12. Serialize if player has player has played tutorial or not. Do not prompt on second boot.
 
 ### Bugs
 1. [BUG] Resolve "." not displaying after a print. Character cursor overlap bug.
