@@ -595,8 +595,32 @@ player_character = Player("Xenquish", "A royal knight.", 0)
 # Game Loop | Pseudo Code
 while True:
     if player_character.index == 0:
-        print("Index 0")
+        
         # Game Startup
+        input_buffer = start_game()                     # Ask user if they would like to play the game.
+
+        if input_buffer in input_positive:              # If yes
+            get_name()                                  # Begin Game
+            create_inv(inventory_file)                  # Creates user's binary inventory file | <user_name>_inventory
+        elif input_buffer in input_negative:            # If no
+            delay_print("\nMaybe another time.\n")      # Quit Game
+            exit()
+        else:
+            print("\nError. Invalid Input\n")
+        
+        # Prompt Tutorial
+        clear_buffer()
+        while input_buffer not in input_negative and input_buffer not in input_positive:        # Check for tutorial flag here.
+            delay_print("Would you like to learn how to play the game?\n")
+            input_buffer = user_input()
+            if input_buffer in input_positive:
+                tutorial()
+                # Put Tutorial Flag Here | This data needs to be serialized and referenced through serialization.
+            elif input_buffer in input_undecided:
+                delay_print("\nIf you are unsure, it is a wise idea to run through the tutorial. Don't worry, it's quick.\n")
+            else: 
+                pass
+            
         # Prompt Tutorial
             # Check flag.
         # Prompt Prologue

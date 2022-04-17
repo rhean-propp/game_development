@@ -1015,3 +1015,14 @@ Maybe i'm being too hard on myself. I just want to make this happen.
 The game loop is tricky. I think the biggest challenge I've had with learning how to program is structure. Learning how to approach problems to break them down into smaller problems. But there are times when you have to look at the whole and work backwards. Which is a weird line of thinking.
 
 Either way, we have a heading for the game loop. I'm pretty sure referrencing the class index variable for the Player class is a good way to go about filtering what sections of the game to run. I'm not 100% sure if this is the best way to do this, but its a start.
+
+### Day 64: April 17th, 2022
+##### 
+
+**Today's Progress:**
+1. Started integrating previous code into while loop.
+
+**Thoughts:**
+
+I didn't have much time to program today. My day got flipped topsy turvey. I need to make up for the lack of programming today this week. I wanted to at least add a contribution.
+
