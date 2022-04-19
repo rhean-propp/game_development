@@ -1017,7 +1017,7 @@ The game loop is tricky. I think the biggest challenge I've had with learning ho
 Either way, we have a heading for the game loop. I'm pretty sure referrencing the class index variable for the Player class is a good way to go about filtering what sections of the game to run. I'm not 100% sure if this is the best way to do this, but its a start.
 
 ### Day 64: April 17th, 2022
-##### 
+##### Quick Update to Game Loop
 
 **Today's Progress:**
 1. Started integrating previous code into while loop.
@@ -1026,3 +1026,14 @@ Either way, we have a heading for the game loop. I'm pretty sure referrencing th
 
 I didn't have much time to program today. My day got flipped topsy turvey. I need to make up for the lack of programming today this week. I wanted to at least add a contribution.
 
+### Day 65: April 18th, 2022
+##### Creating Class Inheritence
+
+**Today's Progress:**
+1. Created the Thing class.
+2. Modified Player and Room class to use the Thing class as a parent.
+3. Made name/description variables unique to the Thing class.
+
+**Thoughts:**
+
+Started playing around with class inheritence. I have a bug preventing me from correctly setting this up. Will be working on it tomorrow.

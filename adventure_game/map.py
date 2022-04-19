@@ -5,16 +5,25 @@
 # ================================================================================ #
 
 # Global Variables
+from unicodedata import name
+
+
 NOEXIT = -1  # Indicates there is no exit at the specified n/s/e/w direction. 
 map = []     # Contains all room objects | Rooms are referrenced by array index.
 
+class Thing:
+    def __init__(self, name, description):
+        self.name = name
+        self.description = description
+
 # Room Class | Template for creating room objects.
-class Room:
-    def __init__(self, name, description, index, aN, aS, aW, aE):
+class Room(Thing):
+    def __init__(self, name, description, aN, aS, aW, aE):
         
         # Name / Description:
-        self.name = name                    # Room Name
-        self.description = description      # Room description
+        super().__init__(self, name, description)           # Inherits properties from Thing class.
+        #self.name = name                    # Room Name
+        #self.description = description      # Room description
         #self.index = index                  # Is this used? Refer to map[] index instead?
         
         # Define Exit Points | Values indicate list index for "map" list
@@ -30,17 +39,23 @@ class Room:
         return f'------------------------------------------------------------------------\n\nName:\t\t{self.name}\nDescription:\t{self.description}\nRoom Number:\t{self.index}\nExits:\n\tNorth: {self.north_exit}\n\tSouth: {self.south_exit}\n\tWest: {self.west_exit}\n\tEast: {self.east_exit}\n'
 
 # Player Class
-class Player:
+class Player(Thing):
     def __init__(self, name, description, index):
-        self.name = name                    # Player Name
-        self.description = description      # Player Description
+        super().__init__(self, name, description)                   # Inherits properties from Thing class.
+        #self.name = name                    # Player Name
+        #self.description = description      # Player Description
         self.index = index                  # Player Location
         
 # Room Creation & Appending to the Map List        
 map.append(Room("Void's End", "A dark hemisphere filled with 4 statues surrounding a pool of dark liquid in the center.", NOEXIT, 1, NOEXIT, 2))               
 map.append(Room("Forest", "A leafy woodland", 0, NOEXIT, NOEXIT, 3))                                    
 map.append(Room("Cave", "A dismal cave with walls covered in luminous moss", NOEXIT, 3, 0, NOEXIT))     
-map.append(Room("Dungeon", "A nasty, dark cell", 2, NOEXIT, 1, NOEXIT))                                 
+map.append(Room("Dungeon", "A nasty, dark cell", 2, NOEXIT, 1, NOEXIT))       
+
+
+# Testing
+potato = Room("test_name", "test_description", NOEXIT, 1, NOEXIT, 2)
+print(potato.description)                          
 
 # Print Out All Room Objects
 '''
