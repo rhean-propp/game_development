@@ -1037,3 +1037,14 @@ I didn't have much time to program today. My day got flipped topsy turvey. I nee
 **Thoughts:**
 
 Started playing around with class inheritence. I have a bug preventing me from correctly setting this up. Will be working on it tomorrow.
+
+### Day 66: April 19th, 2022
+##### Studying
+
+**Today's Progress:**
+1. Fixed bug preventing correct use of the super() function for class inheritance. 
+2. Read chapter 3 of adventure game programming in java.
+
+**Thoughts:**
+
+Had to remove the self variable from being passed to super() in order to get it to work correctly. Not sure why super() doesn't need self. I need to dig a little more. I need to build a parser to check for verbs and objects. This will allow some pretty simple commands, and I can create a list of verbs that can be checked, along with a list of objects the player can interact with.

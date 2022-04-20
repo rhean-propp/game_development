@@ -21,7 +21,7 @@ class Room(Thing):
     def __init__(self, name, description, aN, aS, aW, aE):
         
         # Name / Description:
-        super().__init__(self, name, description)           # Inherits properties from Thing class.
+        super().__init__(name, description)           # Inherits properties from Thing class.
         #self.name = name                    # Room Name
         #self.description = description      # Room description
         #self.index = index                  # Is this used? Refer to map[] index instead?
@@ -41,7 +41,7 @@ class Room(Thing):
 # Player Class
 class Player(Thing):
     def __init__(self, name, description, index):
-        super().__init__(self, name, description)                   # Inherits properties from Thing class.
+        super().__init__(name, description)                   # Inherits properties from Thing class.
         #self.name = name                    # Player Name
         #self.description = description      # Player Description
         self.index = index                  # Player Location
@@ -55,7 +55,7 @@ map.append(Room("Dungeon", "A nasty, dark cell", 2, NOEXIT, 1, NOEXIT))
 
 # Testing
 potato = Room("test_name", "test_description", NOEXIT, 1, NOEXIT, 2)
-print(potato.description)                          
+print(potato.north_exit)                          
 
 # Print Out All Room Objects
 '''
