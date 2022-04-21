@@ -1049,7 +1049,7 @@ Started playing around with class inheritence. I have a bug preventing me from c
 
 Had to remove the self variable from being passed to super() in order to get it to work correctly. Not sure why super() doesn't need self. I need to dig a little more. I need to build a parser to check for verbs and objects. This will allow some pretty simple commands, and I can create a list of verbs that can be checked, along with a list of objects the player can interact with.
 
-### Day 67: April 19th, 2022
+### Day 67: April 20th, 2022
 ##### Game Loop & Imports
 
 **Today's Progress:**
@@ -1061,3 +1061,11 @@ Had to remove the self variable from being passed to super() in order to get it 
 **Thoughts:**
 
 Had a very productive session today. Got the game loop running correctly, fixed a circular import issue, and started organizing functions into their own files to make the code easier to maintain and read.
+
+### Day 68: April 21st, 2022
+##### Game Loop & Imports
+
+**Today's Progress:**
+1. Working on circular import problem.
+
+**Thoughts:**

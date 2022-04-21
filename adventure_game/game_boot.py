@@ -5,9 +5,9 @@
 # ============================ #
 
 from functions import delay_print
-#from main import user_name
-
-def prologue(user_name):
+#from global_variables import *
+ 
+def prologue(): # Need to pass variable.
     delay_print("\nYour feet drag along the ground, burdened by the weight of the chains that bound you.\n")
     delay_print("The paladin in front of you, Yuri, escorts you to the ceremony.\n")
     delay_print("Night has begun to fall. The air is cool.\n")

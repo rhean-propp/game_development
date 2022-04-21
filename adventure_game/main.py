@@ -549,7 +549,7 @@ while True:
         input_buffer = start_game()                     # Ask user if they would like to play the game.
         
         if input_buffer in input_positive:              # If yes
-            play_game = True                            # Flag | Checks if user wanted to play game.
+            play_game = True                            # Flag | Runs at game startup.
             get_name()                                  # Begin Game
             create_inv(inventory_file)                  # Creates user's binary inventory file | <user_name>_inventory
         elif input_buffer in input_negative:            # If no
@@ -577,7 +577,7 @@ while True:
             delay_print("\nWould you like to skip the prologue?\n")
             input_buffer = user_input()
             if input_buffer in input_negative:
-                prologue(user_name)
+                prologue()
             elif input_buffer in input_undecided:
                 delay_print("\nThe prologue is about a 5 minute read. If you like to play games for the story, it is recommended.\n")
             else: 
