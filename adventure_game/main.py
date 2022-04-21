@@ -8,59 +8,13 @@
 from functions import *             # General functions that do not call other functions.
 from data_serialization import *    # Saves game state, inventory and username
 from map import *
+from global_variables import *      # Global variables.
+from game_boot import prologue
 
 # External Library Imports
 from time import sleep              # Timed messages
 #import threading                    # Used for Oxygen Clock in Chapter_01       # Is this actually used?
 from threading import Thread
-
-# ============================================================================================================================================
-
-
-# GLOBAL VARIABLES
-
-
-# ============================================================================================================================================
-
-# General Purpose Variables
-user_name = ""                  # Name of the character the user is playing.
-input_buffer = ""               # User input is stored here.
-inventory_file = ""             # Stores <user_name>_inventory. Used for file creation.
-
-# General Responses | user_input()
-input_positive = ["yes", "ye", "yup", "ya", "yeah", "yep", "perhaps yes", "yus", "sure", "bet", "fo sho", "fo shizzle", "yesh", "yas", "okay", "ok", "yessir"]
-input_negative = ["no", "nope", "nah", "no way", "perhaps no", "naw", "hell nah", "nein", "hell no", "nay", "hell no", "nah brah", "nae"]
-input_undecided = ["perhaps", "maybe", "perchance", "conceivably", "possibly", "mayhaps", "mebbeh", "persnaps"]
-
-# Directional movements | user_input()
-input_forward = ["forward", "north", "n"]
-input_backward = ["backward", "back", "south", "s"]
-input_right = ["right", "east", "e"]
-input_left = ["left", "west", "w"]
-input_up = ["up", "upward", "upwards", "u"]
-input_down = ["down", "downward", "downwards", "d"]
-input_direction = [input_forward, input_backward, input_right, input_left, input_up, input_down]
-
-# Movement Types | user_input()
-input_swim = ["swim"]
-input_climb = ["climb"]
-input_walk = ["walk", "step"]
-input_run = ["run", "dash", "sprint"]
-input_jump = ["jump", "hop", "leap", "vault"]
-input_move = ["swim", "climb", "walk", "step", "run", "dash", "sprint", "jump", "hop", "leap", "vault"]
-# If we make input_move a list of lists, does it break everything?
-
-# Universal commands | user_input()
-input_inventory = ["inventory", "inv", "i"]
-input_shorthand = ["shorthand", "short"]
-input_help_guide = ["help", "halp", "h"]        # Need to update this changed list with the function
-input_move_guide = ["move"]                     # Need to update this changed list with the function | Do not call it input_move
-input_save = ["save game", "save"]
-input_load = ["load game", "load"]
-input_quit = ["quit game", "quit", "q"]
-
-# Player commands for interaction | user_input()
-input_examine = ["examine", "look at", "look", "view", "probe"]
 
 # ============================================================================================================================================ #
 
@@ -309,6 +263,7 @@ def get_name():             # Gets Name of User
     global user_name                                    
     global input_buffer
     global inventory_file
+    global player_character
     
     valid_name = 0  # Flag | Change to Boolean True/False for Clarity
     clear_buffer()
@@ -344,6 +299,7 @@ def get_name():             # Gets Name of User
                 
     # Create Inventory File Based on Player's Name:
     inventory_file = f"{user_name.lower()}_inventory"                        # Save inventory file name as <user_name>_inventory
+    player_character = Player(user_name, "A royal knight.", 0)                  # Create Player Object.
     delay_print(f"\nUnderstood, {user_name}.\nYour adventure awaits.\n\n")
     
 def tutorial():             # Tutorial for Player
@@ -478,7 +434,7 @@ def question():                         # Prompts User Repeatedly | Credit to Au
 
 
 # ============================================================================================================================================
-
+'''
 def prologue():
     delay_print("\nYour feet drag along the ground, burdened by the weight of the chains that bound you.\n")
     delay_print("The paladin in front of you, Yuri, escorts you to the ceremony.\n")
@@ -503,8 +459,8 @@ def prologue():
     delay_print("The ground shakes as howls of lost souls wail from the abyss below.\n")
     delay_print(f'"May the Enidra have mercy on our souls."\n')
     delay_print("You feel the hand of your friend, Yuri, rest his hand on your shoulder.\n")
-    delay_print("At the next moment, you watch you are pushed into the abyss below.\n")
-
+    delay_print("At the next moment, you watch as you are pushed into the abyss below.\n")
+'''
 def chapter_01():
     global input_buffer
     '''
@@ -583,23 +539,17 @@ while input_buffer not in input_negative and input_buffer not in input_positive:
     else: 
         continue
 '''
-#chapter_01()
 
-# Game Loop | Runs the Entire Game
-#while True:
-#    print("Enter a command: ")
-#    user_input()
-
-player_character = Player("Xenquish", "A royal knight.", 0)
-
-# Game Loop | Pseudo Code
+# Game Loop
 while True:
-    if player_character.index == 0:
+    
+    # Game Startup Functions
+    if play_game == False:
         
-        # Game Startup
         input_buffer = start_game()                     # Ask user if they would like to play the game.
-
+        
         if input_buffer in input_positive:              # If yes
+            play_game = True                            # Flag | Checks if user wanted to play game.
             get_name()                                  # Begin Game
             create_inv(inventory_file)                  # Creates user's binary inventory file | <user_name>_inventory
         elif input_buffer in input_negative:            # If no
@@ -607,7 +557,7 @@ while True:
             exit()
         else:
             print("\nError. Invalid Input\n")
-        
+    
         # Prompt Tutorial
         clear_buffer()
         while input_buffer not in input_negative and input_buffer not in input_positive:        # Check for tutorial flag here.
@@ -620,6 +570,24 @@ while True:
                 delay_print("\nIf you are unsure, it is a wise idea to run through the tutorial. Don't worry, it's quick.\n")
             else: 
                 pass
+        
+        # Prompt Prologue
+        clear_buffer()
+        while input_buffer not in input_negative and input_buffer not in input_positive:
+            delay_print("\nWould you like to skip the prologue?\n")
+            input_buffer = user_input()
+            if input_buffer in input_negative:
+                prologue(user_name)
+            elif input_buffer in input_undecided:
+                delay_print("\nThe prologue is about a 5 minute read. If you like to play games for the story, it is recommended.\n")
+            else: 
+                continue
+    
+    # Room 0 Functions
+    elif player_character.index == 0:
+        chapter_01()
+        print("Index 0")
+        sleep(3)
             
         # Prompt Tutorial
             # Check flag.
@@ -629,6 +597,8 @@ while True:
             # Check flag
         # If player moves to new room:
             # Change player_character.index to new room number.
+            
+    # Room 1 Functions
     elif player_character.index == 1:
         print("Index 1")
     elif player_character.index == 2:

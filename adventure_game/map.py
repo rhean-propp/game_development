@@ -54,8 +54,8 @@ map.append(Room("Dungeon", "A nasty, dark cell", 2, NOEXIT, 1, NOEXIT))
 
 
 # Testing
-potato = Room("test_name", "test_description", NOEXIT, 1, NOEXIT, 2)
-print(potato.north_exit)                          
+#potato = Room("test_name", "test_description", NOEXIT, 1, NOEXIT, 2)
+#print(potato.north_exit)                          
 
 # Print Out All Room Objects
 '''
