@@ -9,7 +9,7 @@ from functions import *             # General functions that do not call other f
 from data_serialization import *    # Saves game state, inventory and username
 from map import *
 from global_variables import *      # Global variables.
-from game_boot import prologue
+#from game_boot import prologue
 
 # External Library Imports
 from time import sleep              # Timed messages
@@ -177,7 +177,7 @@ def start_game():           # Prompt user to start game.
     
     # Loop Until: Yes, No, Maybe
     while input_buffer not in input_positive and input_buffer not in input_negative and input_buffer not in input_undecided:
-        delay_print("\nWould you like to play a game?\n")                                   
+        delay_print("\nWould you like to play a game? [yes/no]\n")                                   
         input_buffer = user_input()                                                         
     
     # If Positive:
@@ -434,7 +434,7 @@ def question():                         # Prompts User Repeatedly | Credit to Au
 
 
 # ============================================================================================================================================
-'''
+
 def prologue():
     delay_print("\nYour feet drag along the ground, burdened by the weight of the chains that bound you.\n")
     delay_print("The paladin in front of you, Yuri, escorts you to the ceremony.\n")
@@ -460,10 +460,10 @@ def prologue():
     delay_print(f'"May the Enidra have mercy on our souls."\n')
     delay_print("You feel the hand of your friend, Yuri, rest his hand on your shoulder.\n")
     delay_print("At the next moment, you watch as you are pushed into the abyss below.\n")
-'''
+
 def chapter_01():
     global input_buffer
-    '''
+    
     # Begin Drowning Puzzle
     delay_print("\nThe air slices your skin as it rushes past your face.\n")
     delay_print("Weightless; you plummet.\n")
@@ -472,7 +472,7 @@ def chapter_01():
     delay_print("The cold rush of liquid races past your body.\n")
     delay_print("You open your eyes and come to your senses.\n")
     delay_print("You are submerged, with little breath to spare.\n")
-    '''
+    
     
     # Drowning Puzzle | Credit to Austin L. Howard for the solution.
     question_thread = Thread(target=question)           # Associate question() function with thread.
@@ -501,44 +501,6 @@ def chapter_01():
 
 
 # ============================================================================================================================================
-
-# Get Character Name | Create Save Files
-'''
-input_buffer = start_game()                     # Ask user if they would like to play the game.
-
-if input_buffer in input_positive:              # If yes
-    get_name()                                  # Begin Game
-    create_inv(inventory_file)                  # Creates user's binary inventory file | <user_name>_inventory
-elif input_buffer in input_negative:            # If no
-    delay_print("\nMaybe another time.\n")      # Quit Game
-    exit()
-else:
-    print("\nError. Invalid Input\n")
-
-# Prompt Tutorial
-clear_buffer()
-while input_buffer not in input_negative and input_buffer not in input_positive:
-    delay_print("Would you like to learn how to play the game?\n")
-    input_buffer = user_input()
-    if input_buffer in input_positive:
-        tutorial()
-    elif input_buffer in input_undecided:
-        delay_print("\nIf you are unsure, it is a wise idea to run through the tutorial. Don't worry, it's quick.\n")
-    else: 
-        pass
-
-# Prompt Prologue
-clear_buffer()
-while input_buffer not in input_negative and input_buffer not in input_positive:
-    delay_print("\nWould you like to skip the prologue?\n")
-    input_buffer = user_input()
-    if input_buffer in input_negative:
-        prologue()
-    elif input_buffer in input_undecided:
-        delay_print("\nThe prologue is about a 5 minute read. If you like to play games for the story, it is recommended.\n")
-    else: 
-        continue
-'''
 
 # Game Loop
 while True:

@@ -3,7 +3,7 @@
 # Date: April 20th, 2022       #
 # Desc: Game Startup Functions #
 # ============================ #
-
+'''
 from functions import delay_print
 #from global_variables import *
  
@@ -32,3 +32,4 @@ def prologue(): # Need to pass variable.
     delay_print(f'"May the Enidra have mercy on our souls."\n')
     delay_print("You feel the hand of your friend, Yuri, rest his hand on your shoulder.\n")
     delay_print("At the next moment, you watch as you are pushed into the abyss below.\n")
+    '''

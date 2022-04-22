@@ -1063,9 +1063,24 @@ Had to remove the self variable from being passed to super() in order to get it 
 Had a very productive session today. Got the game loop running correctly, fixed a circular import issue, and started organizing functions into their own files to make the code easier to maintain and read.
 
 ### Day 68: April 21st, 2022
-##### Game Loop & Imports
+##### Circular Import Bug
 
 **Today's Progress:**
 1. Working on circular import problem.
 
 **Thoughts:**
+
+Got stuck on the circular import bug again. My code might not be as organizable as I had originally thought. I'm not 100% sure how to change it so two files are not dependent upon each other. I will need some time to draw out the problem to get it working.
+
+### Day 69: April 22nd, 2022
+##### Player Testing
+
+**Today's Progress:**
+1. Player Testing
+2. Modified some input commands.
+3. Postponed circular import bug for today.
+
+**Thoughts:**
+
+I may need to re-write a few functions to fix the ciruclar imports. funcA is dependent upon funcB and funcB is dependent upon funcA. If I can figure out a way to put these functions into their own files, I will. But for now I might just let them reside in main.py.
+

@@ -12,17 +12,17 @@ player_character = None         # Stores player object. | Location of player.
 input_buffer = ""               # User input is stored here.
 
 # General Responses | user_input()
-input_positive = ["yes", "ye", "yup", "ya", "yeah", "yep", "perhaps yes", "yus", "sure", "bet", "fo sho", "fo shizzle", "yesh", "yas", "okay", "ok", "yessir"]
-input_negative = ["no", "nope", "nah", "no way", "perhaps no", "naw", "hell nah", "nein", "hell no", "nay", "hell no", "nah brah", "nae"]
+input_positive = ["yes", "y", "ye", "yup", "ya", "yeah", "yep", "perhaps yes", "yus", "sure", "bet", "fo sho", "mmm", "fo shizzle", "yesh", "yas", "okay", "ok", "yessir"]
+input_negative = ["no", "n","nope", "nah", "no way", "perhaps no", "naw", "hell nah", "nein", "hell no", "nay", "hell no", "nah brah", "nae"]
 input_undecided = ["perhaps", "maybe", "perchance", "conceivably", "possibly", "mayhaps", "mebbeh", "persnaps"]
 
 # Directional movements | user_input()
-input_forward = ["forward", "north", "n"]
-input_backward = ["backward", "back", "south", "s"]
-input_right = ["right", "east", "e"]
-input_left = ["left", "west", "w"]
-input_up = ["up", "upward", "upwards", "u"]
-input_down = ["down", "downward", "downwards", "d"]
+input_forward = ["forward", "north", "N"]
+input_backward = ["backward", "back", "south", "S"]
+input_right = ["right", "east", "E"]
+input_left = ["left", "west", "W"]
+input_up = ["up", "upward", "upwards", "U"]
+input_down = ["down", "downward", "downwards", "D"]
 input_direction = [input_forward, input_backward, input_right, input_left, input_up, input_down]
 
 # Movement Types | user_input()
@@ -47,4 +47,4 @@ input_quit = ["quit game", "quit", "q"]
 input_examine = ["examine", "look at", "look", "view", "probe"]
 
 # Function Specific Variables
-play_game = False                   # Flag | Used to check if user selected yes when wanting to play a game.
+play_game = False                   # Flag | Used to check if user selected yes when wanting to play a game.s

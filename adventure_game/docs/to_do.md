@@ -4,6 +4,8 @@
 1. Integrate room movement test code with oxygen puzzle execution.
 2. Reorganize code.
 3. Correctly parse string input into a list of words against a delimiter string.
+4. Create a verb/object parser/error handler for user_input()
+5. Write better hints for first puzzle room.
 
 ### Prototype Completion
 1. Build 10 puzzles for chapter_01
@@ -20,7 +22,8 @@
 12. Serialize if player has player has played tutorial or not. Do not prompt on second boot.
 
 ### Bugs
-1. [BUG] Resolve "." not displaying after a print. Character cursor overlap bug.
+1. [BUG] Resolve "." not displaying after a print. Character cursor overlap bug.\
+2. [BUG] Circular Import bug.
 
 ### Puzzle Plans
 1. Cryptographic note. | Reference ram journal
