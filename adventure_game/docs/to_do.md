@@ -6,6 +6,7 @@
 3. Correctly parse string input into a list of words against a delimiter string.
 4. Create a verb/object parser/error handler for user_input()
 5. Write better hints for first puzzle room.
+6. Create a callable hint command for puzzle rooms.
 
 ### Prototype Completion
 1. Build 10 puzzles for chapter_01

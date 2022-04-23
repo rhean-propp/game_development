@@ -3,7 +3,7 @@
 # Date: April 20th, 2022       #
 # Desc: All Global Variables   #
 # ============================ #
-
+'''
 # General Purpose Variables
 user_name = ""                  # Name of the character the user is playing.
 inventory_file = ""             # Stores <user_name>_inventory. Used for file creation.
@@ -48,3 +48,4 @@ input_examine = ["examine", "look at", "look", "view", "probe"]
 
 # Function Specific Variables
 play_game = False                   # Flag | Used to check if user selected yes when wanting to play a game.s
+'''

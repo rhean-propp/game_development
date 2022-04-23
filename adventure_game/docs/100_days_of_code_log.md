@@ -1084,3 +1084,15 @@ Got stuck on the circular import bug again. My code might not be as organizable 
 
 I may need to re-write a few functions to fix the ciruclar imports. funcA is dependent upon funcB and funcB is dependent upon funcA. If I can figure out a way to put these functions into their own files, I will. But for now I might just let them reside in main.py.
 
+### Day 70: April 23rd, 2022
+##### QoL Changes
+
+**Today's Progress:**
+1. Added some QoL changes.
+2. Moved global_variables.py back to main.py temporarily until code-reorganization is solved.
+3. Modified short_hand_commands()
+4. Renamed functions.py to print_func.py
+
+**Thoughts:**
+
+Worked on some quality of life changes. I need to make a callable hint feature. By calling hint, players can get an indication of how to solve a puzzle. I need to rename the move_player() function to something less representative of moving the player class object.

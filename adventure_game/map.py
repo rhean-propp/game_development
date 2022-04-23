@@ -5,9 +5,6 @@
 # ================================================================================ #
 
 # Global Variables
-from unicodedata import name
-
-
 NOEXIT = -1  # Indicates there is no exit at the specified n/s/e/w direction. 
 map = []     # Contains all room objects | Rooms are referrenced by array index.
 
@@ -50,40 +47,12 @@ class Player(Thing):
 map.append(Room("Void's End", "A dark hemisphere filled with 4 statues surrounding a pool of dark liquid in the center.", NOEXIT, 1, NOEXIT, 2))               
 map.append(Room("Forest", "A leafy woodland", 0, NOEXIT, NOEXIT, 3))                                    
 map.append(Room("Cave", "A dismal cave with walls covered in luminous moss", NOEXIT, 3, 0, NOEXIT))     
-map.append(Room("Dungeon", "A nasty, dark cell", 2, NOEXIT, 1, NOEXIT))       
+map.append(Room("Dungeon", "A nasty, dark cell", 2, NOEXIT, 1, NOEXIT))                            
 
-
-# Testing
-#potato = Room("test_name", "test_description", NOEXIT, 1, NOEXIT, 2)
-#print(potato.north_exit)                          
-
-# Print Out All Room Objects
+# Debugging | Print Out All Room Objects
 '''
 x = 0
 while x < len(map):
     print(map[x].__str__())
     x+=1
-'''
-
-# Test Sample of Player Movement
-'''
-while True:
-    print("What room # do you want to move to?\n")
-    test_input = input("> ")
-    print(test_input)
-
-    if  "0" in test_input:
-        player_character = Player("Xenquish", "A royal knight.", 0)
-    
-    if "1" in test_input:
-        player_character = Player("Xenquish", "A royal knight.", 1)
-        
-    if "2" in test_input:
-        player_character = Player("Xenquish", "A royal knight.", 2)
-        
-    if "3" in test_input:
-        player_character = Player("Xenquish", "A royal knight.", 3)
-        
-    #print(xenquish)
-    print(map[player_character.index].name)
 '''
