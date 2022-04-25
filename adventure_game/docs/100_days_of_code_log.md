@@ -1109,3 +1109,13 @@ Worked on some quality of life changes. I need to make a callable hint feature. 
 **Thoughts:**
 
 Added the oxygen puzzle into the game loop and extended the time it takes to drown. Made a few small changes and began working with the hint feature.
+
+### Day 72: April 25th, 2022
+##### 
+
+**Today's Progress:**
+1. Moved oxygen_puzzle() call into room0.
+2. Created flag for oxygen_puzzle to indicate if it has been solved or not.
+
+**Thoughts:**
+

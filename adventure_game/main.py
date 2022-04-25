@@ -72,6 +72,9 @@ input_noun = ["rock", "rusty key", "rusty sword", "dagger"]
 # Function Specific Variables
 play_game = False                   # Flag | Used to check if user selected yes when wanting to play a game.
 
+# Puzzle Flags | Indicates if a puzzle is solved.
+room0_oxygen_solved = False
+
 # ============================================================================================================================================ #
 
 
@@ -398,7 +401,7 @@ player_death = False
 
 def countdown_event():                  # Countdown Clock for Oxygen Puzzle | Credit to Austin L. Howard for this threading solution.
     global countdown_running
-    global player_death
+    global room0_oxygen_solved
     
     # Loop Until: 120 Seconds Have Passed
     for i in range(120, 0, -1):          # Count for 10 seconds.
@@ -425,7 +428,7 @@ def countdown_event():                  # Countdown Clock for Oxygen Puzzle | Cr
         countdown_running = False
         print("\b\b\r", end="")
         delay_print("As you struggle to make your way out of the water, your chest gives weigh.\nYou open your mouth, gasping for air, as water rushes into your lungs.\nYou have perished. Game over.\n") 
-        player_death = True
+        room0_oxygen_solved = True
         # Add game_over() function call here
 
 def question():                         # Prompts User Repeatedly | Credit to Austin L. Howard for this threading solution.
@@ -521,6 +524,7 @@ def prologue():
 
 def oxygen_puzzle():
     global input_buffer
+    global oxy_solved
     
     # Begin Drowning Puzzle
     delay_print("\nThe air slices your skin as it rushes past your face.\n")
@@ -542,6 +546,8 @@ def oxygen_puzzle():
     
     if player_death == True:
         game_over()
+    elif player_death == False:
+        oxy_solved = True
     
     # Exit function here if condition is true.
 
@@ -552,6 +558,10 @@ def room_0():
     delay_print("You tread water in a pool with a diamater of no more than 50ft.\n")
     delay_print("On each of the four sides of the pool, there are statues of two claw formed hands stretched upwards.\n")
     delay_print("The grotto is too dark to see much of anything else.\n")
+    
+    while True:
+        delay_print("What do you do?\n")
+        input_buffer = user_input()
 
 # ============================================================================================================================================
 
@@ -595,7 +605,7 @@ while True:
         # Prompt Prologue
         clear_buffer()
         while input_buffer not in input_negative and input_buffer not in input_positive:
-            delay_print("\nWould you like to skip the prologue?\n")
+            delay_print("\nWould you like to read the prologue?\n")
             input_buffer = user_input()
             if input_buffer in input_negative:
                 prologue()
@@ -603,11 +613,12 @@ while True:
                 delay_print("\nThe prologue is about a 5 minute read. If you like to play games for the story, it is recommended.\n")
             else: 
                 continue
-        
-        oxygen_puzzle()
     
     # Room 0 Functions
     elif player_character.index == 0:
+        
+        if room0_oxygen_solved == False:
+            oxygen_puzzle()
         print("Index 0")
         sleep(3)
         room_0()
