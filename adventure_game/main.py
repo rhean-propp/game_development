@@ -63,8 +63,11 @@ input_save = ["save game", "save"]
 input_load = ["load game", "load"]
 input_quit = ["quit game", "quit", "q"]
 
-# Player commands for interaction | user_input()
-input_examine = ["examine", "look at", "look", "view", "probe"]
+# Verb List for Parser | user_input()
+input_verb = ["examine", "look", "view", "inspect", "take", "drop", "throw", "give", "place", "use"]
+
+# Noun List for parser | user_input()
+input_noun = ["rock", "rusty key", "rusty sword", "dagger"]
 
 # Function Specific Variables
 play_game = False                   # Flag | Used to check if user selected yes when wanting to play a game.
@@ -333,7 +336,7 @@ def get_name():             # Gets Name of User
             valid_name = 0
         
         # If Name is a System Command:
-        if user_name in input_inventory or user_name in input_help_guide or user_name in input_examine or user_name in input_save or user_name in input_load:
+        if user_name in input_inventory or user_name in input_help_guide or user_name in input_verb or user_name in input_save or user_name in input_load:
             valid_name = 0
             delay_print("\nThat is not a valid name.")
             # This will need to be updated as system commands are added.
@@ -397,8 +400,8 @@ def countdown_event():                  # Countdown Clock for Oxygen Puzzle | Cr
     global countdown_running
     global player_death
     
-    # Loop Until: 60 Seconds Have Passed
-    for i in range(60, 0, -1):          # Count for 10 seconds.
+    # Loop Until: 120 Seconds Have Passed
+    for i in range(120, 0, -1):          # Count for 10 seconds.
         
         # If Player is Correct:
         if exit_event is True:          # If user is correct.
@@ -430,11 +433,12 @@ def question():                         # Prompts User Repeatedly | Credit to Au
     global input_buffer                 
     global exit_event                   # Used to define when to stop
     global countdown_running            # Used as a stop flag for question_thread
+    global play_game                    # Used in Game Loop
     
     player_restrained = True            # Checks if the player is still in shackles
     clear_buffer()
     
-    # Loop For: 60 Second Countdown
+    # Loop For: 120 Second Countdown
     while countdown_running == True:                                     # Indefinitely Loop
         
         # If Player has not Solved Puzzle Yet:
@@ -462,6 +466,7 @@ def question():                         # Prompts User Repeatedly | Credit to Au
                 # If Correct Answer:
                 if input_buffer == "swim up": # If input_buffer == "swim up"
                     exit_event = True                       # Sets Exit Event for countdown_event() | Marker for correct answer
+                    play_game = True
                 
                 # If Movement Down:
                 elif input_buffer == "swim down":
@@ -514,7 +519,7 @@ def prologue():
     delay_print("You feel the hand of your friend, Yuri, rest his hand on your shoulder.\n")
     delay_print("At the next moment, you watch as you are pushed into the abyss below.\n")
 
-def chapter_01():
+def oxygen_puzzle():
     global input_buffer
     
     # Begin Drowning Puzzle
@@ -539,7 +544,8 @@ def chapter_01():
         game_over()
     
     # Exit function here if condition is true.
-    
+
+def room_0():
     delay_print('\nWith little air left to spare, you swim to the surface.\nYou take a gasp of air as you begin to take in your surroundings.\n')
     delay_print("\nPillars of blackstone rise 60ft to the celing of this grand grotto.\n")
     delay_print("Looking upwards through the brick layed shaft, you can see the small dot of light from the top of the crater.\n")
@@ -597,12 +603,15 @@ while True:
                 delay_print("\nThe prologue is about a 5 minute read. If you like to play games for the story, it is recommended.\n")
             else: 
                 continue
+        
+        oxygen_puzzle()
     
     # Room 0 Functions
     elif player_character.index == 0:
-        chapter_01()
         print("Index 0")
         sleep(3)
+        room_0()
+        
             
         # Prompt Tutorial
             # Check flag.

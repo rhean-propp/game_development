@@ -1096,3 +1096,16 @@ I may need to re-write a few functions to fix the ciruclar imports. funcA is dep
 **Thoughts:**
 
 Worked on some quality of life changes. I need to make a callable hint feature. By calling hint, players can get an indication of how to solve a puzzle. I need to rename the move_player() function to something less representative of moving the player class object.
+
+### Day 71: April 24th, 2022
+##### 
+
+**Today's Progress:**
+1. Added a hint variable to the Room class. Set default to empty string.
+2. Changed length of oxygen remaining from 60s to 120s.
+3. Created Verb and Noun list under global variables for user_input() parser. ("input_verb", "input_noun")
+4. Moved oxygen puzzle functionality into the game loop.
+
+**Thoughts:**
+
+Added the oxygen puzzle into the game loop and extended the time it takes to drown. Made a few small changes and began working with the hint feature.

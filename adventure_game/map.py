@@ -15,7 +15,7 @@ class Thing:
 
 # Room Class | Template for creating room objects.
 class Room(Thing):
-    def __init__(self, name, description, aN, aS, aW, aE):
+    def __init__(self, name, description, aN, aS, aW, aE, hint=""):
         
         # Name / Description:
         super().__init__(name, description)           # Inherits properties from Thing class.
