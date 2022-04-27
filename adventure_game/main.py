@@ -37,13 +37,13 @@ input_negative = ["no", "n","nope", "nah", "no way", "perhaps no", "naw", "hell 
 input_undecided = ["perhaps", "maybe", "perchance", "conceivably", "possibly", "mayhaps", "mebbeh", "persnaps"]
 
 # Directional movements | user_input()
-input_forward = ["forward", "north", "N"]
-input_backward = ["backward", "back", "south", "S"]
-input_right = ["right", "east", "E"]
-input_left = ["left", "west", "W"]
+input_north = ["north", "N"]
+input_south = ["south", "S"]
+input_east = ["east", "E"]
+input_west = ["west", "W"]
 input_up = ["up", "upward", "upwards", "U"]
 input_down = ["down", "downward", "downwards", "D"]
-input_direction = [input_forward, input_backward, input_right, input_left, input_up, input_down]
+input_direction = [input_north, input_south, input_east, input_west, input_up, input_down]
 
 # Movement Types | user_input()
 input_swim = ["swim"]
@@ -72,8 +72,8 @@ input_noun = ["rock", "rusty key", "rusty sword", "dagger"]
 # Function Specific Variables
 play_game = False                   # Flag | Used to check if user selected yes when wanting to play a game.
 
-# Puzzle Flags | Indicates if a puzzle is solved.
-room0_oxygen_solved = False
+# Puzzle Flags | All variables must be serialized.
+room0_oxygen_solved = False 
 
 # ============================================================================================================================================ #
 
@@ -218,9 +218,9 @@ def movement_check(movement_type, direction):   # Ensures Player Cannot Move Inv
 
     # Climbing Check
     elif movement_type in input_climb:
-        if direction in input_forward:
+        if direction in input_north:
             delay_print(f"You cannot {movement_type} {direction}.\n")
-        elif direction in input_backward:
+        elif direction in input_south:
             delay_print(f"You cannot {movement_type} {direction}.\n")
         else:
             return f"{movement_type} {direction}"
@@ -552,6 +552,9 @@ def oxygen_puzzle():
     # Exit function here if condition is true.
 
 def room_0():
+    
+    global player_character
+    
     delay_print('\nWith little air left to spare, you swim to the surface.\nYou take a gasp of air as you begin to take in your surroundings.\n')
     delay_print("\nPillars of blackstone rise 60ft to the celing of this grand grotto.\n")
     delay_print("Looking upwards through the brick layed shaft, you can see the small dot of light from the top of the crater.\n")
@@ -562,6 +565,11 @@ def room_0():
     while True:
         delay_print("What do you do?\n")
         input_buffer = user_input()
+        
+        for string in input_north:
+            if string in str(input_buffer):
+                player_character = Player(user_name, "A royal knight.", 1)                  # Create Player Object.
+
 
 # ============================================================================================================================================
 
@@ -607,7 +615,7 @@ while True:
         while input_buffer not in input_negative and input_buffer not in input_positive:
             delay_print("\nWould you like to read the prologue?\n")
             input_buffer = user_input()
-            if input_buffer in input_negative:
+            if input_buffer in input_positive:
                 prologue()
             elif input_buffer in input_undecided:
                 delay_print("\nThe prologue is about a 5 minute read. If you like to play games for the story, it is recommended.\n")
@@ -617,21 +625,16 @@ while True:
     # Room 0 Functions
     elif player_character.index == 0:
         
+        # Call Oxygen Puzzle
         if room0_oxygen_solved == False:
             oxygen_puzzle()
-        print("Index 0")
-        sleep(3)
+        
+        # Second puzzle.    
         room_0()
         
-            
-        # Prompt Tutorial
-            # Check flag.
-        # Prompt Prologue
-            # Check Flag
-        # Start Oxygen Puzzle
-            # Check flag
         # If player moves to new room:
-            # Change player_character.index to new room number.
+            # Change player_character.index to new room number.o
+            
             
     # Room 1 Functions
     elif player_character.index == 1:

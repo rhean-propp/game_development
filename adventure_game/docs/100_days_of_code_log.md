@@ -1111,11 +1111,24 @@ Worked on some quality of life changes. I need to make a callable hint feature. 
 Added the oxygen puzzle into the game loop and extended the time it takes to drown. Made a few small changes and began working with the hint feature.
 
 ### Day 72: April 25th, 2022
-##### 
+##### The Game Loop
 
 **Today's Progress:**
 1. Moved oxygen_puzzle() call into room0.
 2. Created flag for oxygen_puzzle to indicate if it has been solved or not.
 
 **Thoughts:**
+
+Getting closer to having the game engine complete. Player movement within the game loop is near done.
+
+### Day 73: April 26th, 2022
+##### 
+
+**Today's Progress:**
+1. Updated input_forward,back,right,left to input_north,south,east,west
+2. Started working on player movement with global variables.
+
+**Thoughts:**
+
+Had some trouble parsing the input for player movement with the global variables. I might re-do the parser before I proceed with the player movement.
 
