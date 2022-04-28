@@ -10,7 +10,7 @@ class Weapon:
         return self.name
 
 
-# Weapon Subclasses
+# Weapons
 class Rock(Weapon):
     def __init__(self):
         self.name = "Rock"

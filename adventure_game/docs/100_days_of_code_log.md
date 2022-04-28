@@ -1122,7 +1122,7 @@ Added the oxygen puzzle into the game loop and extended the time it takes to dro
 Getting closer to having the game engine complete. Player movement within the game loop is near done.
 
 ### Day 73: April 26th, 2022
-##### 
+##### Player Movement
 
 **Today's Progress:**
 1. Updated input_forward,back,right,left to input_north,south,east,west
@@ -1131,4 +1131,15 @@ Getting closer to having the game engine complete. Player movement within the ga
 **Thoughts:**
 
 Had some trouble parsing the input for player movement with the global variables. I might re-do the parser before I proceed with the player movement.
+
+### Day 74: April 28th, 2022
+##### 
+
+**Today's Progress:**
+1. Worked on the help menu. Improved functionality and user readability.
+2. Started working on verb/noun parser.
+
+**Thoughts:**
+
+Yesterday was the first day of 100 days of code that I missed. It was by no means intentional, my day was jam packed and doing 100 days of code slipped my mind. So today I'm doing twice the work, 2 hours to make up for the lost time.
 

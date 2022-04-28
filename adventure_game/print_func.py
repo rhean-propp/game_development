@@ -32,17 +32,28 @@ def game_over():                                # Displays Game over ASCII art a
 # =================== #
 
 def help():                                     # Display's a list of commands the user can use.
-    print("\n---------------\n Command List:\n---------------\n\t\t\t\t\t\t|")
+    print("\n[-----------------]\n  System Commands\n[-----------------]\n\t\t\t\t\t\t|")
     print("\thelp\t\t\t\t\t| Lists commands user can use.\n\t\t\t\t\t\t|")
-    print("\tinv\t\t\t\t\t| Displays user's inventory.\n\t\t\t\t\t\t|")
     print("\tsave\t\t\t\t\t| Saves the game from the last checkpoint.\n\t\t\t\t\t\t|")
+    print("\tquit\t\t\t\t\t| Quits the game.\n\t\t\t\t\t\t|\n")
+    print("Press enter to continue...")
+    input()
+    
+    print("\n[---------------]\n  Game Commands\n[---------------]\n\t\t\t\t\t\t|")
+    print("\tinv\t\t\t\t\t| Displays user's inventory.\n\t\t\t\t\t\t|")
     print("\t<veb> <noun>\t\t\t\t| Performs a player action.\n\t\t\t\t\t\t|")
+    print("Press enter to continue...")
+    input()
+    
+    print("\n[-------------------]\n  Movement Commands\n[-------------------]\n\t\t\t\t\t\t|")
     print("\tmove\t\t\t\t\t| Displays movement help menu.\n\t\t\t\t\t\t|")
     print("\tattack <creature/object> with <item>\t| Attack creature/object with item from user inventory.\n\t\t\t\t\t\t|")
     print("\texamine <object>\t\t\t| Examines an object if the object can be examined.\n\t\t\t\t\t\t|\n")
+    print("Press enter to continue...")
+    input()
 
 def move_player():
-    print("\n-------------------------\n Moving Within the Game:\n-------------------------\n")
+    print("\n[------------------------]\n  Moving Within the Game\n[------------------------]\n")
     print("\twalk\t\t| forward, right, backward, left, north, east, south, west\n\t\t\t|")
     print("\trun\t\t| forward, right, backward, left, north, east, south, west\n\t\t\t|")
     print("\tjump\t\t| over, on\n\t\t\t|")

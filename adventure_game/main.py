@@ -58,7 +58,7 @@ input_move = ["swim", "climb", "walk", "step", "run", "dash", "sprint", "jump", 
 input_inventory = ["inventory", "inv", "i"]
 input_shorthand = ["shorthand", "short"]
 input_help_guide = ["help", "halp", "h"]        # Need to update this changed list with the function
-input_move_guide = ["move"]                     # Need to update this changed list with the function | Do not call it input_move
+input_move_guide = ["help move"]                     # Need to update this changed list with the function | Do not call it input_move
 input_save = ["save game", "save"]
 input_load = ["load game", "load"]
 input_quit = ["quit game", "quit", "q"]
@@ -96,8 +96,18 @@ def user_input():           # Primary Parser. Returns sanitized input.
     # Directional Movement Commands
     # ======================================================== #
     
-    movement_command = False    # Flag
+    movement_command = False    # Flag | Wow great comment. Whats the flag for?
+    verb_check = False
     
+    # Pseudo Code
+    '''
+    for verb in input_verb:
+        if verb in buffer:
+            verb_check = True
+            break
+        else:
+            verb_check = False
+    '''
     # Check if buffer is a movement command:
     for movement_type in input_move:                                #
         if movement_type in buffer and movement_command == False:   # 
@@ -122,7 +132,7 @@ def user_input():           # Primary Parser. Returns sanitized input.
     
     # Move Command List
     elif buffer in input_move_guide:          
-        buffer = "move"
+        buffer = "help move"
         move_player()           # See functions.py
     
     # Shorthand Command List
