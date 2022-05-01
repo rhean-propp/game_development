@@ -100,6 +100,26 @@ def user_input():           # Primary Parser. Returns sanitized input.
     verb_check = False
     
     # Pseudo Code
+        # Split user input. It should be indicated to the user that commands involve <verb> <noun>
+            # Send verb to verb checker.
+            # Send noun to noun checker.
+        # Check if first word user entered was a verb.
+            # If verb, validate command.
+            # If not verb, print error for user.
+        # Check if second word user enetered was a noun.
+            # If noun, validate command.
+            # If not noun, print error for user.
+            
+    
+    # Sample Pseudo Code
+    split_input = buffer.split(" ")
+    try: 
+        verb = split_input[0]
+        noun = split_input[1]
+        print(verb)
+        print(noun)
+    except:
+        pass
     '''
     for verb in input_verb:
         if verb in buffer:
@@ -108,10 +128,11 @@ def user_input():           # Primary Parser. Returns sanitized input.
         else:
             verb_check = False
     '''
+    
     # Check if buffer is a movement command:
     for movement_type in input_move:                                #
         if movement_type in buffer and movement_command == False:   # 
-            movement_command = True                                 # Set flag to true.
+            movement_command = True                                 # Set flag to true
     
     # If the buffer is a movement Command, sanitize command:
     if movement_command == True:

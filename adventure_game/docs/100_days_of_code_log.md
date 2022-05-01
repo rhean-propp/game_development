@@ -1143,3 +1143,27 @@ Had some trouble parsing the input for player movement with the global variables
 
 Yesterday was the first day of 100 days of code that I missed. It was by no means intentional, my day was jam packed and doing 100 days of code slipped my mind. So today I'm doing twice the work, 2 hours to make up for the lost time.
 
+### Day 75: April 29th, 2022
+##### 
+
+**Today's Progress:**
+1. Began structuring out verb/noun parser.
+
+**Thoughts:**
+
+I need to build the verb / noun parser before I continue with player movement. Once this is built, a very simple mode for player input should work. We should be able to identify what types of commands the player is trying to do.
+
+It would be also beneficial to create the load game function now. If only for testing. Since running through every single command to get to where I need to test, or commenting out the code gets very time consuming very quick.
+
+After doing some basic testing, i'm wondering if doing the noun/verb parser is a good idea at all. I would like the player to be able to type in full sentences. It would make the experience more immersive.
+
+### Day 76: April 30th, 2022
+##### 
+
+**Today's Progress:**
+1. Worked through adventure game programming in java. 
+
+**Thoughts:**
+
+Learned that C# looks at the contents of a string when doing a comparison, where Java looks at the abolsute value of a string when doing a comparison.
+
