@@ -1167,3 +1167,40 @@ After doing some basic testing, i'm wondering if doing the noun/verb parser is a
 
 Learned that C# looks at the contents of a string when doing a comparison, where Java looks at the abolsute value of a string when doing a comparison.
 
+### Day 77: May 1st, 2022
+##### 
+
+**Today's Progress:**
+1. Modified short_hand_command() list.
+2. Reserach on restructuring code.
+
+**Thoughts:**
+
+Small update today. Worked on research. I want to do a longer session of 4-8 hours / day this week. I'd like to get some major headway done on the parser. I'm not sure how exactly I'm going to go about completing this. Theres many times where I sit down and feel like the project is so big that I don't know where to start. I need more discipline to get more work done on the project. The minimal amount I've been doing isn't cutting it.
+
+If I really want to see this project completed, I need to work longer and harder at it. I need more structure and a better outline of what needs to get done on what day.
+
+The likely problem is the lack of deadlines. I need to start creating these so I can get more done. Without the deadlines, i might not make as much progress as I would otherwise if I had them.
+
+### Day 78: May 2nd, 2022
+##### 
+
+**Today's Progress:**
+1. Evaluated user_input() parser.
+2. Worked on verb/noun parser.
+
+**Thoughts:**
+
+Should I code the program to take only verb/noun responses? Or should they be fully formed sentences?
+
+The problem is, what if the sentence the user enters is correct, but the way its formatted breaks the parser?
+
+This would be a problematic bug that would frustrate players.
+
+In addition to this, how would I even build the parser to work with full sentences instead of just verbs and nouns? Would the specific answer be placed within the puzzle itself, or is there a way to extend the parser to hold this information?
+
+I'm not really sure how to tackle this problem. In fact, similar to the movement problem, I find it difficult to wrap my head around how this aspect of the game should work.
+
+It might be easier to just create a verb/noun parser. Keeping the commands simple. My prototype should have been completed by day 60, but we're on day 78 and things are looking like they're going to take a little longer than expected.
+
+Do I need to entirely refactor the code? Or is there a better way I can structure this function out?

@@ -5,6 +5,7 @@
 # ============================ #
 
 # Local Imports
+from posixpath import split
 from print_func import *             # General functions that do not call other functions.
 from data_serialization import *    # Saves game state, inventory and username
 from map import *
@@ -109,10 +110,29 @@ def user_input():           # Primary Parser. Returns sanitized input.
         # Check if second word user enetered was a noun.
             # If noun, validate command.
             # If not noun, print error for user.
-            
     
     # Sample Pseudo Code
     split_input = buffer.split(" ")
+    
+    if len(split_input) == 1:
+        adverb = split_input[0]
+        pass
+        # Single word command
+        # Should either be polar word or noun
+    elif len(split_input) == 2:
+        verb = split_input[0]
+        noun = split_input[1]
+        print(verb)
+        print(noun)
+        pass
+        # Verb / Noun command
+        # Should only be noun
+        # Objects that have long names should be have an underscore attached.
+            # e.g. rusty_key, flaming_sword, glowing_apple
+    else:
+        print("[Input Error] The command you entered was too long.\n Commands should be either 1 or 2 words.\n")
+    
+    '''
     try: 
         verb = split_input[0]
         noun = split_input[1]
@@ -120,7 +140,7 @@ def user_input():           # Primary Parser. Returns sanitized input.
         print(noun)
     except:
         pass
-    '''
+    
     for verb in input_verb:
         if verb in buffer:
             verb_check = True
@@ -214,7 +234,8 @@ def user_input():           # Primary Parser. Returns sanitized input.
             load_inv(inventory_file, user_name)
     
     # Item Use | Unfinished
-    elif "use" in buffer:               
+    elif "use" in buffer:        
+        # Check for object to be used here.        
         return buffer
     
     # ======================================================== #

@@ -9,8 +9,6 @@ class Weapon:
     def __str__(self):
         return self.name
 
-
-# Weapons
 class Rock(Weapon):
     def __init__(self):
         self.name = "Rock"
