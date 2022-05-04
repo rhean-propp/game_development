@@ -55,20 +55,32 @@ input_jump = ["jump", "hop", "leap", "vault"]
 input_move = ["swim", "climb", "walk", "step", "run", "dash", "sprint", "jump", "hop", "leap", "vault"]
 # If we make input_move a list of lists, does it break everything?
 
+# Action Types | user_input()
+input_use = ["use", "grab", "take", "hold", "drop", "throw", "give", "place"]
+input_look = ["look", "examine", "view", "inspect"]
+input_interact = ["light", "swing"]
+
+# Items & Weapons | user_input()
+input_items = ["rusty_key"]
+input_weapons = ["rock", "rusty_sword", "dagger"]
+
 # Universal commands | user_input()
 input_inventory = ["inventory", "inv", "i"]
 input_shorthand = ["shorthand", "short"]
-input_help_guide = ["help", "halp", "h"]        # Need to update this changed list with the function
+input_help_guide = ["help", "halp", "h"]             # Need to update this changed list with the function
 input_move_guide = ["help move"]                     # Need to update this changed list with the function | Do not call it input_move
 input_save = ["save game", "save"]
 input_load = ["load game", "load"]
 input_quit = ["quit game", "quit", "q"]
 
+# Adverb List for parser | user_input
+input_adverb = [input_positive, input_negative, input_undecided, input_direction]   # 2D/3D list. Input Direction is already a list of lists.
+
 # Verb List for Parser | user_input()
-input_verb = ["examine", "look", "view", "inspect", "take", "drop", "throw", "give", "place", "use"]
+input_verb = [input_use, input_look, input_interact, input_move]
 
 # Noun List for parser | user_input()
-input_noun = ["rock", "rusty key", "rusty sword", "dagger"]
+input_noun = [input_items, input_weapons]
 
 # Function Specific Variables
 play_game = False                   # Flag | Used to check if user selected yes when wanting to play a game.
@@ -116,21 +128,35 @@ def user_input():           # Primary Parser. Returns sanitized input.
     
     if len(split_input) == 1:
         adverb = split_input[0]
+        
+        # Check if adverb in adverb list.
+            # If not in list, print error.
+            # If in list, proceed.
+        
+        print("Adverb: " + adverb)
         pass
         # Single word command
         # Should either be polar word or noun
     elif len(split_input) == 2:
         verb = split_input[0]
         noun = split_input[1]
-        print(verb)
-        print(noun)
+        
+        # Check verb in verb list.
+            # If not in list, print error.
+            # If in list, proceed
+        # Check noun in noun list.
+            # If not in list, print error.
+            # If in list, proceed.
+        
+        print("Verb: " + verb)
+        print("Noun: " + noun)
         pass
         # Verb / Noun command
         # Should only be noun
         # Objects that have long names should be have an underscore attached.
             # e.g. rusty_key, flaming_sword, glowing_apple
     else:
-        print("[Input Error] The command you entered was too long.\n Commands should be either 1 or 2 words.\n")
+        print("\n[Input Error] The command you entered was too long. Commands should be either 1 or 2 words.\n")
     
     '''
     try: 

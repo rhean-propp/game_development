@@ -1204,3 +1204,35 @@ I'm not really sure how to tackle this problem. In fact, similar to the movement
 It might be easier to just create a verb/noun parser. Keeping the commands simple. My prototype should have been completed by day 60, but we're on day 78 and things are looking like they're going to take a little longer than expected.
 
 Do I need to entirely refactor the code? Or is there a better way I can structure this function out?
+
+### Day 79: May 3rd, 2022
+##### Prototype Crunch Time
+
+**Today's Progress:**
+1. Outlined steps needed to complete prototype.
+2. Worked on verb/noun parser.
+
+**Thoughts:**
+
+There are 21 days remaining until the challenge is complete. I want to get the prototype completed by day 100. I need to outline what needs to get done in order to make this happen. There will need to be some measure of deadlines otherwise it won't get done.
+
+1. [07/05/22] Build adverb/verb/noun parser.
+	* Functioning Error Handler
+2. [14/05/22] Build 3 puzzles for the player to encounter in the first room. (1/3 built)
+	* Oxygen Puzzle
+	* ???
+	* ???
+3. [14/05/22] Allow the player to make progression to the next room.
+4. [21/05/22] Load save game.
+
+I'm going to say that these are the major points needed for the prototype to be complete. Is it a finished game? No. But it will mark the completion of 100 days of code. And I will have something to show for all of the hard work I put in.
+
+In order to complete the verb/noun parser, I need to have a complete list of all verbs, adverbs and nouns that will be used in this game. This would be easiest to manage if the verb / noun / adverb lists were comprised of a list of lists.
+
+This would include items, weapons, game related functions ect.
+
+The parser would then loop through the list of lists looking for a match.
+
+What do I do when I have words that cross over boundaries? Such as help, inventory, or short for 1 word commands?
+
+Designing this game is teaching me how to get better at english...
