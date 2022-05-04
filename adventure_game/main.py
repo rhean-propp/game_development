@@ -105,12 +105,16 @@ def user_input():           # Primary Parser. Returns sanitized input.
     # Get User Input | Lowercase | Store
     buffer = input("> ").lower()               
     
+    # Speech Flags for adverb/verb/noun handler
+    is_adverb = False
+    is_verb = False
+    is_noun = False
+    
     # ======================================================== #
     # Directional Movement Commands
     # ======================================================== #
     
     movement_command = False    # Flag | Wow great comment. Whats the flag for?
-    verb_check = False
     
     # Pseudo Code
         # Split user input. It should be indicated to the user that commands involve <verb> <noun>
@@ -122,13 +126,30 @@ def user_input():           # Primary Parser. Returns sanitized input.
         # Check if second word user enetered was a noun.
             # If noun, validate command.
             # If not noun, print error for user.
+            
+    # ======================================================== #
+    # Adverb / Verb / Noun Error Handler
+    # ======================================================== #
     
     # Sample Pseudo Code
     split_input = buffer.split(" ")
     
     if len(split_input) == 1:
         adverb = split_input[0]
-        
+
+        for list in input_adverb:
+            for item in list:                   # Checking 2D List
+                for value in item:              # Checking 3D List
+                    if adverb == value:         # If in 3D List
+                        is_adverb = True
+                        print("Adverb found")
+                    else:
+                        pass
+                if adverb == item:              # If in 2D List
+                    is_adverb = True
+                    print("Adverb found")
+                else:
+                    pass
         # Check if adverb in adverb list.
             # If not in list, print error.
             # If in list, proceed.
@@ -138,42 +159,45 @@ def user_input():           # Primary Parser. Returns sanitized input.
         # Single word command
         # Should either be polar word or noun
     elif len(split_input) == 2:
+        
+        # Define Verb & Noun
         verb = split_input[0]
         noun = split_input[1]
         
-        # Check verb in verb list.
-            # If not in list, print error.
-            # If in list, proceed
-        # Check noun in noun list.
-            # If not in list, print error.
-            # If in list, proceed.
+        # Check Verb
+        for list in input_verb:
+            for item in list:
+                if verb == item:
+                    is_verb = True
+                    print("Verb found")
+                else:
+                    pass
         
+        # Check Noun
+        for list in input_noun:
+            for item in list:
+                if noun == item:
+                    is_noun = True
+                    print("Noun found")
+                else:
+                    pass
+        
+        # Debugging
         print("Verb: " + verb)
         print("Noun: " + noun)
-        pass
-        # Verb / Noun command
-        # Should only be noun
+        
         # Objects that have long names should be have an underscore attached.
             # e.g. rusty_key, flaming_sword, glowing_apple
     else:
         print("\n[Input Error] The command you entered was too long. Commands should be either 1 or 2 words.\n")
+        
+    # How do I do an error handler for the noun/verb/adverb checker?
+        # If it is marked as true and the others are false, there could be false positives.
+            # How do I correctly write the program so there are no false positives?
     
-    '''
-    try: 
-        verb = split_input[0]
-        noun = split_input[1]
-        print(verb)
-        print(noun)
-    except:
-        pass
-    
-    for verb in input_verb:
-        if verb in buffer:
-            verb_check = True
-            break
-        else:
-            verb_check = False
-    '''
+    # ======================================================== #
+    # Player Movement Error Handler
+    # ======================================================== #
     
     # Check if buffer is a movement command:
     for movement_type in input_move:                                #

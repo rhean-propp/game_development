@@ -1236,3 +1236,12 @@ The parser would then loop through the list of lists looking for a match.
 What do I do when I have words that cross over boundaries? Such as help, inventory, or short for 1 word commands?
 
 Designing this game is teaching me how to get better at english...
+
+### Day 80: May 4th, 2022
+##### 
+
+**Today's Progress:**
+1. Worked on iterating through lists for adverb/verb/noun parser.
+ 
+**Thoughts:**
+Progressed on the adverb/verb/noun checker. I need to work through one more problem and it should be working 100%. We're on track.
