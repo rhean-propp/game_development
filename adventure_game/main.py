@@ -110,90 +110,88 @@ def user_input():           # Primary Parser. Returns sanitized input.
     is_verb = False
     is_noun = False
     
-    # ======================================================== #
-    # Directional Movement Commands
-    # ======================================================== #
-    
     movement_command = False    # Flag | Wow great comment. Whats the flag for?
-    
-    # Pseudo Code
-        # Split user input. It should be indicated to the user that commands involve <verb> <noun>
-            # Send verb to verb checker.
-            # Send noun to noun checker.
-        # Check if first word user entered was a verb.
-            # If verb, validate command.
-            # If not verb, print error for user.
-        # Check if second word user enetered was a noun.
-            # If noun, validate command.
-            # If not noun, print error for user.
             
     # ======================================================== #
     # Adverb / Verb / Noun Error Handler
     # ======================================================== #
     
-    # Sample Pseudo Code
-    split_input = buffer.split(" ")
+    split_input = buffer.split(" ")             # Splits user input into a list of seperate words.
     
+    # If single word input:
     if len(split_input) == 1:
+        
+        # Define local variables
         adverb = split_input[0]
 
+        # Check if adverb exists.
         for list in input_adverb:
             for item in list:                   # Checking 2D List
                 for value in item:              # Checking 3D List
                     if adverb == value:         # If in 3D List
                         is_adverb = True
-                        print("Adverb found")
                     else:
                         pass
                 if adverb == item:              # If in 2D List
                     is_adverb = True
-                    print("Adverb found")
                 else:
                     pass
-        # Check if adverb in adverb list.
-            # If not in list, print error.
-            # If in list, proceed.
-        
-        print("Adverb: " + adverb)
-        pass
-        # Single word command
-        # Should either be polar word or noun
+                
+        # Single word error handler:
+        if is_adverb == True:
+            print("Valid command.")
+        elif is_adverb == False and adverb is not None:
+            print(f"\n[Input Error] Command: <{split_input[0]}> is not a valid adverb.")
+
+    # If two word input:
     elif len(split_input) == 2:
         
-        # Define Verb & Noun
+        # Define local variables:
         verb = split_input[0]
         noun = split_input[1]
+        adverb = split_input[1]
         
-        # Check Verb
+        # Check if verb exists:
         for list in input_verb:
             for item in list:
                 if verb == item:
                     is_verb = True
-                    print("Verb found")
                 else:
                     pass
         
-        # Check Noun
+        # Check if noun exists:
         for list in input_noun:
             for item in list:
                 if noun == item:
                     is_noun = True
-                    print("Noun found")
                 else:
                     pass
         
-        # Debugging
-        print("Verb: " + verb)
-        print("Noun: " + noun)
+        # Check if adverb exists.
+        for list in input_adverb:
+            for item in list:                   # Checking 2D List
+                for value in item:              # Checking 3D List
+                    if adverb == value:         # If in 3D List
+                        is_adverb = True
+                    else:
+                        pass
+                if adverb == item:              # If in 2D List
+                    is_adverb = True
+                else:
+                    pass
         
-        # Objects that have long names should be have an underscore attached.
-            # e.g. rusty_key, flaming_sword, glowing_apple
+        # Error handling two word commands:
+        if is_verb == True and is_adverb == True or is_noun == True:
+            print("Valid command.")
+        elif is_adverb == False and is_noun == False:
+            print(f"\n[Input Error] Second argument in command: <{split_input[0]}> <{split_input[1]}> is not a valid adverb or noun.\n")
+        elif is_verb == False and is_noun == True or is_adverb == True:
+            print(f"\n[Input Error] First argument in command: <{split_input[0]}> <{split_input[1]}> is not a valid verb.\n")
+        else:
+            print(f"[Input Error] Unknown command entry.")
+        
     else:
         print("\n[Input Error] The command you entered was too long. Commands should be either 1 or 2 words.\n")
-        
-    # How do I do an error handler for the noun/verb/adverb checker?
-        # If it is marked as true and the others are false, there could be false positives.
-            # How do I correctly write the program so there are no false positives?
     
     # ======================================================== #
     # Player Movement Error Handler

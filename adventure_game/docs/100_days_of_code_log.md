@@ -1238,10 +1238,26 @@ What do I do when I have words that cross over boundaries? Such as help, invento
 Designing this game is teaching me how to get better at english...
 
 ### Day 80: May 4th, 2022
-##### 
+##### Error Handling
 
 **Today's Progress:**
 1. Worked on iterating through lists for adverb/verb/noun parser.
  
 **Thoughts:**
 Progressed on the adverb/verb/noun checker. I need to work through one more problem and it should be working 100%. We're on track.
+
+### Day 81: May 5th, 2022
+##### Error Handling
+
+**Today's Progress:**
+1. Completed version 1 of the adverb/verb/noun error handler.
+ 
+**Thoughts:**
+
+Possible word combinations:
+
+1. [adverb]
+2. [verb] [noun]
+3. [verb] [adverb]
+
+The error handler should be working as intended. Initial tests worked correctly and I am able to get errors correctly printing out to the user when a mistake is made in the command. I'm stoked! 
