@@ -1261,3 +1261,28 @@ Possible word combinations:
 3. [verb] [adverb]
 
 The error handler should be working as intended. Initial tests worked correctly and I am able to get errors correctly printing out to the user when a mistake is made in the command. I'm stoked! 
+
+### Day 82: May 6th, 2022
+##### 
+
+**Today's Progress:**
+1. Re-evaluated project goals.
+2. Started work on 2nd puzzle.
+ 
+**Thoughts:**
+
+The next step is to build 2 more puzzles for the prototype. The oxygen puzzle has some polishing that needs to be done before it is entirely complete, however that polishing does nto need to be included in the prototype.
+
+Puzzle #2 should involve the rough outline included in my handwriten notes. 
+
+##### Due Dates
+1. [10/05/22] 2nd Puzzle
+2. [14/05/22] 3rd Puzzle
+3. [17/05/22] Room Progression & Story Telling
+4. [21/05/22] Load save game.
+
+2nd Puzzle: 12 x 12.
+A wall with letters.
+Player enters phrase to press in the letters?
+Player says the phrase verbally by typing it?
+	How to allow the phrase with user_input() parser?

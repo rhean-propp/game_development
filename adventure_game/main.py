@@ -181,7 +181,7 @@ def user_input():           # Primary Parser. Returns sanitized input.
                     pass
         
         # Error handling two word commands:
-        if is_verb == True and is_adverb == True or is_noun == True:
+        if is_verb == True and is_adverb == True or is_noun == True: # If verb = True AND adverb = True OR noun = True
             print("Valid command.")
         elif is_adverb == False and is_noun == False:
             print(f"\n[Input Error] Second argument in command: <{split_input[0]}> <{split_input[1]}> is not a valid adverb or noun.\n")
@@ -521,7 +521,7 @@ def countdown_event():                  # Countdown Clock for Oxygen Puzzle | Cr
     # If Player Succeeded:
     if oxygen_remaining[0] > 1:         # If user suceeded with oxygen remaining:
         countdown_running = False
-        return                          # Return back to chapter_01()
+        return                          # Return back to function call.
     
     # If Player Failed:
     else:                               # If user failed: 
