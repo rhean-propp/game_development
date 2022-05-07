@@ -1286,3 +1286,25 @@ A wall with letters.
 Player enters phrase to press in the letters?
 Player says the phrase verbally by typing it?
 	How to allow the phrase with user_input() parser?
+
+### Day 83: May 6th, 2022
+##### 
+
+**Today's Progress:**
+1. Worked on 2nd puzzle.
+ 
+**Thoughts:**
+
+A J K 7 9 D I J 3 1 Z X A 
+T 4 S 9 S E V I N K 9 O C 
+B E 2 R L U H S K N C 9 V 
+V 2 K C X I Y S A 0 O B O 
+9 D B J G 7 V M O R M K 8 
+A 8 5 C F U U E 2 3 P X A 
+H U M 4 D H 7 7 S E R O Q 
+A L O G A S E K A M O 0 T 
+5 X 3 V J S 7 2 N S M A 1 
+H I T V I O E D T R I Z E 
+A N C 9 1 8 4 A S F S 5 1 
+8 N O 3 H J A 1 L 4 E K A 
+W E 7 P 0 R B A 2 7 U W Q 
