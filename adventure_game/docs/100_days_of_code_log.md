@@ -1307,4 +1307,31 @@ A L O G A S E K A M O 0 T
 H I T V I O E D T R I Z E 
 A N C 9 1 8 4 A S F S 5 1 
 8 N O 3 H J A 1 L 4 E K A 
-W E 7 P 0 R B A 2 7 U W Q 
+W E 7 P 0 R B A 2 7 U W Q
+
+### Day 84: May 6th, 2022
+##### 
+
+**Today's Progress:**
+1. Created torch item.
+2. Modified oxygen puzzle to accept "use rusty_key" as input.
+ 
+**Thoughts:**
+
+To do: 
+Remove rusty_key from inventory after successully using it.
+
+### Day 85: May 6th, 2022
+##### Dictionary Modification
+
+**Today's Progress:**
+1. Created potion item.
+2. Began working on structure for dictionary modification.
+
+**Thoughts:**
+
+I need to create a modifiable dictionary. This dictionary can add items or delete items based on the player's inventory. If a player drops an item, the dictionary should be updated and that item should be removed from their inventory. If the player picks up an item, that item should be added into their inventory.
+
+Possibly create an add/remove/update item methods to the Item class where the dictionary will be modified?
+
+Where do I want to modify the dictionary? Inside items.py? data_serialization.py? or main.py?

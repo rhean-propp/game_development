@@ -139,7 +139,8 @@ def user_input():           # Primary Parser. Returns sanitized input.
                 
         # Single word error handler:
         if is_adverb == True:
-            print("Valid command.")
+            pass
+            #print("Valid command.")
         elif is_adverb == False and adverb is not None:
             print(f"\n[Input Error] Command: <{split_input[0]}> is not a valid adverb.")
 
@@ -182,7 +183,8 @@ def user_input():           # Primary Parser. Returns sanitized input.
         
         # Error handling two word commands:
         if is_verb == True and is_adverb == True or is_noun == True: # If verb = True AND adverb = True OR noun = True
-            print("Valid command.")
+            pass
+            #print("Valid command.")
         elif is_adverb == False and is_noun == False:
             print(f"\n[Input Error] Second argument in command: <{split_input[0]}> <{split_input[1]}> is not a valid adverb or noun.\n")
         elif is_verb == False and is_noun == True or is_adverb == True:
@@ -550,12 +552,12 @@ def question():                         # Prompts User Repeatedly | Credit to Au
             input_buffer = user_input()             
         
             # If Near Correct Answer:
-            if input_buffer == "use key" or input_buffer == "use key on shackles":                
-                delay_print("\nuse <what object?> on <what object?>\n")
+            if input_buffer == "use key":                
+                delay_print("\nuse <what object?>\n")
                 continue
             
             # If Correct Answer:
-            elif "use rusty key on shackles" in input_buffer or "use rusty key on shackle" in input_buffer:
+            elif "use rusty_key" in input_buffer:
                 player_restrained = False
                 delay_print("\nAs you feel in your pocket, you find a rusty key.\nYou twist the key into the lock.\nThe key snaps as the lock releases.\nKicking your feet, you knock off the chains that bound you.\n")
             
