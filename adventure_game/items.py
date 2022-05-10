@@ -28,6 +28,8 @@ class RustySword(Weapon):
 # Items                      #
 # ========================== #
 
+# inv_dict = {'Crumpled Note':1, 'Rusty Key':1}                  # User Inventory
+
 class Item:
     def __init__(self):
         raise NotImplementedError("Do not create raw Item objects.\n")

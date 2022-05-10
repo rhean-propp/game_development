@@ -1287,7 +1287,7 @@ Player enters phrase to press in the letters?
 Player says the phrase verbally by typing it?
 	How to allow the phrase with user_input() parser?
 
-### Day 83: May 6th, 2022
+### Day 83: May 7th, 2022
 ##### 
 
 **Today's Progress:**
@@ -1309,7 +1309,7 @@ A N C 9 1 8 4 A S F S 5 1
 8 N O 3 H J A 1 L 4 E K A 
 W E 7 P 0 R B A 2 7 U W Q
 
-### Day 84: May 6th, 2022
+### Day 84: May 8th, 2022
 ##### 
 
 **Today's Progress:**
@@ -1321,7 +1321,7 @@ W E 7 P 0 R B A 2 7 U W Q
 To do: 
 Remove rusty_key from inventory after successully using it.
 
-### Day 85: May 6th, 2022
+### Day 85: May 9th, 2022
 ##### Dictionary Modification
 
 **Today's Progress:**
@@ -1335,3 +1335,16 @@ I need to create a modifiable dictionary. This dictionary can add items or delet
 Possibly create an add/remove/update item methods to the Item class where the dictionary will be modified?
 
 Where do I want to modify the dictionary? Inside items.py? data_serialization.py? or main.py?
+
+### Day 86: May 10th, 2022
+##### Dictionary Modification
+
+**Today's Progress:**
+1. Worked on the help menu.
+2. Removed unused commands from the help menu.
+3. Fixed a bug where an error was displaying when the user typed "help move" to display the movement help menu.
+4. Removed forward, backward, left, right movement directions. Replaced with north, south, east, west.
+
+**Thoughts:**
+
+I wanted to make sure the help menu is clear for the user. It is something that gets updated regularly enough. I've probably changed it 10 times now. I'm still not 100% satisfied with how it looks, however it currently is sufficient to present the nescessary information required to play the game to the player.

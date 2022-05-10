@@ -68,6 +68,7 @@ input_weapons = ["rock", "rusty_sword", "dagger"]
 input_inventory = ["inventory", "inv", "i"]
 input_shorthand = ["shorthand", "short"]
 input_help_guide = ["help", "halp", "h"]             # Need to update this changed list with the function
+input_help_move = ["move"]                           # Used to prevent an error being thrown from the user_input() parser when using the command "help move"
 input_move_guide = ["help move"]                     # Need to update this changed list with the function | Do not call it input_move
 input_save = ["save game", "save"]
 input_load = ["load game", "load"]
@@ -80,7 +81,7 @@ input_adverb = [input_positive, input_negative, input_undecided, input_direction
 input_verb = [input_use, input_look, input_interact, input_move]
 
 # Noun List for parser | user_input()
-input_noun = [input_items, input_weapons]
+input_noun = [input_items, input_weapons, input_help_move]
 
 # Function Specific Variables
 play_game = False                   # Flag | Used to check if user selected yes when wanting to play a game.
