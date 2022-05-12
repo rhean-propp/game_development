@@ -1348,3 +1348,24 @@ Where do I want to modify the dictionary? Inside items.py? data_serialization.py
 **Thoughts:**
 
 I wanted to make sure the help menu is clear for the user. It is something that gets updated regularly enough. I've probably changed it 10 times now. I'm still not 100% satisfied with how it looks, however it currently is sufficient to present the nescessary information required to play the game to the player.
+
+### Day 87: May 11th, 2022
+##### 
+
+**Today's Progress:**
+1. Added delete_inventory_item() to data_serialization.py
+2. Worked on dictionary modification and adding objects to the dictionary.
+
+**Thoughts:**
+
+Began working with dictionary manipulation. Ran into a bug where it says the object is not defined, even though it is being defined. Not sure yet how to fix this.
+
+### Day 88: May 12th, 2022
+##### 
+
+**Today's Progress:**
+1. Solved the dictionary manipulation bug. Problem was due to a circular import.
+
+**Thoughts:**
+
+I really need to learn how to structure my code better. I keep running into the circular import problem and it's preventing me from writing the code I want to write. I can't properly pass varaibles from a higher level to a lower level. What do I do to resolve this? How can I resolve this?

@@ -1,3 +1,5 @@
+#from main import player_name
+
 # ========================== #
 # Weapons                    #
 # ========================== #
@@ -43,18 +45,27 @@ class Item:
     
     def __str__(self):
         return self.name
+    
+class CrumpledNote(Item):
+    def __init__(self):
+        self.name = "Crumpled Note"
+        self.keyword = "crumpled_note"
+        self.description = f"I know this wasn't what you wanted.\nI didn't want this either.\nI pray you make your return.\n\n~Yuri"
 
 class RustyKey(Item):
     def __init__(self):
         self.name = "Rusty Key"
+        self.keyword = "rusty_key"
         self.description = "A worn out skeleton key often carried by jailers.\n"
         
 class Torch(Item):
     def __init__(self):
         self.name = "Torch"
+        self.keyword = "torch"
         self.description = "A wooden stick wrapped in an oil soaked rag."
         
 class Potion(Item):
     def __init__(self):
         self.name = "Potion"
+        self.keyword = "potion"
         self.description = "An apothecary jar filled with a mysterious red liquid."

@@ -4,17 +4,22 @@
 # Desc: Primary Game Functions #
 # ============================ #
 
+# ============================================================================================================================================ #
+
+
+# IMPORTS
+
+
+# ============================================================================================================================================ #
+
 # Local Imports
-from posixpath import split
 from print_func import *             # General functions that do not call other functions.
 from data_serialization import *    # Saves game state, inventory and username
 from map import *
-#from global_variables import *      # Global variables.
-#from game_boot import prologue
+from items import *
 
 # External Library Imports
 from time import sleep              # Timed messages
-#import threading                    # Used for Oxygen Clock in Chapter_01       # Is this actually used?
 from threading import Thread
 
 # ============================================================================================================================================ #
@@ -26,11 +31,23 @@ from threading import Thread
 # ============================================================================================================================================ #
 
 # General Purpose Variables
-user_name = ""                  # Name of the character the user is playing.
-inventory_file = ""             # Stores <user_name>_inventory. Used for file creation.
+player_name = ""                # Name of the character the user is playing.
 player_character = None         # Stores player object. | Location of player.
 
 input_buffer = ""               # User input is stored here.
+
+# Inventory Variables
+#inv_dict = {'Crumpled Note':1, 'Rusty Key':1}                  # User Inventory
+
+inventory_file = ""                                            # Stores <player_name>_inventory. Used for file creation.
+
+# Object Creation
+crumpled_note = CrumpledNote()
+rusty_key = RustyKey()
+torch = Torch()
+potion = Potion()
+
+#inv_dict = {crumpled_note:1, rusty_key:1}
 
 # General Responses | user_input()
 input_positive = ["yes", "y", "ye", "yup", "ya", "yeah", "yep", "perhaps yes", "yus", "sure", "bet", "fo sho", "mmm", "fo shizzle", "yesh", "yas", "okay", "ok", "yessir"]
@@ -282,7 +299,7 @@ def user_input():           # Primary Parser. Returns sanitized input.
             delay_print("\nThe inventory cannot be loaded until you create your character.\n")
         else:
             buffer = "inventory"                                                    
-            load_inv(inventory_file, user_name)
+            load_inv(inventory_file, player_name)
     
     # Item Use | Unfinished
     elif "use" in buffer:        
@@ -422,7 +439,7 @@ def start_game():           # Prompt user to start game.
 def get_name():             # Gets Name of User
     
     # Bring Global Variables Into Function:
-    global user_name                                    
+    global player_name                                    
     global input_buffer
     global inventory_file
     global player_character
@@ -433,23 +450,23 @@ def get_name():             # Gets Name of User
     # Loop Until: Name is Valid
     while valid_name == 0:
         delay_print("\nAdventurer, what is your name?\n")
-        user_name = input("> ")
+        player_name = input("> ")
         valid_name = 1
         
         # If Name > 20 Characters:
-        if len(user_name) > 20:
+        if len(player_name) > 20:
             delay_print("\nThat name is too long.\nPlease enter up to a max of 20 characters.")
             valid_name = 0
         
         # If Name is a System Command:
-        if user_name in input_inventory or user_name in input_help_guide or user_name in input_verb or user_name in input_save or user_name in input_load:
+        if player_name in input_inventory or player_name in input_help_guide or player_name in input_verb or player_name in input_save or player_name in input_load:
             valid_name = 0
             delay_print("\nThat is not a valid name.")
             # This will need to be updated as system commands are added.
         
         # Check if User Entered Name Correctly:
         if valid_name == 1:
-            delay_print(f"\nYou entered: {user_name} \n\nIs this correct?\n")
+            delay_print(f"\nYou entered: {player_name} \n\nIs this correct?\n")
             input_buffer = user_input()
             if input_buffer in input_negative:
                 valid_name = 0
@@ -460,9 +477,9 @@ def get_name():             # Gets Name of User
                 valid_name = 0
                 
     # Create Inventory File Based on Player's Name:
-    inventory_file = f"{user_name.lower()}_inventory"                        # Save inventory file name as <user_name>_inventory
-    player_character = Player(user_name, "A royal knight.", 0)                  # Create Player Object.
-    delay_print(f"\nUnderstood, {user_name}.\nYour adventure awaits.\n\n")
+    inventory_file = f"{player_name.lower()}_inventory"                        # Save inventory file name as <player_name>_inventory
+    player_character = Player(player_name, "A royal knight.", 0)                  # Create Player Object.
+    delay_print(f"\nUnderstood, {player_name}.\nYour adventure awaits.\n\n")
     
 def tutorial():             # Tutorial for Player
     delay_print("\nWelcome to <insert_game_name_here>. This is a text adventure.\n")
@@ -618,7 +635,7 @@ def prologue():
     delay_print("He raises his hands into the sky, as dark clouds begin to form.\n")
     delay_print("The gaze of the Enidra pierces into your soul.\n")
     delay_print("As you look up, you can see the somber faces of the choir.\n")
-    delay_print(f'"{user_name}, your crimes are now forgiven."\n')
+    delay_print(f'"{player_name}, your crimes are now forgiven."\n')
     delay_print("The priest thrusts his hands downwards.\n")
     delay_print("The ground shakes as howls of lost souls wail from the abyss below.\n")
     delay_print(f'"May the Enidra have mercy on our souls."\n')
@@ -671,7 +688,7 @@ def room_0():
         
         for string in input_north:
             if string in str(input_buffer):
-                player_character = Player(user_name, "A royal knight.", 1)                  # Create Player Object.
+                player_character = Player(player_name, "A royal knight.", 1)                  # Create Player Object.
 
 
 # ============================================================================================================================================
@@ -693,7 +710,7 @@ while True:
         if input_buffer in input_positive:              # If yes
             play_game = True                            # Flag | Runs at game startup.
             get_name()                                  # Begin Game
-            create_inv(inventory_file)                  # Creates user's binary inventory file | <user_name>_inventory
+            create_inv(inventory_file)                  # Creates user's binary inventory file | <player_name>_inventory
         elif input_buffer in input_negative:            # If no
             delay_print("\nMaybe another time.\n")      # Quit Game
             exit()
@@ -751,7 +768,7 @@ while True:
         
 
 #game_over()
-#create_inv(user_name, inventory_file)       # Creates <user_name>_inventory file | Adds Crumpled Note
+#create_inv(player_name, inventory_file)       # Creates <player_name>_inventory file | Adds Crumpled Note
 #add_inv_item("Sword", 1)                    # Adds <item>,<quantity> to inventory_file
 #save_inv(inventory_file)                    # Saves inventory_file with pickle module.
-#load_inv(inventory_file, user_name)         # Loads pickled inventory_file and displays contents.
+#load_inv(inventory_file, player_name)         # Loads pickled inventory_file and displays contents.
