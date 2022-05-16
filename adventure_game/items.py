@@ -9,7 +9,7 @@ class Weapon:
         raise NotImplementedError("Do not create raw Weapon objects.\n")
     
     def __str__(self):
-        return self.name
+        return self.name        # When the object is called, (printed), the name of the object is displayed.
 
 class Rock(Weapon):
     def __init__(self):
@@ -36,15 +36,8 @@ class Item:
     def __init__(self):
         raise NotImplementedError("Do not create raw Item objects.\n")
     
-    # Add Item method
-    
-    # Update Item method
-        # Increases / decreases numerical value of stored item(s).
-    
-    # Remove Item method
-    
     def __str__(self):
-        return self.name
+        return self.name        # When the object is called, (printed), the name of the object is displayed.
     
 class CrumpledNote(Item):
     def __init__(self):

@@ -34,20 +34,19 @@ from threading import Thread
 player_name = ""                # Name of the character the user is playing.
 player_character = None         # Stores player object. | Location of player.
 
+# User Input
 input_buffer = ""               # User input is stored here.
 
-# Inventory Variables
-#inv_dict = {'Crumpled Note':1, 'Rusty Key':1}                  # User Inventory
-
+# Serialized Data
 inventory_file = ""                                            # Stores <player_name>_inventory. Used for file creation.
 
-# Object Creation
+# Item Object Creation
 crumpled_note = CrumpledNote()
 rusty_key = RustyKey()
 torch = Torch()
 potion = Potion()
 
-#inv_dict = {crumpled_note:1, rusty_key:1}
+inv_dict = {crumpled_note:1, rusty_key:1}
 
 # General Responses | user_input()
 input_positive = ["yes", "y", "ye", "yup", "ya", "yeah", "yep", "perhaps yes", "yus", "sure", "bet", "fo sho", "mmm", "fo shizzle", "yesh", "yas", "okay", "ok", "yessir"]
@@ -92,7 +91,7 @@ input_load = ["load game", "load"]
 input_quit = ["quit game", "quit", "q"]
 
 # Adverb List for parser | user_input
-input_adverb = [input_positive, input_negative, input_undecided, input_direction]   # 2D/3D list. Input Direction is already a list of lists.
+input_adverb = [input_positive, input_negative, input_undecided, input_direction, input_inventory]   # 2D/3D list. Input Direction is already a list of lists.
 
 # Verb List for Parser | user_input()
 input_verb = [input_use, input_look, input_interact, input_move]
@@ -259,7 +258,7 @@ def user_input():           # Primary Parser. Returns sanitized input.
             delay_print("\nThe inventory cannot be saved until you create your character.\n")
         else:
             buffer = "save"                    
-            save_inv()                         
+            save_inv(inventory_file, inv_dict)                         
             #add save game
     
     # Quit Game
@@ -299,7 +298,7 @@ def user_input():           # Primary Parser. Returns sanitized input.
             delay_print("\nThe inventory cannot be loaded until you create your character.\n")
         else:
             buffer = "inventory"                                                    
-            load_inv(inventory_file, player_name)
+            load_inv(inventory_file, inv_dict, player_name)
     
     # Item Use | Unfinished
     elif "use" in buffer:        
@@ -577,6 +576,8 @@ def question():                         # Prompts User Repeatedly | Credit to Au
             # If Correct Answer:
             elif "use rusty_key" in input_buffer:
                 player_restrained = False
+                delete_inv_item(inv_dict, rusty_key)
+                save_inv(inventory_file, inv_dict)
                 delay_print("\nAs you feel in your pocket, you find a rusty key.\nYou twist the key into the lock.\nThe key snaps as the lock releases.\nKicking your feet, you knock off the chains that bound you.\n")
             
             # If Player Restrained:
@@ -615,7 +616,8 @@ def question():                         # Prompts User Repeatedly | Credit to Au
 
 
 # ============================================================================================================================================
-
+'''
+# Defined in print_func.py
 def prologue():
     delay_print("\nYour feet drag along the ground, burdened by the weight of the chains that bound you.\n")
     delay_print("The paladin in front of you, Yuri, escorts you to the ceremony.\n")
@@ -641,13 +643,13 @@ def prologue():
     delay_print(f'"May the Enidra have mercy on our souls."\n')
     delay_print("You feel the hand of your friend, Yuri, rest his hand on your shoulder.\n")
     delay_print("At the next moment, you watch as you are pushed into the abyss below.\n")
-
+'''
 def oxygen_puzzle():
     global input_buffer
     global oxy_solved
     
     # Begin Drowning Puzzle
-    delay_print("\nThe air slices your skin as it rushes past your face.\n")
+    delay_print("\nThe air rushes past your face.\n")
     delay_print("Weightless; you plummet.\n")
     delay_print("Death knocking at the door.\n")
     delay_print("A loud crash echoes into your ears.\n")
@@ -710,7 +712,7 @@ while True:
         if input_buffer in input_positive:              # If yes
             play_game = True                            # Flag | Runs at game startup.
             get_name()                                  # Begin Game
-            create_inv(inventory_file)                  # Creates user's binary inventory file | <player_name>_inventory
+            create_inv(inventory_file, inv_dict)                  # Creates user's binary inventory file | <player_name>_inventory
         elif input_buffer in input_negative:            # If no
             delay_print("\nMaybe another time.\n")      # Quit Game
             exit()
@@ -736,7 +738,7 @@ while True:
             delay_print("\nWould you like to read the prologue?\n")
             input_buffer = user_input()
             if input_buffer in input_positive:
-                prologue()
+                prologue(player_name)
             elif input_buffer in input_undecided:
                 delay_print("\nThe prologue is about a 5 minute read. If you like to play games for the story, it is recommended.\n")
             else: 
@@ -765,10 +767,3 @@ while True:
         print("Index 3")
     else:
         print("Error: Player index out of bounds.\n")
-        
-
-#game_over()
-#create_inv(player_name, inventory_file)       # Creates <player_name>_inventory file | Adds Crumpled Note
-#add_inv_item("Sword", 1)                    # Adds <item>,<quantity> to inventory_file
-#save_inv(inventory_file)                    # Saves inventory_file with pickle module.
-#load_inv(inventory_file, player_name)         # Loads pickled inventory_file and displays contents.

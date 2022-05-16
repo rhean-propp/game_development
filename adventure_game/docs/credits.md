@@ -1,7 +1,7 @@
 # Credits:
 
 A thank you to everyone who helped me build this project.
-Without all of your help, I wouldn't have gotten as far as I have today.
+Without all of your help, this project would not be where it is today.
 Thank you.
 
 ~ Rhean Propp

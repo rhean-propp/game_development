@@ -12,6 +12,9 @@ class Thing:
     def __init__(self, name, description):
         self.name = name
         self.description = description
+        
+    def __str__(self):
+        return self.name    # When the object is called, (printed), the name given to that object is displayed.
 
 # Room Class | Template for creating room objects.
 class Room(Thing):
@@ -19,8 +22,6 @@ class Room(Thing):
         
         # Name / Description:
         super().__init__(name, description)           # Inherits properties from Thing class.
-        #self.name = name                    # Room Name
-        #self.description = description      # Room description
         #self.index = index                  # Is this used? Refer to map[] index instead?
         
         # Define Exit Points | Values indicate list index for "map" list

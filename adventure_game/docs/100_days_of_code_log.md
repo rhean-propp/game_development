@@ -1369,3 +1369,44 @@ Began working with dictionary manipulation. Ran into a bug where it says the obj
 **Thoughts:**
 
 I really need to learn how to structure my code better. I keep running into the circular import problem and it's preventing me from writing the code I want to write. I can't properly pass varaibles from a higher level to a lower level. What do I do to resolve this? How can I resolve this?
+
+### Day 89: May 13th, 2022
+##### 
+
+**Today's Progress:**
+1. Modified the dictionary so it can parse objects.
+
+**Thoughts:**
+
+Got the dictionary to accept objects and read them correctly. Somehow. I'm not entirely sure if it works or if i'm too tired. I'll have to double check tomorrow lol.
+
+### Day 90: May 14th, 2022
+##### Dictionary Manipulation
+
+**Today's Progress:**
+1. Serialized data for updating the user's inventory with the dictionary that holds objects.
+
+**Thoughts:**
+
+Turns out I correctly made the program to print out the name of the object when the object is called. Super cool. Now we have a working dictionary model that can be saved.
+
+### Day 91: May 15th, 2022
+##### 
+
+**Today's Progress:**
+1. Organized deliverables for day 100.
+2. Code Review
+3. Moved some functions to decrease the size of main.
+
+**Thoughts:**
+
+In all realism, I don't know if I'm going to get 2 more puzzles done before the 100 Days are over. But I'm quite certain I want to continue with the project. Truth be told, there isn't really a reason not to. I enjoy programming. I enjoy the learning experience and understanding the logic. Once you are able to pull it all apart to understand the complex system, it isn't overly complicated to understand. You just need the time to digest it.
+
+The game is simple enough. I need to work a little more on some of the puzzles and lore. I wouldn't say the writing is good at the moment. It's more of a placeholder text.
+
+I need a way to better organize what to do each day. A timeline? Or a step-by-step breakdown of what to do next. Since each day wehn I start again, I don't always know what to work on. What should be completed next?
+
+I like the idea of continually contributing to this project over a long period of time. I believe if I resume, I will do this project on a weekday basis, but I will take my weekends off to relax and focus on some other aspects of my life.
+
+This way I get to keep making progress but don't burn myself out from exhaustion.
+
