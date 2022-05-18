@@ -46,6 +46,9 @@ rusty_key = RustyKey()
 torch = Torch()
 potion = Potion()
 
+input_items = [crumpled_note, rusty_key, torch, potion] 
+input_objects = ["wood", "torch"]
+
 inv_dict = {crumpled_note:1, rusty_key:1}
 
 # General Responses | user_input()
@@ -97,7 +100,7 @@ input_adverb = [input_positive, input_negative, input_undecided, input_direction
 input_verb = [input_use, input_look, input_interact, input_move]
 
 # Noun List for parser | user_input()
-input_noun = [input_items, input_weapons, input_help_move]
+input_noun = [input_items, input_weapons, input_help_move, input_items, input_objects]
 
 # Function Specific Variables
 play_game = False                   # Flag | Used to check if user selected yes when wanting to play a game.
@@ -311,7 +314,8 @@ def user_input():           # Primary Parser. Returns sanitized input.
     
     # Undefined Response
     else:
-        delay_print('\nThis is not a valid input. Type "help" or "h" if you are stuck.\n')
+        pass
+        #delay_print('\nThis is not a valid input. Type "help" or "h" if you are stuck.\n')
     
     return buffer
 
@@ -616,34 +620,7 @@ def question():                         # Prompts User Repeatedly | Credit to Au
 
 
 # ============================================================================================================================================
-'''
-# Defined in print_func.py
-def prologue():
-    delay_print("\nYour feet drag along the ground, burdened by the weight of the chains that bound you.\n")
-    delay_print("The paladin in front of you, Yuri, escorts you to the ceremony.\n")
-    delay_print("Night has begun to fall. The air is cool.\n")
-    delay_print("You begin to approach a ceremonial crater in the midst of the looming mountain range.\n")
-    delay_print("Jagged formations of black-stone pierce into the sky.\n")
-    delay_print("A light fog engulfs the floor of the scorched earthen crater.\n")
-    delay_print("The presence of the soul eater grows stronger as you approach the ceremonial steps.\n")
-    delay_print("You can begin to hear the solemn verses of the ceremony.\n")
-    delay_print("It is a beautiful, yet haunting song.\n")
-    delay_print("You see the sullen faces of friends and family chanting the burial song around the belt of the enidra.\n")
-    delay_print("Upon your approach, you are guided to the black-stone plate overlooking the enidra.\n")
-    delay_print("You stare into the abyss as the fog falls into the darkness.\n")
-    delay_print("Yuri brings you to the plate. You kneel upon the edge of the void.\n")
-    delay_print("Upon his passing, you feel something drop into your pocket.\n")
-    delay_print("The priest, a grey robed man, begins the ritual.\n")
-    delay_print("He raises his hands into the sky, as dark clouds begin to form.\n")
-    delay_print("The gaze of the Enidra pierces into your soul.\n")
-    delay_print("As you look up, you can see the somber faces of the choir.\n")
-    delay_print(f'"{player_name}, your crimes are now forgiven."\n')
-    delay_print("The priest thrusts his hands downwards.\n")
-    delay_print("The ground shakes as howls of lost souls wail from the abyss below.\n")
-    delay_print(f'"May the Enidra have mercy on our souls."\n')
-    delay_print("You feel the hand of your friend, Yuri, rest his hand on your shoulder.\n")
-    delay_print("At the next moment, you watch as you are pushed into the abyss below.\n")
-'''
+
 def oxygen_puzzle():
     global input_buffer
     global oxy_solved
@@ -651,12 +628,9 @@ def oxygen_puzzle():
     # Begin Drowning Puzzle
     delay_print("\nThe air rushes past your face.\n")
     delay_print("Weightless; you plummet.\n")
-    delay_print("Death knocking at the door.\n")
     delay_print("A loud crash echoes into your ears.\n")
     delay_print("The cold rush of liquid races past your body.\n")
     delay_print("You open your eyes and come to your senses.\n")
-    delay_print("You are submerged, with little breath to spare.\n")
-    
     
     # Drowning Puzzle | Credit to Austin L. Howard for the solution.
     question_thread = Thread(target=question)           # Associate question() function with thread.
@@ -673,24 +647,59 @@ def oxygen_puzzle():
     
     # Exit function here if condition is true.
 
-def room_0():
+def room_0_voids_end():
     
     global player_character
+    global input_buffer
     
     delay_print('\nWith little air left to spare, you swim to the surface.\nYou take a gasp of air as you begin to take in your surroundings.\n')
-    delay_print("\nPillars of blackstone rise 60ft to the celing of this grand grotto.\n")
-    delay_print("Looking upwards through the brick layed shaft, you can see the small dot of light from the top of the crater.\n")
     delay_print("You tread water in a pool with a diamater of no more than 50ft.\n")
-    delay_print("On each of the four sides of the pool, there are statues of two claw formed hands stretched upwards.\n")
-    delay_print("The grotto is too dark to see much of anything else.\n")
     
-    while True:
+    #delay_print("\nYou have fallen into a grand grotto that engulfs a small pool of water in its center.\n")
+    #delay_print("Looking upwards, you can see a distant light coming from the opening of the chasm from which you fell.\n")
+    #delay_print("On each of the four sides of the pool, there are statues of opened handed angels peering upwards.\n")
+    #delay_print("The grotto is too dark to see much of anything else.\n")
+    
+    intro_text = True
+    secondary_text = False
+    
+    while player_character.index == 0:      # Perhaps set to while true?
+        
+        #if "examine wood" in input_buffer or "look wood" in input_buffer:
+        if "wood" in input_buffer:
+            for item in input_look:             # This is such a stupid way of doing this. But for lack of a better idea at the time, this probably works.
+                if item in input_buffer:        # Shoot me.
+                    delay_print("This wooden object appears to be a torch.\n")
+        elif "take torch" in input_buffer or "grab torch" in input_buffer:
+            delay_print("A torch has been added to your inventory!\n")
+            add_inv_item(inv_dict, torch, 1)
+            save_inv(inventory_file, inv_dict)
+        elif "use torch" in input_buffer or "light torch" in input_buffer:
+            delay_print("\nYou light the torch.\n")
+            delay_print("The walls of the grotto flicker with a warm orange glow.\n")
+        elif "look" in input_buffer:
+            intro_text = True
+        else:
+            pass
+        
+        if intro_text == True:
+            intro_text = False
+            delay_print("\nYou have fallen into a grand grotto that engulfs a small pool of water in its center.\n")
+            delay_print("Looking upwards, you can see a distant light coming from the opening of the chasm from which you fell.\n")
+            delay_print("On each of the four sides of the pool, there are statues of opened handed angels peering upwards.\n")
+            delay_print("The grotto is too dark to see much of anything else.\n")
+            delay_print("You notice a small wood object.\n")
+        
         delay_print("What do you do?\n")
         input_buffer = user_input()
         
+        # Allows User to exit in a certain direction.
         for string in input_north:
             if string in str(input_buffer):
                 player_character = Player(player_name, "A royal knight.", 1)                  # Create Player Object.
+        #for string in input_south:
+        #    if string in str(input_buffer):
+        #        player_character = Player(player_name, "A royal knight.", 2)
 
 
 # ============================================================================================================================================
@@ -752,18 +761,20 @@ while True:
             oxygen_puzzle()
         
         # Second puzzle.    
-        room_0()
+        room_0_voids_end()
         
         # If player moves to new room:
-            # Change player_character.index to new room number.o
-            
+            # Change player_character.index to new room number.
             
     # Room 1 Functions
     elif player_character.index == 1:
         print("Index 1")
+        sleep(2)
     elif player_character.index == 2:
         print("Index 2")
+        sleep(2)
     elif player_character.index == 3:
         print("Index 3")
+        sleep(2)
     else:
         print("Error: Player index out of bounds.\n")

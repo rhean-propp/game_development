@@ -43,13 +43,25 @@ class Player(Thing):
         #self.name = name                    # Player Name
         #self.description = description      # Player Description
         self.index = index                  # Player Location
-        
-# Room Creation & Appending to the Map List        
+
+# Room Object Creation
+r00_voids_end = Room("Void's End", "A dark hemisphere filled with 4 statues surrounding a pool of dark liquid in the center.", NOEXIT, 1, NOEXIT, 2)
+r01_forest = Room("Forest", "A leafy woodland", 0, NOEXIT, NOEXIT, 3)
+r02_cave = Room("Cave", "A dismal cave with walls covered in luminous moss", NOEXIT, 3, 0, NOEXIT)
+r03_dungeon = Room("Dungeon", "A nasty, dark cell", 2, NOEXIT, 1, NOEXIT)
+
+# Room Creation & Appending to the Map List    
+map.append(r00_voids_end)
+map.append(r01_forest)
+map.append(r02_cave)
+map.append(r03_dungeon)
+
+'''    
 map.append(Room("Void's End", "A dark hemisphere filled with 4 statues surrounding a pool of dark liquid in the center.", NOEXIT, 1, NOEXIT, 2))               
 map.append(Room("Forest", "A leafy woodland", 0, NOEXIT, NOEXIT, 3))                                    
 map.append(Room("Cave", "A dismal cave with walls covered in luminous moss", NOEXIT, 3, 0, NOEXIT))     
 map.append(Room("Dungeon", "A nasty, dark cell", 2, NOEXIT, 1, NOEXIT))                            
-
+'''
 # Debugging | Print Out All Room Objects
 '''
 x = 0

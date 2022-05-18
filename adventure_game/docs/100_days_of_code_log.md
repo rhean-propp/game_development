@@ -1410,3 +1410,34 @@ I like the idea of continually contributing to this project over a long period o
 
 This way I get to keep making progress but don't burn myself out from exhaustion.
 
+### Day 92: May 16th, 2022
+##### 
+
+**Today's Progress:**
+1. Modified inventory to display the keywords of items.
+2. Modified previous lore.
+3. Worked on movement.
+
+**Thoughts:**
+
+Need to fix the input for the parser. User should be able to enter "n,s,e,w" without an error as well as "walk n,s,e,w"
+
+### Day 93: May 17th, 2022
+##### 
+
+**Today's Progress:**
+1. Worked on analyzing what I learned and worked on during this project.
+
+**Thoughts:**
+
+Discovered a bug where if the user types "use rusty_key" at the correct time, both the success and failure flavor text prints simultaniously to the terminal.
+
+### Day 94: May 18th, 2022
+##### 
+
+**Today's Progress:**
+1. Began fleshing out room 0.
+
+**Thoughts:**
+
+Ran into a couple bugs with room 0, but overall was able to impliment some functionality for the player to experience. There are a couple of hickups left that I need to work on such as the torch not getting properly picked up.

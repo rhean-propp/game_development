@@ -19,6 +19,8 @@
 ### Bugs
 1. [BUG] Resolve "." not displaying after a print. Character cursor overlap bug.\
 2. [BUG] Circular Imports
+3. [BUG] If you type "use rusty_key" just before the timer ends, both the success and failure text prompts collide.
+4. [BUG] Torch is not properly added to inventory after picking it up.
 
 ### Extended Features
 1. Add character_creation() function.
