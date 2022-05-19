@@ -11,6 +11,7 @@
 8. Data Manipulation {Dictionaries, Lists, Tuples}
 9. Problem Solving
 10. Mapping Coordinates {3D & 4D Lists}
+11. The Importance of Flowcharts
 
 ### Aspects I Need to Improve On
 

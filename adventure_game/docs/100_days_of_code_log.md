@@ -1441,3 +1441,14 @@ Discovered a bug where if the user types "use rusty_key" at the correct time, bo
 **Thoughts:**
 
 Ran into a couple bugs with room 0, but overall was able to impliment some functionality for the player to experience. There are a couple of hickups left that I need to work on such as the torch not getting properly picked up.
+
+### Day 95: May 19th, 2022
+##### 
+
+**Today's Progress:**
+1. Designed load game logic.
+2. Started work on select menu for new game / load game / quit game
+
+**Thoughts:**
+
+The more I program, the more I realize just how handy flow charts are for organizing logic. You can breakdown the entire logical process and then work on the implementation. This should really be the first step of any implementation. Design. Without design, you can waste so much time figuring out how your program should work. Instead, taking 10-15 minutes to ensure your logic is sound before proceeding will save you so many more headaches in the long run.
