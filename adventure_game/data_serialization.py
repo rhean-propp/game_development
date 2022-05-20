@@ -39,3 +39,49 @@ def add_inv_item(inv_dict, item, quantity):
 # Removes an item from player's inventory.
 def delete_inv_item(inv_dict, item):                  
     del inv_dict[item]                      # Look for the key in the dictionary and delete that entry.
+    
+    
+### Test Code
+# ===========================
+
+class Item:
+    def __init__(self):
+        raise NotImplementedError("Do not create raw Item objects.\n")
+    
+    def __str__(self):
+        return self.keyword        # When the object is called, (printed), the name of the object is displayed.
+
+class CrumpledNote(Item):
+    def __init__(self):
+        self.name = "Crumpled Note"
+        self.keyword = "crumpled_note"
+        self.description = f"I know this wasn't what you wanted.\nI didn't want this either.\nI pray you make your return.\n\n~Yuri"
+
+class RustyKey(Item):
+    def __init__(self):
+        self.name = "Rusty Key"
+        self.keyword = "rusty_key"
+        self.description = "A worn out skeleton key often carried by jailers.\n"
+        
+class Torch(Item):
+    def __init__(self):
+        self.name = "Torch"
+        self.keyword = "torch"
+        self.description = "A wooden stick wrapped in an oil soaked rag."
+
+crumpled_note = CrumpledNote()
+rusty_key = RustyKey()
+torch = Torch()
+
+inv_dict = {crumpled_note:1, rusty_key:1}                  # User Inventory
+inventory_file = "test_inventory"
+player_name = "test"
+
+create_inv(inventory_file, inv_dict)
+load_inv(inventory_file, inv_dict, player_name)
+delete_inv_item(inv_dict, rusty_key)
+save_inv(inventory_file, inv_dict)
+load_inv(inventory_file, inv_dict, player_name)
+add_inv_item(inv_dict, torch, 1)
+save_inv(inventory_file, inv_dict)
+load_inv(inventory_file, inv_dict, player_name)

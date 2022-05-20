@@ -1452,3 +1452,13 @@ Ran into a couple bugs with room 0, but overall was able to impliment some funct
 **Thoughts:**
 
 The more I program, the more I realize just how handy flow charts are for organizing logic. You can breakdown the entire logical process and then work on the implementation. This should really be the first step of any implementation. Design. Without design, you can waste so much time figuring out how your program should work. Instead, taking 10-15 minutes to ensure your logic is sound before proceeding will save you so many more headaches in the long run.
+
+### Day 96: May 20th, 2022
+##### Bug Fixes
+
+**Today's Progress:**
+1. Worked on data_serialization bug causing torch to not save.
+
+**Thoughts:**
+
+We're almost there.
