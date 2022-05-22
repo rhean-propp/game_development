@@ -69,6 +69,9 @@ class Torch(Item):
         self.keyword = "torch"
         self.description = "A wooden stick wrapped in an oil soaked rag."
 
+'''
+# Debugging Code. Delete Once Solved
+
 crumpled_note = CrumpledNote()
 rusty_key = RustyKey()
 torch = Torch()
@@ -85,3 +88,5 @@ load_inv(inventory_file, inv_dict, player_name)
 add_inv_item(inv_dict, torch, 1)
 save_inv(inventory_file, inv_dict)
 load_inv(inventory_file, inv_dict, player_name)
+
+'''

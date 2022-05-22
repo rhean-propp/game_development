@@ -1462,3 +1462,14 @@ The more I program, the more I realize just how handy flow charts are for organi
 **Thoughts:**
 
 We're almost there.
+
+### Day 97: May 22nd, 2022
+##### 
+
+**Today's Progress:**
+1. Fixed torch bug.
+2. Added functionality for lighting the torch.
+
+**Thoughts:**
+
+I'm not sure if I hard coded things today or not. But I got some functionality working for the torch. There's now something to interact with in the game. This is pretty sweet. I want to keep doing this project, I might just do it on weekdays instead of on weekends. I know I could make a pretty sweet adventure game by the time i'm done. Especially working on my capstone project I can transfer some of the code we've worked on into this project.

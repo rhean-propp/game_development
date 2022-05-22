@@ -94,7 +94,7 @@ input_load = ["load game", "load"]
 input_quit = ["quit game", "quit", "q"]
 
 # Adverb List for parser | user_input
-input_adverb = [input_positive, input_negative, input_undecided, input_direction, input_inventory]   # 2D/3D list. Input Direction is already a list of lists.
+input_adverb = [input_positive, input_negative, input_undecided, input_direction, input_inventory, input_look]   # 2D/3D list. Input Direction is already a list of lists.
 
 # Verb List for Parser | user_input()
 input_verb = [input_use, input_look, input_interact, input_move]
@@ -662,6 +662,7 @@ def room_0_voids_end():
     
     intro_text = True
     secondary_text = False
+    torch_lit = False
     
     while player_character.index == 0:      # Perhaps set to while true?
         
@@ -670,25 +671,35 @@ def room_0_voids_end():
             for item in input_look:             # This is such a stupid way of doing this. But for lack of a better idea at the time, this probably works.
                 if item in input_buffer:        # Shoot me.
                     delay_print("This wooden object appears to be a torch.\n")
-        elif "take torch" in input_buffer or "grab torch" in input_buffer:
+        elif "take torch" in input_buffer or "grab torch" in input_buffer or "take wood" in input_buffer or "grab wood" in input_buffer:
             delay_print("A torch has been added to your inventory!\n")
             add_inv_item(inv_dict, torch, 1)
             save_inv(inventory_file, inv_dict)
+            #load_inv(inventory_file, inv_dict, player_name)                  # Testing Line Remove after use
         elif "use torch" in input_buffer or "light torch" in input_buffer:
-            delay_print("\nYou light the torch.\n")
-            delay_print("The walls of the grotto flicker with a warm orange glow.\n")
-        elif "look" in input_buffer:
+            if torch in inv_dict:
+                torch_lit = True
+                secondary_text = True
+                delay_print("You light the torch.\n")
+                delay_print("The walls of the grotto flicker with a warm orange glow.\n")
+            else:
+                print("\nYou do not have a torch in your inventory.\n")
+        elif any(observe in input_buffer for observe in input_look) and torch_lit == False:
             intro_text = True
         else:
             pass
         
         if intro_text == True:
             intro_text = False
-            delay_print("\nYou have fallen into a grand grotto that engulfs a small pool of water in its center.\n")
-            delay_print("Looking upwards, you can see a distant light coming from the opening of the chasm from which you fell.\n")
-            delay_print("On each of the four sides of the pool, there are statues of opened handed angels peering upwards.\n")
-            delay_print("The grotto is too dark to see much of anything else.\n")
-            delay_print("You notice a small wood object.\n")
+            delay_print("\nYou have fallen into a large chasm. Sounds of dripping water can be heard echoing throughout the cave.\n")
+            delay_print("It is to dark to see much of anything. However, you notice a small wood object.\n")
+
+        if secondary_text == True:
+            if any(observe in input_buffer for observe in input_look):
+                secondary_text = False
+                delay_print("\nYou have fallen into a grand grotto that engulfs a small pool of water in its center.\n")
+                delay_print("Looking upwards, you can see a distant light coming from the opening of the chasm from which you fell.\n")
+                delay_print("On each of the four sides of the pool, there are statues of opened handed angels peering upwards.\n")
         
         delay_print("What do you do?\n")
         input_buffer = user_input()
