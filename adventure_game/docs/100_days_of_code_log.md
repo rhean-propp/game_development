@@ -1473,3 +1473,13 @@ We're almost there.
 **Thoughts:**
 
 I'm not sure if I hard coded things today or not. But I got some functionality working for the torch. There's now something to interact with in the game. This is pretty sweet. I want to keep doing this project, I might just do it on weekdays instead of on weekends. I know I could make a pretty sweet adventure game by the time i'm done. Especially working on my capstone project I can transfer some of the code we've worked on into this project.
+
+### Day 98: May 30th, 2022
+##### Start Menu
+
+**Today's Progress:**
+1. Created select menu.
+
+**Thoughts:**
+
+Coming to a close of 100 Days of Code. I will be suspending the project until I finish my capstone which is being given my full attention.

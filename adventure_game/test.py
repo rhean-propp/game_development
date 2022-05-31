@@ -5,9 +5,9 @@ selected = 1
 def show_menu():
     global selected
     print("\n" * 30)
-    print("Choose and option:")
+    print("\tE N I D R A\n")
     for i in range (1,5):
-        print(f"{1} {0}. Do something {0} {2}".format(i, ">" if selected == i else " ", "<" if selected == i else " "))
+        print("\t\t{1} {0}. Do something {0} {2}".format(i, ">" if selected == i else " ", "<" if selected == i else " "))
         
 def up():
     global selected

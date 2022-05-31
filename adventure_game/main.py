@@ -655,11 +655,7 @@ def room_0_voids_end():
     delay_print('\nWith little air left to spare, you swim to the surface.\nYou take a gasp of air as you begin to take in your surroundings.\n')
     delay_print("You tread water in a pool with a diamater of no more than 50ft.\n")
     
-    #delay_print("\nYou have fallen into a grand grotto that engulfs a small pool of water in its center.\n")
-    #delay_print("Looking upwards, you can see a distant light coming from the opening of the chasm from which you fell.\n")
-    #delay_print("On each of the four sides of the pool, there are statues of opened handed angels peering upwards.\n")
-    #delay_print("The grotto is too dark to see much of anything else.\n")
-    
+    # These might need to be made global variables if the player returns to this room.
     intro_text = True
     secondary_text = False
     torch_lit = False
@@ -721,9 +717,69 @@ def room_0_voids_end():
 
 # ============================================================================================================================================
 
+option = ""
+
 # Game Loop
 while True:
-    
+    while option != False:
+        
+        menu()
+        option = int(input("\nEnter your selection: "))
+        
+        if option == 1:
+            # Game Startup Functions
+            if play_game == False:
+        
+                input_buffer = start_game()                     # Ask user if they would like to play the game.
+            
+            if input_buffer in input_positive:              # If yes
+                play_game = True                            # Flag | Runs at game startup.
+                get_name()                                  # Begin Game
+                create_inv(inventory_file, inv_dict)                  # Creates user's binary inventory file | <player_name>_inventory
+            elif input_buffer in input_negative:            # If no
+                delay_print("\nMaybe another time.\n")      # Quit Game
+                exit()
+            else:
+                print("\nError. Invalid Input\n")
+        
+            # Prompt Tutorial
+            clear_buffer()
+            while input_buffer not in input_negative and input_buffer not in input_positive:        # Check for tutorial flag here.
+                delay_print("Would you like to learn how to play the game?\n")
+                input_buffer = user_input()
+                if input_buffer in input_positive:
+                    tutorial()
+                    # Put Tutorial Flag Here | This data needs to be serialized and referenced through serialization.
+                elif input_buffer in input_undecided:
+                    delay_print("\nIf you are unsure, it is a wise idea to run through the tutorial. Don't worry, it's quick.\n")
+                else: 
+                    pass
+            
+            # Prompt Prologue
+            clear_buffer()
+            while input_buffer not in input_negative and input_buffer not in input_positive:
+                delay_print("\nWould you like to read the prologue?\n")
+                input_buffer = user_input()
+                if input_buffer in input_positive:
+                    prologue(player_name)
+                elif input_buffer in input_undecided:
+                    delay_print("\nThe prologue is about a 5 minute read. If you like to play games for the story, it is recommended.\n")
+                else: 
+                    continue
+        if option == 2:
+            print("Option 2")
+            option = False
+        if option == 3:
+            print("Option 3")
+            option = False
+        if option == 4:
+            print("Option 4")
+            option = False
+        else:
+            print("Invalid selection.")
+            option = ""
+            continue
+    '''
     # Game Startup Functions
     if play_game == False:
         
@@ -763,9 +819,10 @@ while True:
                 delay_print("\nThe prologue is about a 5 minute read. If you like to play games for the story, it is recommended.\n")
             else: 
                 continue
+            '''
     
     # Room 0 Functions
-    elif player_character.index == 0:
+    if player_character.index == 0:
         
         # Call Oxygen Puzzle
         if room0_oxygen_solved == False:

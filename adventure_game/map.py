@@ -56,14 +56,14 @@ map.append(r01_forest)
 map.append(r02_cave)
 map.append(r03_dungeon)
 
-'''    
+'''
 map.append(Room("Void's End", "A dark hemisphere filled with 4 statues surrounding a pool of dark liquid in the center.", NOEXIT, 1, NOEXIT, 2))               
 map.append(Room("Forest", "A leafy woodland", 0, NOEXIT, NOEXIT, 3))                                    
 map.append(Room("Cave", "A dismal cave with walls covered in luminous moss", NOEXIT, 3, 0, NOEXIT))     
 map.append(Room("Dungeon", "A nasty, dark cell", 2, NOEXIT, 1, NOEXIT))                            
-'''
+
 # Debugging | Print Out All Room Objects
-'''
+
 x = 0
 while x < len(map):
     print(map[x].__str__())
